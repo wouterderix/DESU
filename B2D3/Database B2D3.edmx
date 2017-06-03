@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="Database_x0020_B2D3.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="Database_x0020_B2D3TargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Database_x0020_B2D3" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="Database_x0020_B2D3Container" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ProductInfoSet" EntityType="Database_x0020_B2D3.ProductInfo" />
+          <EntitySet Name="ProductSet" EntityType="Database_x0020_B2D3.Product" />
+          <EntitySet Name="CategorySet" EntityType="Database_x0020_B2D3.Category" />
+          <EntitySet Name="OperationAreaSet" EntityType="Database_x0020_B2D3.OperationArea" />
+          <EntitySet Name="SupplierSet" EntityType="Database_x0020_B2D3.Supplier" />
+          <EntitySet Name="NewsSet" EntityType="Database_x0020_B2D3.News" />
+          <EntitySet Name="HistorySet" EntityType="Database_x0020_B2D3.History" />
+          <EntitySet Name="ProductReviewSet" EntityType="Database_x0020_B2D3.ProductReview" />
+          <EntitySet Name="EventSet" EntityType="Database_x0020_B2D3.Event" />
+          <EntitySet Name="UserSet" EntityType="Database_x0020_B2D3.User" />
+          <EntitySet Name="AccountRoleSet" EntityType="Database_x0020_B2D3.AccountRole" />
+          <AssociationSet Name="CategoryProduct" Association="Database_x0020_B2D3.CategoryProduct">
+            <End Role="Category" EntitySet="CategorySet" />
+            <End Role="Product" EntitySet="ProductSet" />
+          </AssociationSet>
+          <AssociationSet Name="OperationAreaProduct" Association="Database_x0020_B2D3.OperationAreaProduct">
+            <End Role="OperationArea" EntitySet="OperationAreaSet" />
+            <End Role="Product" EntitySet="ProductSet" />
+          </AssociationSet>
+          <AssociationSet Name="SupplierProduct" Association="Database_x0020_B2D3.SupplierProduct">
+            <End Role="Supplier" EntitySet="SupplierSet" />
+            <End Role="Product" EntitySet="ProductSet" />
+          </AssociationSet>
+          <AssociationSet Name="HistoryProduct" Association="Database_x0020_B2D3.HistoryProduct">
+            <End Role="History" EntitySet="HistorySet" />
+            <End Role="Product" EntitySet="ProductSet" />
+          </AssociationSet>
+          <AssociationSet Name="HistoryNews" Association="Database_x0020_B2D3.HistoryNews">
+            <End Role="History" EntitySet="HistorySet" />
+            <End Role="News" EntitySet="NewsSet" />
+          </AssociationSet>
+          <AssociationSet Name="EventHistory" Association="Database_x0020_B2D3.EventHistory">
+            <End Role="Event" EntitySet="EventSet" />
+            <End Role="History" EntitySet="HistorySet" />
+          </AssociationSet>
+          <AssociationSet Name="ProductInfoProduct" Association="Database_x0020_B2D3.ProductInfoProduct">
+            <End Role="ProductInfo" EntitySet="ProductInfoSet" />
+            <End Role="Product" EntitySet="ProductSet" />
+          </AssociationSet>
+          <AssociationSet Name="ProductReviewProduct" Association="Database_x0020_B2D3.ProductReviewProduct">
+            <End Role="ProductReview" EntitySet="ProductReviewSet" />
+            <End Role="Product" EntitySet="ProductSet" />
+          </AssociationSet>
+          <AssociationSet Name="UserProductReview" Association="Database_x0020_B2D3.UserProductReview">
+            <End Role="User" EntitySet="UserSet" />
+            <End Role="ProductReview" EntitySet="ProductReviewSet" />
+          </AssociationSet>
+          <AssociationSet Name="UserHistory" Association="Database_x0020_B2D3.UserHistory">
+            <End Role="User" EntitySet="UserSet" />
+            <End Role="History" EntitySet="HistorySet" />
+          </AssociationSet>
+          <AssociationSet Name="AccountRoleUser" Association="Database_x0020_B2D3.AccountRoleUser">
+            <End Role="AccountRole" EntitySet="AccountRoleSet" />
+            <End Role="User" EntitySet="UserSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ProductInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InfoContent" Type="String" Nullable="false" />
+          <Property Name="IsApproved" Type="String" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Database_x0020_B2D3.ProductInfoProduct" FromRole="ProductInfo" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Version" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Version" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Quantity" Type="String" Nullable="false" />
+          <Property Name="ExpirationDate" Type="String" Nullable="false" />
+          <Property Name="CategoryID" Type="String" Nullable="false" />
+          <Property Name="SupplierID" Type="String" Nullable="false" />
+          <Property Name="AreaID" Type="String" Nullable="false" />
+          <Property Name="InfoID" Type="String" Nullable="false" />
+          <NavigationProperty Name="Category" Relationship="Database_x0020_B2D3.CategoryProduct" FromRole="Product" ToRole="Category" />
+          <NavigationProperty Name="OperationArea" Relationship="Database_x0020_B2D3.OperationAreaProduct" FromRole="Product" ToRole="OperationArea" />
+          <NavigationProperty Name="Supplier" Relationship="Database_x0020_B2D3.SupplierProduct" FromRole="Product" ToRole="Supplier" />
+          <NavigationProperty Name="History" Relationship="Database_x0020_B2D3.HistoryProduct" FromRole="Product" ToRole="History" />
+          <NavigationProperty Name="ProductInfo" Relationship="Database_x0020_B2D3.ProductInfoProduct" FromRole="Product" ToRole="ProductInfo" />
+          <NavigationProperty Name="ProductReview" Relationship="Database_x0020_B2D3.ProductReviewProduct" FromRole="Product" ToRole="ProductReview" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Database_x0020_B2D3.CategoryProduct" FromRole="Category" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="OperationArea">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Database_x0020_B2D3.OperationAreaProduct" FromRole="OperationArea" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Address" Type="String" Nullable="false" />
+          <Property Name="Zipcode" Type="String" Nullable="false" />
+          <Property Name="Phone" Type="String" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Database_x0020_B2D3.SupplierProduct" FromRole="Supplier" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Version" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Version" Type="String" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="Date" Type="String" Nullable="false" />
+          <NavigationProperty Name="History" Relationship="Database_x0020_B2D3.HistoryNews" FromRole="News" ToRole="History" />
+        </EntityType>
+        <EntityType Name="History">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Version" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Version" Type="String" Nullable="false" />
+          <Property Name="Author" Type="String" Nullable="false" />
+          <Property Name="LogDate" Type="String" Nullable="false" />
+          <Property Name="IsDeleted" Type="String" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Database_x0020_B2D3.HistoryProduct" FromRole="History" ToRole="Product" />
+          <NavigationProperty Name="News" Relationship="Database_x0020_B2D3.HistoryNews" FromRole="History" ToRole="News" />
+          <NavigationProperty Name="Event" Relationship="Database_x0020_B2D3.EventHistory" FromRole="History" ToRole="Event" />
+          <NavigationProperty Name="User" Relationship="Database_x0020_B2D3.UserHistory" FromRole="History" ToRole="User" />
+        </EntityType>
+        <EntityType Name="ProductReview">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReviewText" Type="String" Nullable="false" />
+          <Property Name="ReviewDate" Type="String" Nullable="false" />
+          <Property Name="Author" Type="String" Nullable="false" />
+          <Property Name="ProductID" Type="String" Nullable="false" />
+          <Property Name="Version" Type="String" Nullable="false" />
+          <Property Name="Anonymous" Type="String" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Database_x0020_B2D3.ProductReviewProduct" FromRole="ProductReview" ToRole="Product" />
+          <NavigationProperty Name="User" Relationship="Database_x0020_B2D3.UserProductReview" FromRole="ProductReview" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Version" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Version" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="Date" Type="String" Nullable="false" />
+          <Property Name="IsApproved" Type="String" Nullable="false" />
+          <NavigationProperty Name="History" Relationship="Database_x0020_B2D3.EventHistory" FromRole="Event" ToRole="History" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleID" Type="String" Nullable="false" />
+          <Property Name="Username" Type="String" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" />
+          <NavigationProperty Name="ProductReview" Relationship="Database_x0020_B2D3.UserProductReview" FromRole="User" ToRole="ProductReview" />
+          <NavigationProperty Name="History" Relationship="Database_x0020_B2D3.UserHistory" FromRole="User" ToRole="History" />
+          <NavigationProperty Name="AccountRole" Relationship="Database_x0020_B2D3.AccountRoleUser" FromRole="User" ToRole="AccountRole" />
+        </EntityType>
+        <EntityType Name="AccountRole">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Database_x0020_B2D3.AccountRoleUser" FromRole="AccountRole" ToRole="User" />
+        </EntityType>
+        <Association Name="CategoryProduct">
+          <End Type="Database_x0020_B2D3.Category" Role="Category" Multiplicity="1" />
+          <End Type="Database_x0020_B2D3.Product" Role="Product" Multiplicity="*" />
+        </Association>
+        <Association Name="OperationAreaProduct">
+          <End Type="Database_x0020_B2D3.OperationArea" Role="OperationArea" Multiplicity="1" />
+          <End Type="Database_x0020_B2D3.Product" Role="Product" Multiplicity="*" />
+        </Association>
+        <Association Name="SupplierProduct">
+          <End Type="Database_x0020_B2D3.Supplier" Role="Supplier" Multiplicity="1" />
+          <End Type="Database_x0020_B2D3.Product" Role="Product" Multiplicity="*" />
+        </Association>
+        <Association Name="HistoryProduct">
+          <End Type="Database_x0020_B2D3.History" Role="History" Multiplicity="1" />
+          <End Type="Database_x0020_B2D3.Product" Role="Product" Multiplicity="1" />
+        </Association>
+        <Association Name="HistoryNews">
+          <End Type="Database_x0020_B2D3.History" Role="History" Multiplicity="1" />
+          <End Type="Database_x0020_B2D3.News" Role="News" Multiplicity="1" />
+        </Association>
+        <Association Name="EventHistory">
+          <End Type="Database_x0020_B2D3.Event" Role="Event" Multiplicity="1" />
+          <End Type="Database_x0020_B2D3.History" Role="History" Multiplicity="1" />
+        </Association>
+        <Association Name="ProductInfoProduct">
+          <End Type="Database_x0020_B2D3.ProductInfo" Role="ProductInfo" Multiplicity="1" />
+          <End Type="Database_x0020_B2D3.Product" Role="Product" Multiplicity="1" />
+        </Association>
+        <Association Name="ProductReviewProduct">
+          <End Type="Database_x0020_B2D3.ProductReview" Role="ProductReview" Multiplicity="*" />
+          <End Type="Database_x0020_B2D3.Product" Role="Product" Multiplicity="1" />
+        </Association>
+        <Association Name="UserProductReview">
+          <End Type="Database_x0020_B2D3.User" Role="User" Multiplicity="1" />
+          <End Type="Database_x0020_B2D3.ProductReview" Role="ProductReview" Multiplicity="*" />
+        </Association>
+        <Association Name="UserHistory">
+          <End Type="Database_x0020_B2D3.User" Role="User" Multiplicity="1" />
+          <End Type="Database_x0020_B2D3.History" Role="History" Multiplicity="*" />
+        </Association>
+        <Association Name="AccountRoleUser">
+          <End Type="Database_x0020_B2D3.AccountRole" Role="AccountRole" Multiplicity="1" />
+          <End Type="Database_x0020_B2D3.User" Role="User" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="Database_x0020_B2D3" />
+        <Alias Key="Target" Value="Database_x0020_B2D3.Store" />
+        <EntityContainerMapping CdmEntityContainer="Database_x0020_B2D3Container" StorageEntityContainer="Database_x0020_B2D3TargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

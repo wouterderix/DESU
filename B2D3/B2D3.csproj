@@ -98,6 +98,13 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EntityDeploy Include="Database B2D3.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Database B2D3.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Database B2D3.edmx.diagram">
+      <DependentUpon>Database B2D3.edmx</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -111,6 +118,11 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database B2D3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Database B2D3.edmx</DependentUpon>
+    </Compile>
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
