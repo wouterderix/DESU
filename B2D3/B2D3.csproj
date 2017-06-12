@@ -118,6 +118,25 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\AccountRole.cs" />
+    <Compile Include="Classes\AuthorAttribute.cs" />
+    <Compile Include="Classes\Category.cs" />
+    <Compile Include="Classes\Contact.cs" />
+    <Compile Include="Classes\DatabaseAccess.cs" />
+    <Compile Include="Classes\History.cs" />
+    <Compile Include="Classes\IEquivalent.cs" />
+    <Compile Include="Classes\ISearchable.cs" />
+    <Compile Include="Classes\IServable.cs" />
+    <Compile Include="Classes\IStorable.cs" />
+    <Compile Include="Classes\News.cs" />
+    <Compile Include="Classes\Occasion.cs" />
+    <Compile Include="Classes\OperationArea.cs" />
+    <Compile Include="Classes\Product.cs" />
+    <Compile Include="Classes\ProductQuerryModel.cs" />
+    <Compile Include="Classes\ProductReview.cs" />
+    <Compile Include="Classes\Supplier.cs" />
+    <Compile Include="Classes\User.cs" />
+    <Compile Include="Classes\Webserver.cs" />
     <Compile Include="Database B2D3.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -138,7 +157,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Classes\" />
     <Folder Include="UI\" />
   </ItemGroup>
   <PropertyGroup>
