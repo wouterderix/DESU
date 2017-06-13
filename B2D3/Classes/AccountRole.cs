@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -12,6 +14,7 @@ namespace B2D3.Classes
         private string _description;
         private byte _accountLevel;
 
+        [Key]
         public int ID
         {
             get
@@ -24,6 +27,7 @@ namespace B2D3.Classes
                 _id = value;
             }
         }
+        [Index(IsUnique = true), StringLength(100), Required]
         public string Name
         {
             get

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -14,6 +16,7 @@ namespace B2D3.Classes
         private string _phone;
         private string _email;
 
+        [Key]
         public int ID
         {
             get
@@ -26,6 +29,7 @@ namespace B2D3.Classes
                 _id = value;
             }
         }
+        [Index(IsUnique = true), StringLength(255), Required]
         public string Name
         {
             get
@@ -38,6 +42,7 @@ namespace B2D3.Classes
                 _name = value;
             }
         }
+        [Required]
         public string Address
         {
             get
@@ -50,6 +55,7 @@ namespace B2D3.Classes
                 _address = value;
             }
         }
+        [Required]
         public string ZipCode
         {
             get
@@ -62,6 +68,7 @@ namespace B2D3.Classes
                 _zipCode = value;
             }
         }
+        [Required]
         public string Phone
         {
             get
@@ -74,6 +81,7 @@ namespace B2D3.Classes
                 _phone = value;
             }
         }
+        [Required]
         public string Email
         {
             get

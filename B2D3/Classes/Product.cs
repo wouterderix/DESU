@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
 namespace B2D3.Classes
 {
-    public class Product
+    public class Product : History
     {
         private string _name;
         private int _quantity;
@@ -19,6 +21,17 @@ namespace B2D3.Classes
         private List<ProductReview> _reviews;
         private Category _productCategory;
 
+        public Product(Product oldVersion, User author, bool isDeleted) 
+            : base(oldVersion, author, isDeleted)
+        {
+        }
+
+        public Product(User author, bool isDeleted) 
+            : base(author, isDeleted)
+        {
+        }
+
+        [Index(IsUnique = true), StringLength(100)]
         public string Name
         {
             get
@@ -150,6 +163,11 @@ namespace B2D3.Classes
             {
                 _productCategory = value;
             }
+        }
+
+        public override bool IsEquivalent(IEquivalent other)
+        {
+            throw new NotImplementedException();
         }
     }
 }

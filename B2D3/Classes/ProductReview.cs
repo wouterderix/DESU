@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -13,6 +14,7 @@ namespace B2D3.Classes
         private User _author;
         private bool _isAnonymous;
 
+        [Key]
         public int ID
         {
             get
@@ -25,6 +27,7 @@ namespace B2D3.Classes
                 _id = value;
             }
         }
+        [Required]
         public string ReviewText
         {
             get
@@ -37,6 +40,7 @@ namespace B2D3.Classes
                 _reviewText = value;
             }
         }
+        [Required]
         public DateTime ReviewDate
         {
             get
@@ -44,11 +48,12 @@ namespace B2D3.Classes
                 return _reviewDate;
             }
 
-            set
+            private set
             {
                 _reviewDate = value;
             }
         }
+        [Required]
         public User Author
         {
             get
@@ -61,6 +66,7 @@ namespace B2D3.Classes
                 _author = value;
             }
         }
+        [Required]
         public bool IsAnonymous
         {
             get

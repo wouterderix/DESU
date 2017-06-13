@@ -15,7 +15,35 @@ namespace B2D3.Classes
 
         public DatabaseAccess()
         {
+            _operationAreaDict = new Dictionary<int, OperationArea>();
+            _categoryDict = new Dictionary<int, Category>();
+            _accountRoleDict = new Dictionary<int, AccountRole>();
+        }
 
+        public OperationArea GetOperationArea(int id)
+        {
+            throw new NotImplementedException();
+        }
+        public Category GetCategory(int id)
+        {
+            throw new NotImplementedException();
+        }
+        public AccountRole GetAccountRole(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<OperationArea> GetOperationAreas()
+        {
+            return new List<OperationArea>(_operationAreaDict.Values);
+        }
+        public List<Category> GetCategories()
+        {
+            return new List<Category>(_categoryDict.Values);
+        }
+        public List<AccountRole> GetAccountRoles()
+        {
+            return new List<AccountRole>(_accountRoleDict.Values);
         }
 
 

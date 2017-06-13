@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -12,7 +14,9 @@ namespace B2D3.Classes
         private byte[] _password;
         private AccountRole _accountRole;
         private List<History> _history;
+        private bool _isActivel;
 
+        [Key]
         public int ID
         {
             get
@@ -25,6 +29,7 @@ namespace B2D3.Classes
                 _id = value;
             }
         }
+        [Index(IsUnique = true), StringLength(100), Required]
         public string UserName
         {
             get
@@ -37,6 +42,7 @@ namespace B2D3.Classes
                 _userName = value;
             }
         }
+        [Required]
         public byte[] Password
         {
             get
@@ -49,6 +55,7 @@ namespace B2D3.Classes
                 _password = value;
             }
         }
+        [Required]
         public AccountRole AccountRole
         {
             get
@@ -71,6 +78,19 @@ namespace B2D3.Classes
             set
             {
                 _history = value;
+            }
+        }
+        [Required]
+        public bool IsActivel
+        {
+            get
+            {
+                return _isActivel;
+            }
+
+            set
+            {
+                _isActivel = value;
             }
         }
     }

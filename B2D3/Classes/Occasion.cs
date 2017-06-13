@@ -14,6 +14,16 @@ namespace B2D3.Classes
         private string moreInformationURL;
         private bool _isApproved;
 
+        public Occasion(Occasion oldVersion, User author, bool isDeleted) 
+            : base(oldVersion, author, isDeleted)
+        {
+        }
+
+        public Occasion(User author, bool isDeleted) 
+            : base(author, isDeleted)
+        {
+        }
+
         public string Title
         {
             get

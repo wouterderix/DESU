@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -14,6 +15,7 @@ namespace B2D3.Classes
         private string _message;
         private User _submittedUser;
 
+        [Key]
         public int ID
         {
             get
@@ -26,6 +28,7 @@ namespace B2D3.Classes
                 _id = value;
             }
         }
+        [Required]
         public string Name
         {
             get
@@ -38,6 +41,7 @@ namespace B2D3.Classes
                 _name = value;
             }
         }
+        [Required]
         public string EmailAddress
         {
             get
@@ -50,6 +54,7 @@ namespace B2D3.Classes
                 _emailAddress = value;
             }
         }
+        [Required]
         public string Subject
         {
             get
@@ -62,6 +67,7 @@ namespace B2D3.Classes
                 _subject = value;
             }
         }
+        [Required]
         public string Message
         {
             get
@@ -74,6 +80,7 @@ namespace B2D3.Classes
                 _message = value;
             }
         }
+        [Required]
         public User SubmittedUser
         {
             get

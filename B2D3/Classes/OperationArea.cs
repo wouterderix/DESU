@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -10,7 +12,8 @@ namespace B2D3.Classes
         private int _id;
         private string _name;
         private List<Category> _categories;
-
+    
+        [Key]
         public int Id
         {
             get
@@ -23,6 +26,7 @@ namespace B2D3.Classes
                 _id = value;
             }
         }
+        [Index(IsUnique = true), StringLength(100), Required]
         public string Name
         {
             get
