@@ -7,6 +7,7 @@ using System.Web;
 
 namespace B2D3.Classes
 {
+    [Table("News")]
     public class News : History
     {
         private string _title;
@@ -22,7 +23,7 @@ namespace B2D3.Classes
         {
         }
 
-        [Index(IsUnique = true), StringLength(255)]
+        [Index(IsUnique = true), StringLength(255), Required]
         public string Title
         {
             get
@@ -35,6 +36,7 @@ namespace B2D3.Classes
                 _title = value;
             }
         }
+        [Required]
         public string Description
         {
             get
@@ -47,6 +49,7 @@ namespace B2D3.Classes
                 _description = value;
             }
         }
+        [Required]
         public DateTime DueDate
         {
             get

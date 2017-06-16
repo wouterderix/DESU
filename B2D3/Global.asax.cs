@@ -13,7 +13,12 @@ namespace B2D3
     {
         protected void Application_Start(object sender, EventArgs e)
         {
-            //Database.SetInitializer(new DropCreateDatabaseAlways<Casusblok5Model>());
+            Database.SetInitializer(new DropCreateDatabaseAlways<Casusblok5Model>());
+            using (var db = new Casusblok5Model())
+            {
+                //db.Database.Create();
+                db.SaveChanges();
+            }
         }
     }
 }

@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
 namespace B2D3.Classes
 {
+    [Table("Occasions")]
     public class Occasion : History
     {
         private string _title;
@@ -24,6 +27,7 @@ namespace B2D3.Classes
         {
         }
 
+        [Required]
         public string Title
         {
             get
@@ -36,6 +40,7 @@ namespace B2D3.Classes
                 _title = value;
             }
         }
+        [Required]
         public string Description
         {
             get
@@ -48,6 +53,7 @@ namespace B2D3.Classes
                 _description = value;
             }
         }
+        [Required]
         public DateTime Date
         {
             get
@@ -60,6 +66,7 @@ namespace B2D3.Classes
                 _date = value;
             }
         }
+        [Required]
         public string Location
         {
             get
@@ -72,6 +79,7 @@ namespace B2D3.Classes
                 _location = value;
             }
         }
+        [Required]
         public string MoreInformationURL
         {
             get
@@ -84,6 +92,7 @@ namespace B2D3.Classes
                 moreInformationURL = value;
             }
         }
+        [Required]
         public bool IsApproved
         {
             get

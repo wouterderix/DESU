@@ -162,11 +162,21 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="ControlClasses\DeleteProduct.cs" />
+    <Compile Include="Migrations\201706161851570_casusblok5model.cs" />
+    <Compile Include="Migrations\201706161851570_casusblok5model.Designer.cs">
+      <DependentUpon>201706161851570_casusblok5model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="UI\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706161851570_casusblok5model.resx">
+      <DependentUpon>201706161851570_casusblok5model.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

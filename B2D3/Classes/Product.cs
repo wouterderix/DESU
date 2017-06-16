@@ -7,6 +7,7 @@ using System.Web;
 
 namespace B2D3.Classes
 {
+    [Table("Products")]
     public class Product : History
     {
         private string _name;
