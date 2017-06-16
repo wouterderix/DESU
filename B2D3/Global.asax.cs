@@ -9,17 +9,11 @@ using B2D3.Classes;
 
 namespace B2D3
 {
-    public class Global : System.Web.HttpApplication
+    public class Global : HttpApplication
     {
         protected void Application_Start(object sender, EventArgs e)
         {
-            //atabase.SetInitializer(new DropCreateDatabaseAlways<Casusblok5Model>());
-
-            //using (var db = new Casusblok5Model())
-            //{
-            //    db.Category.Add(new Category() { Name = "Categorie1" });
-            //    db.SaveChanges();
-            //}
+            //Database.SetInitializer(new DropCreateDatabaseAlways<Casusblok5Model>());
         }
     }
 }
