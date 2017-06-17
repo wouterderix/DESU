@@ -11,6 +11,10 @@ namespace B2D3.Classes
         private static Webserver _instance;
         private static readonly object _instanceLock = new object();
         private static DatabaseAccess _databaseAccess;
+
+        /// <summary>
+        /// The available IServable instance.
+        /// </summary>
         public static IServable Instance
         {
             get
@@ -23,14 +27,20 @@ namespace B2D3.Classes
             }
         }
 
-
         private Webserver()
         { _databaseAccess = new DatabaseAccess(); }
 
-
+        /// <summary>
+        /// Search for products matching specified filter options.
+        /// </summary>
+        /// <param name="searchInstructions">Filter options to search by.</param>
+        /// <returns></returns>
         public List<Product> SearchProducts(ProductQuerryModel searchInstructions)
         {
-            throw new NotImplementedException();
+            //Check logged in?
+            //Check authorisation?
+
+            return _databaseAccess.SearchProducts(searchInstructions);
         }
 
         public bool ApproveOccasion(int occasionID, bool isApproved)

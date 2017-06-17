@@ -20,7 +20,8 @@ namespace B2D3.Classes
         private bool _isApproved;
         private Supplier _supplier;
         private List<ProductReview> _reviews;
-        private Category _productCategory;
+        private List<Category> _productCategories;
+        private List<OperationArea> _productOperationAreas;
 
         public Product(Product oldVersion, User author, bool isDeleted) 
             : base(oldVersion, author, isDeleted)
@@ -153,7 +154,7 @@ namespace B2D3.Classes
                 _reviews = value;
             }
         }
-        public Category ProductCategory
+        public List<Category> ProductCategory
         {
             get
             {
@@ -163,6 +164,18 @@ namespace B2D3.Classes
             set
             {
                 _productCategory = value;
+            }
+        }
+        public List<OperationArea> ProductOperationAreas
+        {
+            get
+            {
+                return _productOperationAreas;
+            }
+
+            set
+            {
+                _productOperationAreas = value;
             }
         }
 

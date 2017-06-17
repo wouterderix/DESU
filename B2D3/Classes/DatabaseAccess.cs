@@ -92,6 +92,11 @@ namespace B2D3.Classes
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Search for products matching specified filter options.
+        /// </summary>
+        /// <param name="searchInstructions">Filter options to search by.</param>
+        /// <returns></returns>
         public List<Product> SearchProducts(ProductQuerryModel searchInstructions)
         {
             throw new NotImplementedException();

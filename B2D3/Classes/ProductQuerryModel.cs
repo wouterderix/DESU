@@ -12,6 +12,8 @@ namespace B2D3.Classes
         public bool? IsApproved;
         public decimal? MinPrice;
         public decimal? MaxPrice;
+        public List<Category> Categories;
+        public List<OperationArea> OperationAreas;
         //etc...
     }
 }
