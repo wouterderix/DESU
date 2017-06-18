@@ -33,7 +33,6 @@ namespace B2D3.Classes
         {
         }
 
-        [Index(IsUnique = true), StringLength(100)]
         public string Name
         {
             get
@@ -158,12 +157,12 @@ namespace B2D3.Classes
         {
             get
             {
-                return _productCategory;
+                return _productCategories;
             }
 
             set
             {
-                _productCategory = value;
+                _productCategories = value;
             }
         }
         public List<OperationArea> ProductOperationAreas

@@ -99,7 +99,55 @@ namespace B2D3.Classes
         /// <returns></returns>
         public List<Product> SearchProducts(ProductQuerryModel searchInstructions)
         {
-            throw new NotImplementedException();
+            List<Product> returnList = new List<Product>();
+
+            using (var db = new Casusblok5Model())
+            {
+                //Retrieves the latest version of products for products that aren't deleted.
+                var products = (db.Products.GroupBy(p => p.ID)
+                                  .Select(g => g.OrderByDescending(p => p.Version)
+                                                .FirstOrDefault()).Where(x => !x.IsDeleted)
+                                   );
+
+                //Filter approval
+                if (searchInstructions.IsApproved.HasValue)
+                { products = products.Where(x => x.IsApproved == searchInstructions.IsApproved); }
+
+                //Filter name
+                if (!string.IsNullOrWhiteSpace(searchInstructions.Name))
+                { products = products.Where(x => x.Name.ToLower().Contains(searchInstructions.Name.ToLower())); }
+
+                //Filter Min. price
+                if (searchInstructions.MinPrice.HasValue)
+                { products = products.Where(x => x.Price >= searchInstructions.MinPrice); }
+
+                //Filter Max. price
+                if (searchInstructions.MaxPrice.HasValue)
+                { products = products.Where(x => x.Price <= searchInstructions.MaxPrice); }
+
+
+
+
+
+
+
+
+
+
+
+                returnList.AddRange(products);
+            }
+
+            //var star = from t in table
+            //           let maxVersion = (
+            //             from v in table
+            //             where v.name == "name"
+            //             orderby v.version descending
+            //             select v.version).FirstOrDefault()
+            //           where t.name == "name" && t.version == maxVersion
+            //           select t;
+
+            return returnList;
         }
     }
 }

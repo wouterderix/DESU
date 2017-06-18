@@ -15,7 +15,7 @@ namespace B2D3.Classes
         private DateTime _logDate;
         private bool _isDeleted;
 
-        [Key, Column(Order =0)]
+        [Key, Column(Order =0), DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID
         {
             get
@@ -28,7 +28,7 @@ namespace B2D3.Classes
                 _id = value;
             }
         }
-        [Key, Column(Order =1)]
+        [Key, Column(Order =1), DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Version
         {
             get
@@ -81,21 +81,20 @@ namespace B2D3.Classes
             }
         }
 
+        private History(int id, int version, User author, bool isDeleted)
+        {
+            ID = id;
+            Version = version;
+            Author = author;
+            IsDeleted = isDeleted;
+            LogDate = DateTime.UtcNow;
+        }
         public History(History oldVersion, User author, bool isDeleted)
-        {
-            ID = oldVersion.ID;
-            Version = oldVersion.Version + 1;
-            Author = author;
-            LogDate = DateTime.UtcNow;
-            IsDeleted = isDeleted;
-        }
+            : this(oldVersion.ID, oldVersion.Version + 1, author, isDeleted) { }
         public History(User author, bool isDeleted)
-        {
-            Author = author;
-            IsDeleted = isDeleted;
-            LogDate = DateTime.UtcNow;
-            Version = 1;
-        }
+            : this(0, 1, author, isDeleted) { }
+        public History(User author)
+            : this(author, false) { }
 
         public abstract bool IsEquivalent(IEquivalent other);
     }

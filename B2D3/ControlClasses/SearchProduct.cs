@@ -75,19 +75,17 @@ namespace B2D3.ControlClasses
         /// </summary>
         /// <returns></returns>
         public static List<Product> GetAllProducts()
-        {
-            throw new NotImplementedException();
-        }
+            => ExecuteProductQuerry(new ProductQuerryModel());
 
         /// <summary>
         /// Search for a product with a custom filter.
         /// </summary>
         /// <param name="productQuerry">The filter options to search by.</param>
         /// <returns></returns>
-        public static List<Product> QuerryProducts(ProductQuerryModel productQuerry)
-        { return ExecuteProductQuerry(productQuerry); }
+        public static List<Product> QuerryProducts(ProductQuerryModel productQuerry) 
+            => ExecuteProductQuerry(productQuerry);
 
         private static List<Product> ExecuteProductQuerry(ProductQuerryModel productQuerry)
-        { return Webserver.Instance.SearchProducts(productQuerry); }
+            => Webserver.Instance.SearchProducts(productQuerry);
     }
 }
