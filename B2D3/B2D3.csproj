@@ -145,12 +145,15 @@
     <Compile Include="Classes\News.cs" />
     <Compile Include="Classes\Occasion.cs" />
     <Compile Include="Classes\OperationArea.cs" />
+    <Compile Include="Classes\Picture.cs" />
     <Compile Include="Classes\Product.cs" />
     <Compile Include="Classes\ProductQuerryModel.cs" />
     <Compile Include="Classes\ProductReview.cs" />
+    <Compile Include="Classes\Specification.cs" />
     <Compile Include="Classes\Supplier.cs" />
     <Compile Include="Classes\User.cs" />
     <Compile Include="Classes\Webserver.cs" />
+    <Compile Include="Classes\WorkItem.cs" />
     <Compile Include="ControlClasses\SearchProduct.cs" />
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
@@ -159,13 +162,15 @@
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Classes\Demands.cs" />
+    <Compile Include="Classes\Dimension.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="ControlClasses\DeleteProduct.cs" />
-    <Compile Include="Migrations\201706161851570_casusblok5model.cs" />
-    <Compile Include="Migrations\201706161851570_casusblok5model.Designer.cs">
-      <DependentUpon>201706161851570_casusblok5model.cs</DependentUpon>
+    <Compile Include="Migrations\201706191320174_v1.cs" />
+    <Compile Include="Migrations\201706191320174_v1.Designer.cs">
+      <DependentUpon>201706191320174_v1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -175,8 +180,8 @@
     <Folder Include="UI\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706161851570_casusblok5model.resx">
-      <DependentUpon>201706161851570_casusblok5model.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201706191320174_v1.resx">
+      <DependentUpon>201706191320174_v1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -5,63 +5,65 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace B2D3.Classes
+namespace B2D3
 {
-    public class AccountRole
+    public class Dimension
     {
         private int _id;
-        private string _name;
-        private string _description;
-        private byte _accountLevel;
+        private int _length;
+        private int _width;
+        private int _height;
 
         [Key, Column(Order = 0), DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID
+        public int Id
         {
             get
             {
                 return _id;
             }
 
-            private set
+            set
             {
                 _id = value;
             }
         }
-        [Index(IsUnique = true), StringLength(100), Required]
-        public string Name
+        [Required]
+        public int Length
         {
             get
             {
-                return _name;
+                return _length;
             }
 
             set
             {
-                _name = value;
+                _length = value;
             }
         }
-        public string Description
+        [Required]
+        public int Width
         {
             get
             {
-                return _description;
+                return _width;
             }
 
             set
             {
-                _description = value;
+                _width = value;
             }
         }
-        public byte AccountLevel
+        [Required]
+        public int Height
         {
             get
             {
-                return _accountLevel;
+                return _height;
             }
 
             set
             {
-                _accountLevel = value;
+                _height = value;
             }
         }
     }

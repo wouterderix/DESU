@@ -7,14 +7,13 @@ using System.Web;
 
 namespace B2D3.Classes
 {
-    public class User
+    public class WorkItem
     {
         private int _id;
-        private string _userName;
-        private byte[] _password;
-        private AccountRole _accountRole;
-        private bool _isActivel;
-        private List<WorkItem> _workItems;
+        private string _description;
+        private string _result;
+        private bool _isReviewed;
+        private List<User> _users;
 
         [Key, Column(Order = 0), DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID
@@ -24,73 +23,59 @@ namespace B2D3.Classes
                 return _id;
             }
 
-            private set
+            set
             {
                 _id = value;
             }
         }
-        [Index(IsUnique = true), StringLength(100), Required]
-        public string UserName
+        [Required]
+        public string Description
         {
             get
             {
-                return _userName;
+                return _description;
             }
 
             set
             {
-                _userName = value;
+                _description = value;
+            }
+        }
+        public string Result
+        {
+            get
+            {
+                return _result;
+            }
+
+            set
+            {
+                _result = value;
             }
         }
         [Required]
-        public byte[] Password
+        public bool IsReviewed
         {
             get
             {
-                return _password;
+                return _isReviewed;
             }
 
             set
             {
-                _password = value;
+                _isReviewed = value;
             }
         }
-        [Required]
-        public AccountRole AccountRole
+        public List<User> Users
         {
             get
             {
-                return _accountRole;
+                return _users;
             }
 
             set
             {
-                _accountRole = value;
-            }
-        }
-        [Required]
-        public bool IsActivel
-        {
-            get
-            {
-                return _isActivel;
-            }
-
-            set
-            {
-                _isActivel = value;
-            }
-        }
-        public List<WorkItem> WorkItems
-        {
-            get
-            {
-                return _workItems;
-            }
-
-            set
-            {
-                _workItems = value;
+                _users = value;
             }
         }
     }

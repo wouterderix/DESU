@@ -7,10 +7,10 @@ using System.Web;
 
 namespace B2D3.Classes
 {
-    public class Category
+    public class Picture
     {
         private int _id;
-        private string _name;
+        private string _pictureURL;
 
         [Key, Column(Order = 0), DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id
@@ -20,22 +20,22 @@ namespace B2D3.Classes
                 return _id;
             }
 
-            private set
+            set
             {
                 _id = value;
             }
         }
-        [Index(IsUnique = true), StringLength(100), Required]
-        public string Name
+        [Required]
+        public string PictureURL
         {
             get
             {
-                return _name;
+                return _pictureURL;
             }
 
             set
             {
-                _name = value;
+                _pictureURL = value;
             }
         }
     }

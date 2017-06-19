@@ -13,7 +13,9 @@ namespace B2D3
     {
         protected void Application_Start(object sender, EventArgs e)
         {
-            var result = B2D3.ControlClasses.SearchProduct.GetAllProducts();
+            //Database.SetInitializer<Casusblok5Model>(new CreateDatabaseIfNotExists<Casusblok5Model>());
+
+            var a = ControlClasses.SearchProduct.GetAllProducts();
         }
     }
 }

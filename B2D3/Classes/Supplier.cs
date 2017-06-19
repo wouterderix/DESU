@@ -16,7 +16,7 @@ namespace B2D3.Classes
         private string _phone;
         private string _email;
 
-        [Key]
+        [Key, Column(Order = 0), DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID
         {
             get

@@ -104,36 +104,29 @@ namespace B2D3.Classes
             using (var db = new Casusblok5Model())
             {
                 //Retrieves the latest version of products for products that aren't deleted.
-                var products = (db.Products.GroupBy(p => p.ID)
-                                  .Select(g => g.OrderByDescending(p => p.Version)
-                                                .FirstOrDefault()).Where(x => !x.IsDeleted)
-                                   );
+                //var products = (db.Products.GroupBy(p => p.HistoryID)
+                //                  .Select(g => g.OrderByDescending(p => p.Version)
+                //                                .FirstOrDefault()).Where(x => !x.IsDeleted)
+                //                   );
+
+                var products = db.Products.where(p )ToList();
+
 
                 //Filter approval
-                if (searchInstructions.IsApproved.HasValue)
-                { products = products.Where(x => x.IsApproved == searchInstructions.IsApproved); }
+                //if (searchInstructions.IsApproved.HasValue)
+                //{ products = products.Where(x => x.IsApproved == searchInstructions.IsApproved); }
 
-                //Filter name
-                if (!string.IsNullOrWhiteSpace(searchInstructions.Name))
-                { products = products.Where(x => x.Name.ToLower().Contains(searchInstructions.Name.ToLower())); }
+                ////Filter name
+                //if (!string.IsNullOrWhiteSpace(searchInstructions.Name))
+                //{ products = products.Where(x => x.Name.ToLower().Contains(searchInstructions.Name.ToLower())); }
 
-                //Filter Min. price
-                if (searchInstructions.MinPrice.HasValue)
-                { products = products.Where(x => x.Price >= searchInstructions.MinPrice); }
+                ////Filter Min. price
+                //if (searchInstructions.MinPrice.HasValue)
+                //{ products = products.Where(x => x.Price >= searchInstructions.MinPrice); }
 
-                //Filter Max. price
-                if (searchInstructions.MaxPrice.HasValue)
-                { products = products.Where(x => x.Price <= searchInstructions.MaxPrice); }
-
-
-
-
-
-
-
-
-
-
+                ////Filter Max. price
+                //if (searchInstructions.MaxPrice.HasValue)
+                //{ products = products.Where(x => x.Price <= searchInstructions.MaxPrice); }
 
                 returnList.AddRange(products);
             }

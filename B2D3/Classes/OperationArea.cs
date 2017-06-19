@@ -11,7 +11,7 @@ namespace B2D3.Classes
     {
         private int _id;
         private string _name;
-        private List<Category> _categories;
+        private List<Product> _products;
     
         [Key]
         public int Id
@@ -39,16 +39,16 @@ namespace B2D3.Classes
                 _name = value;
             }
         }
-        public List<Category> Categories
+        public List<Product> Products
         {
             get
             {
-                return _categories;
+                return _products;
             }
 
             set
             {
-                _categories = value;
+                _products = value;
             }
         }
     }

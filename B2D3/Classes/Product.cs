@@ -10,8 +10,8 @@ namespace B2D3.Classes
     [Table("Products")]
     public class Product : History
     {
+        #region fields
         private string _name;
-        private int _quantity;
         private string _information;
         private DateTime _expirationDate;
         private int _timesViewed;
@@ -20,19 +20,21 @@ namespace B2D3.Classes
         private bool _isApproved;
         private Supplier _supplier;
         private List<ProductReview> _reviews;
-        private List<Category> _productCategories;
+        private Category _productCategory;
         private List<OperationArea> _productOperationAreas;
+        private int _weight;
+        private string _pictureURL;
+        private string _videoURL;
+        private string _userGuide;
+        private Dimension _dimension;
+        private List<Picture> _picture;
+        private List<Demands> _demands;
+        private List<Specification> __specification;
 
-        public Product(Product oldVersion, User author, bool isDeleted) 
-            : base(oldVersion, author, isDeleted)
-        {
-        }
+        #endregion
 
-        public Product(User author, bool isDeleted) 
-            : base(author, isDeleted)
-        {
-        }
 
+        [Required]
         public string Name
         {
             get
@@ -43,18 +45,6 @@ namespace B2D3.Classes
             set
             {
                 _name = value;
-            }
-        }
-        public int Quantity
-        {
-            get
-            {
-                return _quantity;
-            }
-
-            set
-            {
-                _quantity = value;
             }
         }
         public string Information
@@ -69,6 +59,7 @@ namespace B2D3.Classes
                 _information = value;
             }
         }
+        [Required]
         public DateTime ExpirationDate
         {
             get
@@ -81,6 +72,7 @@ namespace B2D3.Classes
                 _expirationDate = value;
             }
         }
+        [Required]
         public int TimesViewed
         {
             get
@@ -93,6 +85,7 @@ namespace B2D3.Classes
                 _timesViewed = value;
             }
         }
+        [Required]
         public bool IsCompensated
         {
             get
@@ -105,6 +98,7 @@ namespace B2D3.Classes
                 _isCompensated = value;
             }
         }
+        [Required]
         public decimal Price
         {
             get
@@ -117,6 +111,7 @@ namespace B2D3.Classes
                 _price = value;
             }
         }
+        [Required]
         public bool IsApproved
         {
             get
@@ -153,16 +148,16 @@ namespace B2D3.Classes
                 _reviews = value;
             }
         }
-        public List<Category> ProductCategory
+        public Category ProductCategory
         {
             get
             {
-                return _productCategories;
+                return _productCategory;
             }
 
             set
             {
-                _productCategories = value;
+                _productCategory = value;
             }
         }
         public List<OperationArea> ProductOperationAreas
@@ -177,6 +172,116 @@ namespace B2D3.Classes
                 _productOperationAreas = value;
             }
         }
+        public int Weight
+        {
+            get
+            {
+                return _weight;
+            }
+
+            set
+            {
+                _weight = value;
+            }
+        }
+        public string PictureURL
+        {
+            get
+            {
+                return _pictureURL;
+            }
+
+            set
+            {
+                _pictureURL = value;
+            }
+        }
+        public string VideoURL
+        {
+            get
+            {
+                return _videoURL;
+            }
+
+            set
+            {
+                _videoURL = value;
+            }
+        }
+        public string UserGuide
+        {
+            get
+            {
+                return _userGuide;
+            }
+
+            set
+            {
+                _userGuide = value;
+            }
+        }
+        public Dimension Dimension
+        {
+            get
+            {
+                return _dimension;
+            }
+
+            set
+            {
+                _dimension = value;
+            }
+        }
+        public List<Picture> Picture
+        {
+            get
+            {
+                return _picture;
+            }
+
+            set
+            {
+                _picture = value;
+            }
+        }
+        public List<Demands> Demands
+        {
+            get
+            {
+                return _demands;
+            }
+
+            set
+            {
+                _demands = value;
+            }
+        }
+        public List<Specification> Specification
+        {
+            get
+            {
+                return __specification;
+            }
+
+            set
+            {
+                __specification = value;
+            }
+        }
+
+
+        public Product(Product oldVersion, User author, bool isDeleted)
+            : base(oldVersion, author, isDeleted)
+        {
+        }
+        public Product(User author, bool isDeleted)
+            : base(author, isDeleted)
+        {
+        }
+        public Product() { }
+
+
+
 
         public override bool IsEquivalent(IEquivalent other)
         {

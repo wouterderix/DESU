@@ -7,13 +7,13 @@ namespace B2D3.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class casusblok5model : IMigrationMetadata
+    public sealed partial class v1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(casusblok5model));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(v1));
         
         string IMigrationMetadata.Id
         {
-            get { return "201706161851570_casusblok5model"; }
+            get { return "201706191320174_v1"; }
         }
         
         string IMigrationMetadata.Source

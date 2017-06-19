@@ -17,12 +17,6 @@ namespace B2D3
             : base("name=Casusblok5Model")
         { }
 
-        static Casusblok5Model()
-        {
-            //Database.SetInitializer(new DropCreateDatabaseAlways<Casusblok5Model>());
-            Database.SetInitializer(new Casusblok5Initializer());
-        }
-
         // Constructor to use on a DbConnection that is already opened
         public Casusblok5Model(DbConnection existingConnection, bool contextOwnsConnection)
       : base(existingConnection, contextOwnsConnection)
@@ -40,31 +34,23 @@ namespace B2D3
 
         // public virtual DbSet<MyEntity> MyEntities { get; set; }
 
-        public DbSet<User> Users { get; set; }
+
         public DbSet<AccountRole> AccountRole { get; set; }
         public DbSet<Category> Category { get; set; }
         public DbSet<Contact> Contact { get; set; }
-        public DbSet<OperationArea> OperationArea { get; set; }
-        public DbSet<ProductReview> ProductReview { get; set; }
-        public DbSet<Supplier> Supplier { get; set; }
-
-        //Inheritance objects
         public DbSet<History> History { get; set; }
         public DbSet<News> News { get; set; }
         public DbSet<Occasion> Occasions { get; set; }
+        public DbSet<Picture> Pictures { get; set; }
         public DbSet<Product> Products { get; set; }
-
-        
-    }
-
-    public class Casusblok5Initializer : DropCreateDatabaseIfModelChanges<Casusblok5Model>
-    {
-        protected override void Seed(Casusblok5Model dbContext)
-        {
-            // seed data
-
-            base.Seed(dbContext);
-        }
+        public DbSet<ProductReview> ProductReview { get; set; }
+        public DbSet<Specification> Specifications { get; set; }
+        public DbSet<Supplier> Supplier { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<WorkItem> WorkItems { get; set; }
+        public DbSet<OperationArea> OperationArea { get; set; }
+        public DbSet<Demands> Demands { get; set; }
+        public DbSet<Dimension> Dimension { get; set; }
     }
 
 }

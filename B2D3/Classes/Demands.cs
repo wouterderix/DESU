@@ -5,12 +5,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace B2D3.Classes
+namespace B2D3
 {
-    public class Category
+    public class Demands
     {
         private int _id;
-        private string _name;
+        private string _description;
 
         [Key, Column(Order = 0), DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id
@@ -20,22 +20,22 @@ namespace B2D3.Classes
                 return _id;
             }
 
-            private set
+            set
             {
                 _id = value;
             }
         }
-        [Index(IsUnique = true), StringLength(100), Required]
-        public string Name
+        [Required]
+        public string Description
         {
             get
             {
-                return _name;
+                return _description;
             }
 
             set
             {
-                _name = value;
+                _description = value;
             }
         }
     }
