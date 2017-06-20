@@ -6,14 +6,52 @@ using System.Web;
 namespace B2D3.Classes
 {
     public struct ProductQuerryModel : ISearchable
-    {
-        public int? ID;
-        public string Name;
-        public bool? IsApproved;
+    { 
+
+        /// <summary>
+        /// The ID of the product.
+        /// </summary>
+        public int? ID
+        { get; set; }
+        /// <summary>
+        /// The name of the product. Matches by 'contains'
+        /// </summary>
+        public string Name
+        { get; set; }
+        /// <summary>
+        /// The approval state of the product.
+        /// </summary>
+        public bool? IsApproved
+        { get; set; }
+        /// <summary>
+        /// The minimal price to search for.
+        /// </summary>
         public decimal? MinPrice;
+        /// <summary>
+        /// The maximum price to search for.
+        /// </summary>
         public decimal? MaxPrice;
-        public List<Category> Categories;
-        public List<OperationArea> OperationAreas;
-        //etc...
+        /// <summary>
+        /// The category containing this product.
+        /// </summary>
+        public Category Category
+        { get; set; }
+        /// <summary>
+        /// A collection of operation areas containing this product.
+        /// </summary>
+        public List<OperationArea> OperationAreas
+        { get; set; }
+        /// <summary>
+        /// Show deleted products or not.
+        /// </summary>
+        public bool? IsDeleted
+        { get; set; }
+
+        /// <summary>
+        /// Returns a querrymodel for approved and existing products.
+        /// </summary>
+        /// <returns></returns>
+        public static ProductQuerryModel ViewableProducts()
+        { return new ProductQuerryModel() { IsDeleted = false, IsApproved = true }; }
     }
 }

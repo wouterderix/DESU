@@ -11,13 +11,38 @@ namespace B2D3.Classes
         private string _author;
         private string _useCase;
 
-        public int UseCaseNumber;
-        public float Version;
+        public int UseCaseNumber { get; set; }
+        public float Version { get; set; }
+        public bool IsAfgekeurd { get; set; }
+        public string Author
+        {
+            get
+            {
+                return _author;
+            }
+
+            private set
+            {
+                _author = value;
+            }
+        }
+        public string UseCase
+        {
+            get
+            {
+                return _useCase;
+            }
+
+            private set
+            {
+                _useCase = value;
+            }
+        }
 
         public AuthorAttribute(string author, string useCase)
         {
-            _author = author;
-            _useCase = useCase;   
+            Author = author;
+            UseCase = useCase;   
         }
     }
 }

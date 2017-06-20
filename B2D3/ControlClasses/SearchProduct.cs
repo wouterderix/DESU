@@ -6,6 +6,7 @@ using B2D3.Classes;
 
 namespace B2D3.ControlClasses
 {
+    [Author("Dennis Corvers, Damien Brils", "ProductZoeken", Version =1.1f)]
     public static class SearchProduct
     {
         /// <summary>
@@ -18,7 +19,7 @@ namespace B2D3.ControlClasses
             if (string.IsNullOrWhiteSpace(productName))
             { throw new ArgumentException("Product name may not be empty!"); }
 
-            ProductQuerryModel p = new ProductQuerryModel() { Name = productName };
+            ProductQuerryModel p = ProductQuerryModel.ViewableProducts(); p.Name = productName;
             return ExecuteProductQuerry(p);
         }
 
@@ -31,18 +32,7 @@ namespace B2D3.ControlClasses
         {
             if(category == null) { throw new ArgumentNullException("Category may not be null!"); }
 
-            return SearchByCategory(new List<Category>() { category });
-        }
-        /// <summary>
-        /// Fetch all products belonging to one of the specified categories.
-        /// </summary>
-        /// <param name="category">A set of categories to search for.</param>
-        /// <returns></returns>
-        public static List<Product> SearchByCategory(List<Category> category)
-        {
-            if (category == null) { throw new ArgumentNullException("Category may not be null!"); }
-            ProductQuerryModel p = new ProductQuerryModel() { Categories = category };
-
+            ProductQuerryModel p = ProductQuerryModel.ViewableProducts(); p.Category = category;
             return ExecuteProductQuerry(p);
         }
 
@@ -66,7 +56,7 @@ namespace B2D3.ControlClasses
         {
             if (operationArea == null) { throw new ArgumentNullException("OperationArea may not be null!"); }
 
-            ProductQuerryModel p = new ProductQuerryModel() { OperationAreas = operationArea };
+            ProductQuerryModel p = ProductQuerryModel.ViewableProducts(); p.OperationAreas = operationArea;
             return ExecuteProductQuerry(p);
         }
 
@@ -75,7 +65,7 @@ namespace B2D3.ControlClasses
         /// </summary>
         /// <returns></returns>
         public static List<Product> GetAllProducts()
-            => ExecuteProductQuerry(new ProductQuerryModel());
+            => ExecuteProductQuerry(ProductQuerryModel.ViewableProducts());
 
         /// <summary>
         /// Search for a product with a custom filter.

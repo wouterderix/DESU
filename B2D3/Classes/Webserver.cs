@@ -30,6 +30,7 @@ namespace B2D3.Classes
         private Webserver()
         { _databaseAccess = new DatabaseAccess(); }
 
+        [Author("Dennis Corvers, Damien Brils", "ProductZoeken", Version = 1)]
         /// <summary>
         /// Search for products matching specified filter options.
         /// </summary>

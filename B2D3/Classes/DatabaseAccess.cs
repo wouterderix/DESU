@@ -92,6 +92,7 @@ namespace B2D3.Classes
             throw new NotImplementedException();
         }
 
+        [Author("Dennis Corvers, Damien Brils", "ProductZoeken", Version = 1.1f)]
         /// <summary>
         /// Search for products matching specified filter options.
         /// </summary>
@@ -99,48 +100,45 @@ namespace B2D3.Classes
         /// <returns></returns>
         public List<Product> SearchProducts(ProductQuerryModel searchInstructions)
         {
-            List<Product> returnList = new List<Product>();
+            IEnumerable<Product> products = new List<Product>();
 
             using (var db = new Casusblok5Model())
-            {
-                //Retrieves the latest version of products for products that aren't deleted.
-                //var products = (db.Products.GroupBy(p => p.HistoryID)
-                //                  .Select(g => g.OrderByDescending(p => p.Version)
-                //                                .FirstOrDefault()).Where(x => !x.IsDeleted)
-                //                   );
+            { products = db.Products.ToList(); }
 
-                var products = db.Products.where(p )ToList();
+                //Gets the latest version of every product.
+                products = products.GroupBy(p => p.HistoryID)
+                    .Select(v => v.OrderByDescending(p => p.Version).FirstOrDefault());
 
 
-                //Filter approval
-                //if (searchInstructions.IsApproved.HasValue)
-                //{ products = products.Where(x => x.IsApproved == searchInstructions.IsApproved); }
+            //Filter IsDeleted
+            if (searchInstructions.IsDeleted.HasValue)
+            { products = products.Where(x => x.IsDeleted == searchInstructions.IsDeleted); }
 
-                ////Filter name
-                //if (!string.IsNullOrWhiteSpace(searchInstructions.Name))
-                //{ products = products.Where(x => x.Name.ToLower().Contains(searchInstructions.Name.ToLower())); }
+            //Filter IsApproved
+            if (searchInstructions.IsApproved.HasValue)
+            { products = products.Where(x => x.IsApproved == searchInstructions.IsApproved); }
 
-                ////Filter Min. price
-                //if (searchInstructions.MinPrice.HasValue)
-                //{ products = products.Where(x => x.Price >= searchInstructions.MinPrice); }
+            //Filter name
+            if (!string.IsNullOrWhiteSpace(searchInstructions.Name))
+            { products = products.Where(x => x.Name.ToLower().Contains(searchInstructions.Name.ToLower())); }
 
-                ////Filter Max. price
-                //if (searchInstructions.MaxPrice.HasValue)
-                //{ products = products.Where(x => x.Price <= searchInstructions.MaxPrice); }
+            //Filter Min. price
+            if (searchInstructions.MinPrice.HasValue)
+            { products = products.Where(x => x.Price >= searchInstructions.MinPrice); }
 
-                returnList.AddRange(products);
-            }
+            //Filter Max. price
+            if (searchInstructions.MaxPrice.HasValue)
+            { products = products.Where(x => x.Price <= searchInstructions.MaxPrice); }
 
-            //var star = from t in table
-            //           let maxVersion = (
-            //             from v in table
-            //             where v.name == "name"
-            //             orderby v.version descending
-            //             select v.version).FirstOrDefault()
-            //           where t.name == "name" && t.version == maxVersion
-            //           select t;
+            //Filter Category
+            if (searchInstructions.Category != null)
+            { products = products.Where(x => x.ProductCategory.Id == searchInstructions.Category.Id); }
 
-            return returnList;
+            //Filter OperationArea
+            if (searchInstructions.OperationAreas != null)
+            { products = products.Where(x => x.ProductOperationAreas.Intersect(searchInstructions.OperationAreas).Any()); }
+
+            return products.ToList();
         }
     }
 }
