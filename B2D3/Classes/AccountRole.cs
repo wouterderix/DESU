@@ -7,7 +7,7 @@ using System.Web;
 
 namespace B2D3.Classes
 {
-    public class AccountRole
+    public partial class AccountRole
     {
         private int _id;
         private string _name;

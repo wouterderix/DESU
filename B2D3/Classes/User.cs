@@ -7,7 +7,7 @@ using System.Web;
 
 namespace B2D3.Classes
 {
-    public class User
+    public partial class User
     {
         private int _id;
         private string _userName;

@@ -7,7 +7,7 @@ using System.Web;
 
 namespace B2D3.Classes
 {
-    public class Category
+    public partial class Category
     {
         private int _id;
         private string _name;

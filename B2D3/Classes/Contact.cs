@@ -7,7 +7,7 @@ using System.Web;
 
 namespace B2D3.Classes
 {
-    public class Contact
+    public partial class Contact
     {
         private int _id;
         private string _name;

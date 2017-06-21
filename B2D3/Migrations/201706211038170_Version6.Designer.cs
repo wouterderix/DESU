@@ -7,13 +7,13 @@ namespace B2D3.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class v1 : IMigrationMetadata
+    public sealed partial class Version6 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(v1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Version6));
         
         string IMigrationMetadata.Id
         {
-            get { return "201706191320174_v1"; }
+            get { return "201706211038170_Version6"; }
         }
         
         string IMigrationMetadata.Source
