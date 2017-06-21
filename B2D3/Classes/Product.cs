@@ -248,12 +248,12 @@ namespace B2D3.Classes
         {
             get
             {
-                return __specification;
+                return _specification;
             }
 
             set
             {
-                __specification = value;
+                _specification = value;
             }
         }
         public List<WorkItem> WorkItems

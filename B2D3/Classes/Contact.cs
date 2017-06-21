@@ -81,7 +81,6 @@ namespace B2D3.Classes
                 _message = value;
             }
         }
-        [Required]
         public User SubmittedUser
         {
             get

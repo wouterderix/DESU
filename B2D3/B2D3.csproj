@@ -168,9 +168,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="ControlClasses\DeleteProduct.cs" />
-    <Compile Include="Migrations\201706211038170_Version6.cs" />
-    <Compile Include="Migrations\201706211038170_Version6.Designer.cs">
-      <DependentUpon>201706211038170_Version6.cs</DependentUpon>
+    <Compile Include="Migrations\201706211212012_Version8.cs" />
+    <Compile Include="Migrations\201706211212012_Version8.Designer.cs">
+      <DependentUpon>201706211212012_Version8.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -180,8 +180,8 @@
     <Folder Include="UI\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706211038170_Version6.resx">
-      <DependentUpon>201706211038170_Version6.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201706211212012_Version8.resx">
+      <DependentUpon>201706211212012_Version8.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

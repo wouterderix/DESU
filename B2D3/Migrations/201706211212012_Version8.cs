@@ -3,7 +3,7 @@ namespace B2D3.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Version6 : DbMigration
+    public partial class Version8 : DbMigration
     {
         public override void Up()
         {
@@ -38,10 +38,10 @@ namespace B2D3.Migrations
                         EmailAddress = c.String(nullable: false, unicode: false),
                         Subject = c.String(nullable: false, unicode: false),
                         Message = c.String(nullable: false, unicode: false),
-                        SubmittedUser_ID = c.Int(nullable: false),
+                        SubmittedUser_ID = c.Int(),
                     })
                 .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.Users", t => t.SubmittedUser_ID, cascadeDelete: true)
+                .ForeignKey("dbo.Users", t => t.SubmittedUser_ID)
                 .Index(t => t.SubmittedUser_ID);
             
             CreateTable(
@@ -67,8 +67,12 @@ namespace B2D3.Migrations
                         Description = c.String(nullable: false, unicode: false),
                         Result = c.String(unicode: false),
                         IsReviewed = c.Boolean(nullable: false),
+                        Product_HistoryID = c.Int(),
+                        Product_Version = c.Int(),
                     })
-                .PrimaryKey(t => t.ID);
+                .PrimaryKey(t => t.ID)
+                .ForeignKey("dbo.Products", t => new { t.Product_HistoryID, t.Product_Version })
+                .Index(t => new { t.Product_HistoryID, t.Product_Version });
             
             CreateTable(
                 "dbo.Demands",
@@ -276,6 +280,7 @@ namespace B2D3.Migrations
             DropForeignKey("dbo.Products", new[] { "HistoryID", "Version" }, "dbo.Histories");
             DropForeignKey("dbo.Occasions", new[] { "HistoryID", "Version" }, "dbo.Histories");
             DropForeignKey("dbo.News", new[] { "HistoryID", "Version" }, "dbo.Histories");
+            DropForeignKey("dbo.WorkItems", new[] { "Product_HistoryID", "Product_Version" }, "dbo.Products");
             DropForeignKey("dbo.Specifications", new[] { "Product_HistoryID", "Product_Version" }, "dbo.Products");
             DropForeignKey("dbo.ProductReviews", new[] { "Product_HistoryID", "Product_Version" }, "dbo.Products");
             DropForeignKey("dbo.ProductReviews", "Author_ID", "dbo.Users");
@@ -307,6 +312,7 @@ namespace B2D3.Migrations
             DropIndex("dbo.Pictures", new[] { "Product_HistoryID", "Product_Version" });
             DropIndex("dbo.Histories", new[] { "Author_ID" });
             DropIndex("dbo.Demands", new[] { "Product_HistoryID", "Product_Version" });
+            DropIndex("dbo.WorkItems", new[] { "Product_HistoryID", "Product_Version" });
             DropIndex("dbo.Users", new[] { "AccountRole_ID" });
             DropIndex("dbo.Users", new[] { "UserName" });
             DropIndex("dbo.Contacts", new[] { "SubmittedUser_ID" });
