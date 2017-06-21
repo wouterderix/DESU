@@ -28,7 +28,8 @@ namespace B2D3.Classes
         private Dimension _dimension;
         private List<Picture> _picture;
         private List<Demands> _demands;
-        private List<Specification> __specification;
+        private List<Specification> _specification;
+        private List<WorkItem> _workItems;
         #endregion
 
 
@@ -255,8 +256,18 @@ namespace B2D3.Classes
                 __specification = value;
             }
         }
+        public List<WorkItem> WorkItems
+        {
+            get
+            {
+                return _workItems;
+            }
 
-
+            set
+            {
+                _workItems = value;
+            }
+        }
 
         public Product(Product oldVersion, User author, bool isDeleted)
             : base(oldVersion, author, isDeleted)
