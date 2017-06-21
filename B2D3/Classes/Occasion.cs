@@ -8,7 +8,7 @@ using System.Web;
 namespace B2D3.Classes
 {
     [Table("Occasions")]
-    public class Occasion : History
+    public partial class Occasion : History
     {
         private string _title;
         private string _description;

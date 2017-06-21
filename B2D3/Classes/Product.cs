@@ -8,7 +8,7 @@ using System.Web;
 namespace B2D3.Classes
 {
     [Table("Products")]
-    public class Product : History
+    public partial class Product : History
     {
         #region fields
         private string _name;
@@ -22,15 +22,13 @@ namespace B2D3.Classes
         private List<ProductReview> _reviews;
         private Category _productCategory;
         private List<OperationArea> _productOperationAreas;
-        private int _weight;
-        private string _pictureURL;
+        private float _weight;
         private string _videoURL;
-        private string _userGuide;
+        private string _userGuideURL;
         private Dimension _dimension;
         private List<Picture> _picture;
         private List<Demands> _demands;
         private List<Specification> __specification;
-
         #endregion
 
 
@@ -172,7 +170,7 @@ namespace B2D3.Classes
                 _productOperationAreas = value;
             }
         }
-        public int Weight
+        public float Weight
         {
             get
             {
@@ -183,19 +181,7 @@ namespace B2D3.Classes
             {
                 _weight = value;
             }
-        }
-        public string PictureURL
-        {
-            get
-            {
-                return _pictureURL;
-            }
-
-            set
-            {
-                _pictureURL = value;
-            }
-        }
+        }        
         public string VideoURL
         {
             get
@@ -208,18 +194,19 @@ namespace B2D3.Classes
                 _videoURL = value;
             }
         }
-        public string UserGuide
+        public string UserGuideURL
         {
             get
             {
-                return _userGuide;
+                return _userGuideURL;
             }
 
             set
             {
-                _userGuide = value;
+                _userGuideURL = value;
             }
         }
+        [Required]
         public Dimension Dimension
         {
             get
@@ -268,6 +255,7 @@ namespace B2D3.Classes
                 __specification = value;
             }
         }
+
 
 
         public Product(Product oldVersion, User author, bool isDeleted)

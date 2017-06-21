@@ -7,7 +7,7 @@ using System.Web;
 
 namespace B2D3
 {
-    public class Demands
+    public partial class Demands
     {
         private int _id;
         private string _description;

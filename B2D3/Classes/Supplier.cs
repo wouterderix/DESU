@@ -7,7 +7,7 @@ using System.Web;
 
 namespace B2D3.Classes
 {
-    public class Supplier
+    public partial class Supplier
     {
         private int _id;
         private string _name;

@@ -7,7 +7,7 @@ using System.Web;
 
 namespace B2D3
 {
-    public class Dimension
+    public partial class Dimension
     {
         private int _id;
         private int _length;

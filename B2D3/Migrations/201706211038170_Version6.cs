@@ -3,7 +3,7 @@ namespace B2D3.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class v1 : DbMigration
+    public partial class Version6 : DbMigration
     {
         public override void Up()
         {
@@ -242,7 +242,7 @@ namespace B2D3.Migrations
                     {
                         HistoryID = c.Int(nullable: false),
                         Version = c.Int(nullable: false),
-                        Dimension_Id = c.Int(),
+                        Dimension_Id = c.Int(nullable: false),
                         ProductCategory_Id = c.Int(),
                         Supplier_ID = c.Int(),
                         Name = c.String(nullable: false, unicode: false),
@@ -252,14 +252,13 @@ namespace B2D3.Migrations
                         IsCompensated = c.Boolean(nullable: false),
                         Price = c.Decimal(nullable: false, precision: 18, scale: 2),
                         IsApproved = c.Boolean(nullable: false),
-                        Weight = c.Int(nullable: false),
-                        PictureURL = c.String(unicode: false),
+                        Weight = c.Single(nullable: false),
                         VideoURL = c.String(unicode: false),
-                        UserGuide = c.String(unicode: false),
+                        UserGuideURL = c.String(unicode: false),
                     })
                 .PrimaryKey(t => new { t.HistoryID, t.Version })
                 .ForeignKey("dbo.Histories", t => new { t.HistoryID, t.Version })
-                .ForeignKey("dbo.Dimensions", t => t.Dimension_Id)
+                .ForeignKey("dbo.Dimensions", t => t.Dimension_Id, cascadeDelete: true)
                 .ForeignKey("dbo.Categories", t => t.ProductCategory_Id)
                 .ForeignKey("dbo.Suppliers", t => t.Supplier_ID)
                 .Index(t => new { t.HistoryID, t.Version })

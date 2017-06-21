@@ -7,7 +7,7 @@ using System.Web;
 
 namespace B2D3.Classes
 {
-    public class OperationArea
+    public partial class OperationArea
     {
         private int _id;
         private string _name;

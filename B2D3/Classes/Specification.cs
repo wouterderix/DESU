@@ -7,7 +7,7 @@ using System.Web;
 
 namespace B2D3.Classes
 {
-    public class Specification
+    public partial class Specification
     {
         private int _id;
         private string _description;
