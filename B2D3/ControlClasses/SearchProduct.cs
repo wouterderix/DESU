@@ -9,6 +9,9 @@ namespace B2D3.ControlClasses
     [Author("Dennis Corvers, Damien Brils", "ProductZoeken", Version =1.1f)]
     public static class SearchProduct
     {
+
+        //5 lagen model toepassen! Business Class, Control Class en DataAccesLayer Class
+
         /// <summary>
         /// Search for a product by name only.
         /// </summary>
