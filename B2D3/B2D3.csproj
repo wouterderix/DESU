@@ -132,7 +132,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessClasses\AccountRole.cs" />
-    <Compile Include="BusinessClasses\Occasion.cs" />
     <Compile Include="Casusblok5Model.cs" />
     <Compile Include="CodeFirsClasses\AccountRole.cs" />
     <Compile Include="CodeFirsClasses\AuthorAttribute.cs" />
@@ -156,8 +155,10 @@
     <Compile Include="CodeFirsClasses\User.cs" />
     <Compile Include="CodeFirsClasses\Webserver.cs" />
     <Compile Include="CodeFirsClasses\WorkItem.cs" />
-    <Compile Include="ControlClasses\Occasion.cs" />
-    <Compile Include="ControlClasses\SearchProduct.cs" />
+    <Compile Include="ControlClasses\OccasionBewerken.CC.cs" />
+    <Compile Include="ControlClasses\OccasionGet.CC.cs" />
+    <Compile Include="ControlClasses\OccasionsVerwijder.CC.cs" />
+    <Compile Include="ControlClasses\OccasionToevoegen.CC.cs" />
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -170,7 +171,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="ControlClasses\DeleteProduct.cs" />
     <Compile Include="Migrations\201706211212012_Version8.cs" />
     <Compile Include="Migrations\201706211212012_Version8.Designer.cs">
       <DependentUpon>201706211212012_Version8.cs</DependentUpon>
@@ -198,7 +198,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
+          <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>8496</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
