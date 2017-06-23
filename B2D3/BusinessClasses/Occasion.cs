@@ -20,13 +20,14 @@ namespace B2D3.Classes
         {
             List<Occasion> occasionList = null;
 
-            IEnumerable<Occasion> OccasionQuerry =
+            IQueryable<Occasion> OccasionQuerry =
                 from Occasion in Classes
                 where IsDeleted = isDeleted
                 select Occasion;
 
-            
-            foreach (Occasion occasion in OccasionQuerry) {
+
+            foreach (Occasion occasion in OccasionQuerry)
+            {
                 occasionList.Add(occasion);
             }
 
