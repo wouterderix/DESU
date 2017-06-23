@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using B2D3.Classes.CC;
 
 namespace B2D3
 {
@@ -11,7 +13,8 @@ namespace B2D3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            var controller = new OccasionGet();
+            Debug.WriteLine(controller.getAllOccasions());
         }
     }
 }
