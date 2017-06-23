@@ -159,7 +159,6 @@
     <Compile Include="ControlClasses\OccasionGet.CC.cs" />
     <Compile Include="ControlClasses\OccasionsVerwijder.CC.cs" />
     <Compile Include="ControlClasses\OccasionToevoegen.CC.cs" />
-    <Compile Include="ControlClasses\SearchProduct.cs" />
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -172,7 +171,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="ControlClasses\DeleteProduct.cs" />
     <Compile Include="Migrations\201706211212012_Version8.cs" />
     <Compile Include="Migrations\201706211212012_Version8.Designer.cs">
       <DependentUpon>201706211212012_Version8.cs</DependentUpon>
