@@ -132,6 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessClasses\AccountRole.cs" />
+    <Compile Include="BusinessClasses\Occasion.cs" />
     <Compile Include="Casusblok5Model.cs" />
     <Compile Include="CodeFirsClasses\AccountRole.cs" />
     <Compile Include="CodeFirsClasses\AuthorAttribute.cs" />
