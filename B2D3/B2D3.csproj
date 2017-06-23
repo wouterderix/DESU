@@ -155,6 +155,10 @@
     <Compile Include="CodeFirsClasses\User.cs" />
     <Compile Include="CodeFirsClasses\Webserver.cs" />
     <Compile Include="CodeFirsClasses\WorkItem.cs" />
+    <Compile Include="ControlClasses\OccasionBewerken.CC.cs" />
+    <Compile Include="ControlClasses\OccasionGet.CC.cs" />
+    <Compile Include="ControlClasses\OccasionsVerwijder.CC.cs" />
+    <Compile Include="ControlClasses\OccasionToevoegen.CC.cs" />
     <Compile Include="ControlClasses\SearchProduct.cs" />
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
