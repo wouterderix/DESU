@@ -8,19 +8,16 @@ namespace B2D3.Classes
 {
     public partial class Occasion
     {
-        public string test1()
+        public List<Occasion> getOccasions()
         {
-            return "test";
+            IEnumerable<Occasion> occasionList = new List<Occasion>();
+
+            using (var db = new Casusblok5Model())
+            { occasionList = db.Occasions.ToList(); }
+
+            return occasionList.ToList();
         }
-
-
-
-        public List<Occasion> getOccasion()
-        {
-            //Query getOccasion
-            return occasionList;
-        }
-
+        /*
         public Occasion getOccasion(int id)
         {
             //Query getOcassion where id = id
@@ -32,5 +29,6 @@ namespace B2D3.Classes
         {
             //Delete occasion
         }
+        */
     }
 }
