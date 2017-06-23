@@ -7,9 +7,9 @@ namespace B2D3.Classes.CC
 {
     public class OccasionGet
     {
-        Occasion o;
         public List<Occasion> getAllOccasions()
         {
+            var o = new Occasion();
             return o.getOccasions();
         }
     }
