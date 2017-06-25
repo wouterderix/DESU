@@ -10,6 +10,7 @@
     <form id="form1" runat="server">
     <div>
         Test 123
+        <asp:Button ID="BtnBewerkItems" runat="server" Text="test: Bewerk pagina" OnClick="BtnBewerkItems_Click" />
     </div>
     </form>
 </body>

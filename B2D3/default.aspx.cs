@@ -16,5 +16,10 @@ namespace B2D3
             var controller = new OccasionGet();
             Debug.WriteLine(controller.getAllOccasions());
         }
+
+        protected void BtnBewerkItems_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/UI/Occasion_Bewerken.aspx");
+        }
     }
 }
