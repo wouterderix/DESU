@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using B2D3.Classes;
+using B2D3.GlobalClasses;
 
-namespace B2D3.Classes
+namespace B2D3.DAL
 {
     public interface IStorable
     {
