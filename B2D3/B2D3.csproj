@@ -179,10 +179,10 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI\Occasion_Bewerken.aspx.cs">
+    <Content Include="UI\Occasion_Bewerken.aspx.cs">
       <DependentUpon>Occasion_Bewerken.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
