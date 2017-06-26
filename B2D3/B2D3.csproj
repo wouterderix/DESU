@@ -131,30 +131,30 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessClasses\AccountRole.cs" />
     <Compile Include="Casusblok5Model.cs" />
-    <Compile Include="Classes\AccountRole.cs" />
-    <Compile Include="Classes\AuthorAttribute.cs" />
-    <Compile Include="Classes\Category.cs" />
-    <Compile Include="Classes\Contact.cs" />
-    <Compile Include="Classes\DatabaseAccess.cs" />
-    <Compile Include="Classes\History.cs" />
-    <Compile Include="Classes\IEquivalent.cs" />
-    <Compile Include="Classes\ISearchable.cs" />
-    <Compile Include="Classes\IServable.cs" />
-    <Compile Include="Classes\IStorable.cs" />
-    <Compile Include="Classes\News.cs" />
-    <Compile Include="Classes\Occasion.cs" />
-    <Compile Include="Classes\OperationArea.cs" />
-    <Compile Include="Classes\Picture.cs" />
-    <Compile Include="Classes\Product.cs" />
-    <Compile Include="Classes\ProductQuerryModel.cs" />
-    <Compile Include="Classes\ProductReview.cs" />
-    <Compile Include="Classes\Specification.cs" />
-    <Compile Include="Classes\Supplier.cs" />
-    <Compile Include="Classes\User.cs" />
-    <Compile Include="Classes\Webserver.cs" />
-    <Compile Include="Classes\WorkItem.cs" />
-    <Compile Include="ControlClasses\GetNewsCC.cs" />
+    <Compile Include="CodeFirsClasses\AccountRole.cs" />
+    <Compile Include="CodeFirsClasses\AuthorAttribute.cs" />
+    <Compile Include="CodeFirsClasses\Category.cs" />
+    <Compile Include="CodeFirsClasses\Contact.cs" />
+    <Compile Include="CodeFirsClasses\DatabaseAccess.cs" />
+    <Compile Include="CodeFirsClasses\History.cs" />
+    <Compile Include="CodeFirsClasses\IEquivalent.cs" />
+    <Compile Include="CodeFirsClasses\ISearchable.cs" />
+    <Compile Include="CodeFirsClasses\IServable.cs" />
+    <Compile Include="CodeFirsClasses\IStorable.cs" />
+    <Compile Include="CodeFirsClasses\News.cs" />
+    <Compile Include="CodeFirsClasses\Occasion.cs" />
+    <Compile Include="CodeFirsClasses\OperationArea.cs" />
+    <Compile Include="CodeFirsClasses\Picture.cs" />
+    <Compile Include="CodeFirsClasses\Product.cs" />
+    <Compile Include="CodeFirsClasses\ProductQuerryModel.cs" />
+    <Compile Include="CodeFirsClasses\ProductReview.cs" />
+    <Compile Include="CodeFirsClasses\Specification.cs" />
+    <Compile Include="CodeFirsClasses\Supplier.cs" />
+    <Compile Include="CodeFirsClasses\User.cs" />
+    <Compile Include="CodeFirsClasses\Webserver.cs" />
+    <Compile Include="CodeFirsClasses\WorkItem.cs" />
     <Compile Include="ControlClasses\SearchProduct.cs" />
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
@@ -163,8 +163,8 @@
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Classes\Demands.cs" />
-    <Compile Include="Classes\Dimension.cs" />
+    <Compile Include="CodeFirsClasses\Demands.cs" />
+    <Compile Include="CodeFirsClasses\Dimension.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
