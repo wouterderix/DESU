@@ -154,6 +154,7 @@
     <Compile Include="Classes\User.cs" />
     <Compile Include="Classes\Webserver.cs" />
     <Compile Include="Classes\WorkItem.cs" />
+    <Compile Include="ControlClasses\GetNewsCC.cs" />
     <Compile Include="ControlClasses\SearchProduct.cs" />
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
