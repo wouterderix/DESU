@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
 using System.Linq;
@@ -37,30 +38,25 @@ namespace B2D3.Classes
 
         public void storeOccasion()
         {
-            Occasion newOccasion = new Occasion();
-
-            //Test
-            User testUser = new User();
-            // Get First User
-            using (var db = new Casusblok5Model())
-            { testUser = db.Users.First(); }
-            // Test done
-
-            newOccasion.Version = 1;
-            newOccasion.Author = testUser;
-            newOccasion.IsDeleted = false;
-            newOccasion.Title = "testdata1";
-            newOccasion.Description = "meertestdata1";
-            newOccasion.Date = System.DateTime.Now;
-            newOccasion.Location = "Sittard";
-            newOccasion.moreInformationURL = "www.testdata.nl";
-            newOccasion.IsApproved = false;
-        
+            var newOccasion = new Occasion();
             using (var db = new Casusblok5Model())
             {
                 try
                 {
+                    //Create a new Occassion
+                    newOccasion.Version = 1;
+                    newOccasion.Author = db.Users.Include(b => b.AccountRole).FirstOrDefault();
+                    newOccasion.IsDeleted = false;
+                    newOccasion.Title = "testdata2";
+                    newOccasion.Description = "meertestdata2";
+                    newOccasion.Date = System.DateTime.Now;
+                    newOccasion.Location = "Sittard";
+                    newOccasion.moreInformationURL = "www.testdata.nl";
+                    newOccasion.IsApproved = false;
+
+                    //Add newOccasion to Occasions
                     db.Occasions.Add(newOccasion);
+                    //SaveChanges to database
                     db.SaveChanges();
                 }
                 catch (DbEntityValidationException e)
