@@ -176,7 +176,6 @@ namespace B2D3.Classes.CC
 
         public void ConvertData(string Name, string Description, List<string> Operations, string Category, string Specifications, string Length, string Width, string Height, string Weight, string Requirements, string Price, string Compensation, string Image_1, string Video, string Availability, string UserManual)
         {
-            int ID = CP.GenerateID();                                          //ID
             int Version = 1;                                                //Version
             string ProductName = Name;                                      //Name
             string ProductDescription = Description;                        //Description
