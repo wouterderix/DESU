@@ -62,9 +62,5 @@ namespace B2D3.DAL
 
             return products;
         }
-        public override void Delete(params object[] primaryKeys)
-        {
-
-        }
     }
 }
