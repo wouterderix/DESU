@@ -36,7 +36,7 @@ namespace B2D3.Classes
             return occasionList.ToList();
         }
 
-        public void storeOccasion()
+        public void storeOccasion(string title, string desription, System.DateTime date, string location, string url, bool deleted = false, bool approved = false, int version = 1)
         {
             var newOccasion = new Occasion();
             using (var db = new Casusblok5Model())
@@ -44,15 +44,15 @@ namespace B2D3.Classes
                 try
                 {
                     //Create a new Occassion
-                    newOccasion.Version = 1;
+                    newOccasion.Version = version;
                     newOccasion.Author = db.Users.Include(b => b.AccountRole).FirstOrDefault();
-                    newOccasion.IsDeleted = false;
-                    newOccasion.Title = "testdata2";
-                    newOccasion.Description = "meertestdata2";
-                    newOccasion.Date = System.DateTime.Now;
-                    newOccasion.Location = "Sittard";
-                    newOccasion.moreInformationURL = "www.testdata.nl";
-                    newOccasion.IsApproved = false;
+                    newOccasion.IsDeleted = deleted;
+                    newOccasion.Title = title;
+                    newOccasion.Description = desription;
+                    newOccasion.Date = date;
+                    newOccasion.Location = location;
+                    newOccasion.moreInformationURL = url;
+                    newOccasion.IsApproved = IsApproved;
 
                     //Add newOccasion to Occasions
                     db.Occasions.Add(newOccasion);

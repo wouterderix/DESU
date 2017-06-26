@@ -9,8 +9,11 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        Test 123
-        <asp:Button ID="BtnBewerkItems" runat="server" Text="test: Bewerk pagina" OnClick="BtnBewerkItems_Click" />
+        &nbsp;<asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="Usecases Evenementen"></asp:Label>
+        <br />
+        <asp:Button ID="btn_allEvents" runat="server" Height="26px" OnClick="btn_allEvents_Click1" Text="Evenementen Overzicht" Width="157px" />
+        <asp:Button ID="btn_newEvent" runat="server" Height="26px" OnClick="btn_newEvent_Click" Text="Nieuw Evenement" Width="157px" />
+        <asp:Button ID="BtnBewerkItems" runat="server" Text="Bewerk Evenementen" Height="26px" OnClick="BtnBewerkItems_Click" Width="157px" />
     </div>
     </form>
 </body>
