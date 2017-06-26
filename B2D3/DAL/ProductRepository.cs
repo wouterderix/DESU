@@ -16,7 +16,7 @@ namespace B2D3.DAL
             
         }
 
-        public IQueryable<Product> FilterProducts(Expression<Func<Product, bool>> filter)
+        public IEnumerable<Product> FilterProducts(Expression<Func<Product, bool>> filter)
         {
             //Retrieve all latest versions.
             IQueryable<Product> latestProducts = GetAllLatest();
@@ -24,9 +24,9 @@ namespace B2D3.DAL
             //Apply filter and return.
             return filter != null ? latestProducts.Where(filter) : latestProducts;
         }
-        public IQueryable<Product> FilterProducts(ProductQuerryModel searchInstructions)
+        public IEnumerable<Product> FilterProducts(ProductQuerryModel searchInstructions)
         {
-            IQueryable<Product> products = GetAllLatest();
+            IEnumerable<Product> products = GetAllLatestBad();
 
             //Filter ID
             if (searchInstructions.ID.HasValue)
