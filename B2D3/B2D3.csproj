@@ -126,6 +126,7 @@
   <ItemGroup>
     <Content Include="default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="UI\ProductToevoegen.aspx" />
     <Content Include="UI\DeleteProductTest.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -133,6 +134,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessClasses\AccountRole.cs" />
+    <Compile Include="BusinessClasses\CreateProduct.cs" />
     <Compile Include="BusinessClasses\DeleteProductBC.cs" />
     <Compile Include="BusinessClasses\SearchProductBC.cs" />
     <Compile Include="Casusblok5Model.cs" />
@@ -158,6 +160,7 @@
     <Compile Include="CodeFirsClasses\User.cs" />
     <Compile Include="CodeFirsClasses\Webserver.cs" />
     <Compile Include="CodeFirsClasses\WorkItem.cs" />
+    <Compile Include="ControlClasses\ControlProductData.cs" />
     <Compile Include="ControlClasses\SearchProduct.cs" />
     <Compile Include="ControlClasses\SearchProductCC.cs" />
     <Compile Include="DataAccesLayer\DeleteProductDAL.cs" />
@@ -179,6 +182,13 @@
       <DependentUpon>201706211212012_Version8.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="UI\ProductToevoegen.aspx.cs">
+      <DependentUpon>ProductToevoegen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ProductToevoegen.aspx.designer.cs">
+      <DependentUpon>ProductToevoegen.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\DeleteProductTest.aspx.cs">
       <DependentUpon>DeleteProductTest.aspx</DependentUpon>
