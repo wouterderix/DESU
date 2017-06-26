@@ -11,7 +11,7 @@ namespace B2D3.Classes.CC
         public List<Occasion> getAllOccasions()
         {
             var o = new Occasion();
-            var ocassions = o.getOccasions(true);
+            var ocassions = o.getOccasions(true, true);
          
             /* For testing purpose only
             foreach(Occasion ocassion in ocassions)
@@ -19,7 +19,7 @@ namespace B2D3.Classes.CC
                 Debug.WriteLine(ocassion.Description);
             }
             */
-            return o.getOccasions(true);
+            return o.getOccasions(true, true);
         }
     }
 }

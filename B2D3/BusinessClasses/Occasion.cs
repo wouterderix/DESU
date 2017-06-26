@@ -8,8 +8,7 @@ namespace B2D3.Classes
 {
     public partial class Occasion
     {
-        DateTime currentDateTime = DateTime.Now;
-        public List<Occasion> getOccasions(bool showPassedEvents)
+        public List<Occasion> getOccasions(bool showPassedEvents, bool isApproved)
         {
             IEnumerable<Occasion> occasionList = new List<Occasion>();
 
@@ -23,6 +22,12 @@ namespace B2D3.Classes
             if (showPassedEvents == false)
             {
                 occasionList = occasionList.Where(o => Date >= DateTime.Now.Date);
+            }if(isApproved == true)
+            {
+                occasionList = occasionList.Where(o => IsApproved == true);
+            }else if(isApproved == false)
+            {
+                occasionList = occasionList.Where(o => IsApproved == false);
             }
 
             return occasionList.ToList();
