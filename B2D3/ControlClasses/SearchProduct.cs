@@ -83,51 +83,44 @@ namespace B2D3.ControlClasses
 
         private static DataTable ExecuteProductQuerry(ProductQuerryModel productQuerry)
         {
-            //DataTable dt = new DataTable();
-            //for (int i = 0; i < numbers.GetLength(1); i++)
+
+            //option 1, from: https://stackoverflow.com/questions/564366/convert-generic-list-enumerable-to-datatable 
+            //requires you to install FastMember from NuGet
+            //DataTable table = new DataTable();
+            //using (var reader = ObjectReader.Create(Webserver.Instance.SearchProducts(productQuerry)))
             //{
-            //    dt.Columns.Add("Column" + (i + 1));
+            //    table.Load(reader);
             //}
 
-            //for (var i = 0; i < numbers.GetLength(0); ++i)
+            //return table;
+
+
+            //option 2, from: https://stackoverflow.com/questions/18100783/how-to-convert-a-list-into-data-table
+            //List<Product> products = Webserver.Instance.SearchProducts(productQuerry);
+            //DataTable dataTable = new DataTable(typeof(Product).Name);
+            //PropertyInfo[] Props = typeof(Product).GetProperties(BindingFlags.Public | BindingFlags.Instance);
+
+            //foreach (PropertyInfo prop in Props)
             //{
-            //    DataRow row = dt.NewRow();
-            //    for (var j = 0; j < numbers.GetLength(1); ++j)
+            //    //Defining type of data column gives proper data table 
+            //    var type = (prop.PropertyType.IsGenericType && prop.PropertyType.GetGenericTypeDefinition() == typeof(Nullable<>) ? Nullable.GetUnderlyingType(prop.PropertyType) : prop.PropertyType);
+            //    //Setting column names as Property names
+            //    dataTable.Columns.Add(prop.Name, type);
+            //}
+            //foreach (Product p in products)
+            //{
+            //    var values = new object[Props.Length];
+            //    for (int i = 0; i < Props.Length; i++)
             //    {
-            //        row[j] = numbers[i, j];
+            //        //inserting property values to datatable rows
+            //        values[i] = Props[i].GetValue(p, null);
             //    }
-            //    dt.Rows.Add(row);
+            //    dataTable.Rows.Add(values);
             //}
-            //return dt;
-            //return Webserver.Instance.SearchProducts(productQuerry);
+            ////put a breakpoint here and check datatable
+            //return dataTable;
 
-            List<Product> products = Webserver.Instance.SearchProducts(productQuerry);
-
-            DataTable dataTable = new DataTable(typeof(Product).Name);
-
-            PropertyInfo[] Props = typeof(Product).GetProperties(BindingFlags.Public | BindingFlags.Instance);
-
-            foreach (PropertyInfo prop in Props)
-            {
-                //Defining type of data column gives proper data table 
-                var type = (prop.PropertyType.IsGenericType && prop.PropertyType.GetGenericTypeDefinition() == typeof(Nullable<>) ? Nullable.GetUnderlyingType(prop.PropertyType) : prop.PropertyType);
-                //Setting column names as Property names
-                dataTable.Columns.Add(prop.Name, type);
-            }
-            foreach (Product p in products)
-            {
-                var values = new object[Props.Length];
-                for (int i = 0; i < Props.Length; i++)
-                {
-                    //inserting property values to datatable rows
-                    values[i] = Props[i].GetValue(p, null);
-                }
-                dataTable.Rows.Add(values);
-            }
-            //put a breakpoint here and check datatable
-            return dataTable;
-
-            //throw new NotImplementedException("Finish me");
+            throw new NotImplementedException("Finish me");
         }
 
     }
