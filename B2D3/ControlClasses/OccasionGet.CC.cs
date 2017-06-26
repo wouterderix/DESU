@@ -8,6 +8,8 @@ namespace B2D3.Classes.CC
 {
     public class OccasionGet
     {
+
+
         public List<Occasion> getAllOccasions()
         {
             var o = new Occasion();

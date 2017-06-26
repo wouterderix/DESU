@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-
 namespace B2D3.Classes
 {
+    [Author("Kay Karssing, Jeroen Boesten, Robin Klein", "Occasions.BC", Version = 1.1f)]
     public partial class Occasion
     {
         public List<Occasion> getOccasions(bool showPassedEvents, bool isApproved)
@@ -22,7 +22,7 @@ namespace B2D3.Classes
             if (showPassedEvents == false)
             {
                 occasionList = occasionList.Where(o => Date >= DateTime.Now.Date);
-            }if(isApproved == true)
+            }else if(isApproved == true)
             {
                 occasionList = occasionList.Where(o => IsApproved == true);
             }else if(isApproved == false)
