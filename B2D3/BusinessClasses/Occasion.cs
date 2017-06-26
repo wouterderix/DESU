@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 
@@ -31,6 +33,51 @@ namespace B2D3.Classes
             }
 
             return occasionList.ToList();
+        }
+
+        public void storeOccasion()
+        {
+            Occasion newOccasion = new Occasion();
+
+            //Test
+            User testUser = new User();
+            // Get First User
+            using (var db = new Casusblok5Model())
+            { testUser = db.Users.First(); }
+            // Test done
+
+            newOccasion.Version = 1;
+            newOccasion.Author = testUser;
+            newOccasion.IsDeleted = false;
+            newOccasion.Title = "testdata1";
+            newOccasion.Description = "meertestdata1";
+            newOccasion.Date = System.DateTime.Now;
+            newOccasion.Location = "Sittard";
+            newOccasion.moreInformationURL = "www.testdata.nl";
+            newOccasion.IsApproved = false;
+        
+            using (var db = new Casusblok5Model())
+            {
+                try
+                {
+                    db.Occasions.Add(newOccasion);
+                    db.SaveChanges();
+                }
+                catch (DbEntityValidationException e)
+                {
+                    foreach (var eve in e.EntityValidationErrors)
+                    {
+                        Debug.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                            eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                        foreach (var ve in eve.ValidationErrors)
+                        {
+                            Debug.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                                ve.PropertyName, ve.ErrorMessage);
+                        }
+                    }
+                    throw;
+                }
+            }
         }
 
         /*
