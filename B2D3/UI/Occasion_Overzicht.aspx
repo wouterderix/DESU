@@ -24,9 +24,11 @@
             <SortedDescendingHeaderStyle BackColor="#383838" />
 
             <Columns>
-                <asp:BoundField DataField="HistoryID" HeaderText="HistoryID" />
                 <asp:BoundField DataField="Title" HeaderText="Titel" />
                 <asp:BoundField DataField="Description" HeaderText="Beschrijving" />
+                <asp:BoundField DataField="Date" HeaderText="Datum" />
+                <asp:BoundField DataField="Location" HeaderText="Plaats" />
+                <asp:BoundField DataField="MoreInformationUrl" HeaderText="Meer Informatie" />
             </Columns>
         </asp:GridView>
         
