@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
+using B2D3.Classes;
+using B2D3.GlobalClasses;
 
-namespace B2D3.Classes
+namespace B2D3.DAL
 {
     public class DatabaseAccess : IStorable
     {
@@ -103,7 +105,17 @@ namespace B2D3.Classes
             IEnumerable<Product> products = new List<Product>();
 
             using (var db = new Casusblok5Model())
-            { products = db.Products.ToList(); }
+            {
+
+                var result = db.Products.GroupBy(p => p.HistoryID).Select(group => new { prod = group.OrderByDescending(p => p.Version).ElementAtOrDefault(0) });
+
+                foreach(var prod in result)
+                {
+                    var producterino = prod.prod;
+                }
+                return products.ToList();
+            }
+
 
                 //Gets the latest version of every product.
                 products = products.GroupBy(p => p.HistoryID)
