@@ -13,6 +13,5 @@ namespace B2D3.Classes
         {
             
         }
-        
     }
 }
