@@ -11,7 +11,7 @@ namespace B2D3.Classes
     [Author("Kay Karssing, Jeroen Boesten, Robin Klein", "Occasions.BC", Version = 1.1f)]
     public partial class Occasion
     {
-        public List<Occasion> getOccasions(bool showPassedEvents, bool isApproved, bool isDeleted = false)
+        public List<Occasion> getOccasions(bool showPassedEvents, bool isApproved)
         {
             IEnumerable<Occasion> occasionList = new List<Occasion>();
 
