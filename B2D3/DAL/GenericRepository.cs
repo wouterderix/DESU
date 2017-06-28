@@ -8,7 +8,7 @@ using B2D3.DAL;
 
 namespace B2D3.DAL
 {
-    public abstract class GenericRepository<T> : IGenericRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         private bool _isDisposed;
         protected DbContext Context

@@ -7,7 +7,7 @@ namespace B2D3.DAL
 {
     public interface IVersionRepository<T> where T : Classes.History
     {
-        IQueryable<T> GetAllLatest();
+        IEnumerable<T> GetAllLatest();
         T FindLatestByID(int historyID);
     }
 }

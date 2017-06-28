@@ -7,7 +7,7 @@ using B2D3.Classes;
 
 namespace B2D3.DAL
 {
-    public abstract class VersionRepository<T> : GenericRepository<T>, IVersionRepository<T> where T : History
+    public class VersionRepository<T> : GenericRepository<T>, IVersionRepository<T> where T : History
     {
         public VersionRepository(DbContext context) : base(context)
         { }
@@ -16,7 +16,7 @@ namespace B2D3.DAL
         { return DbSet.Where(x => x.HistoryID == historyID).OrderByDescending(x => x.Version).FirstOrDefault(); }
 
         [Obsolete("Throws an SQL error. Avoid unless you can fix!", false)]
-        public virtual IQueryable<T> GetAllLatest()
+        public virtual IEnumerable<T> GetAllLatest()
         {
             return DbSet.GroupBy(p => p.HistoryID)
                     .Select(v => v.OrderByDescending(p => p.Version).FirstOrDefault());
