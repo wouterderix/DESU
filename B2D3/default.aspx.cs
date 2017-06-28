@@ -21,9 +21,6 @@ namespace B2D3
 
         protected void BtnBewerkItems_Click(object sender, EventArgs e)
         {
-            var o = new OccasionBewerken();
-            o.DoorgeefID(1);
-
             Response.Redirect("/UI/Occasion_Bewerken.aspx");
         }
 
