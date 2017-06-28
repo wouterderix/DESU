@@ -24,5 +24,12 @@ namespace B2D3.Classes.UI
             //cancel the operation and return to main page
             Response.Redirect("~/default.aspx");
         }
+
+        protected void AllOccasionsView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow row = AllOccasionsView.SelectedRow;
+            string historyID = AllOccasionsView.SelectedDataKey.Value.ToString();
+            Response.Redirect("/UI/Occasion_Bewerken.aspx?HistoryID="+historyID);
+        }
     }
 }

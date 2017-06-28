@@ -18,7 +18,7 @@ namespace B2D3.Classes
             // Get all Occasions
             using (var db = new Casusblok5Model())
             {
-                occasionList = db.Occasions.ToList();
+                occasionList = db.Occasions.ToList(); 
             }
             // Group by historyID and get the latest version
             occasionList = occasionList.GroupBy(o => o.HistoryID)
