@@ -19,11 +19,6 @@ namespace B2D3
             
         }
 
-        protected void BtnBewerkItems_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("/UI/Occasion_Bewerken.aspx");
-        }
-
         protected void btn_newEvent_Click(object sender, EventArgs e)
         {
             Response.Redirect("/UI/Occasion_Toevoegen.aspx");

@@ -26,7 +26,7 @@
         <asp:TextBox ID="TBDatum" runat="server" Height="16px" Width="184px" TextMode="Date"></asp:TextBox>
         <br />
         informatie url&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="TBUrl" runat="server" Height="16px" Width="184px" TextMode="Url"></asp:TextBox>
+        <asp:TextBox ID="TBUrl" runat="server" Height="16px" Width="184px"></asp:TextBox>
         <br />
         <br />
         <asp:Button ID="btnBewerk" runat="server" Height="50px" Text="Bewerk" Width="160px" OnClick="btnBewerk_Click" />

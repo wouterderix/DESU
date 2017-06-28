@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using B2D3.Classes.CC;
+using System.Diagnostics;
 
 namespace B2D3.Classes.UI
 {
@@ -26,12 +27,14 @@ namespace B2D3.Classes.UI
             /*int history = Int32.Parse(o.Doorgeefinfo[0]);
             int version = Int32.Parse(o.Doorgeefinfo[1]);
             string title = o.Doorgeefinfo[2];*/
-            int history=3;
-            int version=1;
-            string title="Name1";
+           
+            int history = Convert.ToInt32(Request.QueryString["HistoryID"]);
+            //return to default if no history id is given
+            if (history == 0)
+            { Response.Redirect("/default.aspx"); }
 
-            Occasion occasion = o.getOccasion(history, version, title);
-
+            Occasion occasion = o.getOccasion(history);
+            
             EventTitel.Text = occasion.Title;
             TBTitle.Text = occasion.Title;
             TBBeschrijving.Text = occasion.Description;
@@ -55,10 +58,11 @@ namespace B2D3.Classes.UI
             System.DateTime date = Convert.ToDateTime(TBDatum.Text);
             string location = TBPlaats.Text;
             string moreInformationURL = TBUrl.Text;
+            Debug.WriteLine(history + version + title + description + date + location + moreInformationURL);
 
             var o = new OccasionBewerken();
             if (o.occasionBewerken(history, version, title, description, date, location, moreInformationURL)){
-                Console.WriteLine("occasion bewerkt");
+                Debug.WriteLine("occasion bewerkt");
                 Response.Redirect("/default.aspx");
             } else
             {
@@ -70,7 +74,10 @@ namespace B2D3.Classes.UI
         protected void btnVerwijderen_Click(object sender, EventArgs e)
         {
             //delete the current event ( isDeleted = 1 )
-
+            int history = Convert.ToInt32(Request.QueryString["HistoryID"]);
+            var o = new OccasionsVerwijder();
+            o.verwijderOccasion(history);
+            Response.Redirect("~/default.aspx");
         }
         protected void btnCancel_Click(object sender, EventArgs e)
         {

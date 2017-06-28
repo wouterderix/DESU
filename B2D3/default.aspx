@@ -13,7 +13,6 @@
         <br />
         <asp:Button ID="btn_allEvents" runat="server" Height="26px" OnClick="btn_allEvents_Click1" Text="Evenementen Overzicht" Width="157px" />
         <asp:Button ID="btn_newEvent" runat="server" Height="26px" OnClick="btn_newEvent_Click" Text="Nieuw Evenement" Width="157px" />
-        <asp:Button ID="BtnBewerkItems" runat="server" Text="Bewerk Evenementen" Height="26px" OnClick="BtnBewerkItems_Click" Width="157px" />
     </div>
     </form>
 </body>
