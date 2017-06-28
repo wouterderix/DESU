@@ -26,7 +26,9 @@ namespace B2D3.Classes.UI
         {
             if (DeleteProductControlClass.PassAlongProducts(TextBoxDelete.Text))
             {
-                //noError fornowdonothing
+                //noError
+                ButtonConfirm.Enabled = true; LableConfirm.Enabled = true;
+                ButtonConfirm.Visible = true; LableConfirm.Visible = true;
             }
 
             else
@@ -42,6 +44,13 @@ namespace B2D3.Classes.UI
             TextBoxDelete.Text = "";
             ButtonError.Enabled = false; LableError.Enabled = false;
             ButtonError.Visible = false; LableError.Visible = false;
+        }
+
+        protected void confirmBtn_click(object sender, EventArgs e)
+        {
+            TextBoxDelete.Text = "";
+            ButtonConfirm.Enabled = false; LableConfirm.Enabled = false;
+            ButtonConfirm.Visible = false; LableConfirm.Visible = false;
         }
     }
 }
