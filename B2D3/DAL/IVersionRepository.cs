@@ -9,5 +9,7 @@ namespace B2D3.DAL
     {
         IEnumerable<T> GetAllLatest();
         T FindLatestByID(int historyID);
+        Tid GetNextID<Tid>() where Tid : struct;
+        Tid GetNextVersion<Tid>(T history) where Tid : struct;
     }
 }

@@ -15,7 +15,7 @@ namespace B2D3.Classes
         private DateTime _logDate;
         private bool _isDeleted;
 
-        [Key, Column(Order =0), DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key, Column(Order =0), DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int HistoryID
         {
             get
