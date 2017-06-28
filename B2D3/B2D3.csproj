@@ -132,6 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessClasses\AccountRole.cs" />
+    <Compile Include="BusinessClasses\News.cs" />
     <Compile Include="Casusblok5Model.cs" />
     <Compile Include="CodeFirsClasses\AccountRole.cs" />
     <Compile Include="CodeFirsClasses\AuthorAttribute.cs" />
@@ -155,6 +156,7 @@
     <Compile Include="CodeFirsClasses\User.cs" />
     <Compile Include="CodeFirsClasses\Webserver.cs" />
     <Compile Include="CodeFirsClasses\WorkItem.cs" />
+    <Compile Include="ControlClasses\News.cs" />
     <Compile Include="ControlClasses\SearchProduct.cs" />
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>

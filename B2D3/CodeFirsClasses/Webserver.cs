@@ -66,12 +66,12 @@ namespace B2D3.Classes
 
         public List<News> GetNews()
         {
-            throw new NotImplementedException();
+            return _databaseAccess.GetNews();
         }
 
-        public List<News> GetNewsArticle(int newsID)
+        public News GetNewsArticle(int newsID)
         {
-            throw new NotImplementedException();
+            return _databaseAccess.GetNewsArticle(newsID);
         }
 
         public void AddNews(string title, string content, string image)

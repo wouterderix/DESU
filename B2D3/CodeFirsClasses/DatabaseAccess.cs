@@ -79,12 +79,26 @@ namespace B2D3.Classes
 
         public List<News> GetNews()
         {
-            throw new NotImplementedException();
+            using (var db = new Casusblok5Model())
+            {
+                var getNews = (from n in db.News
+                               orderby n.HistoryID descending
+                               select n).ToList<News>();
+
+                return getNews;
+            }
         }
 
-        public List<News> GetNewsArticle(int newsID)
+        public News GetNewsArticle(int newsID)
         {
-            throw new NotImplementedException();
+            using (var db = new Casusblok5Model())
+            {
+                var getNewsArticle = (from n in db.News
+                                      where n.HistoryID == newsID
+                                      select n).FirstOrDefault<News>();
+
+                return getNewsArticle;
+            }
         }
 
         public Occasion[] GetOccasions(bool showPassedEvents)
