@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
 using System.Linq;
@@ -26,16 +28,32 @@ namespace B2D3.Domain
 
                 if (products != null)
                 {
+                    products.Dimension = db.Dimension.FirstOrDefault();
+                    products.Author = db.Users.Include(b => b.AccountRole).FirstOrDefault(); 
                     products.IsDeleted = true;
 
                     try
                     {
                         db.SaveChanges();
                     }
-
-                    catch (Exception exception)
+                    catch (DbEntityValidationException ex)
                     {
-                        throw exception;
+                        foreach (DbEntityValidationResult item in ex.EntityValidationErrors)
+                        {
+                            // Get entry
+
+                            DbEntityEntry entry = item.Entry;
+                            string entityTypeName = entry.Entity.GetType().Name;
+
+                            // Display or log error messages
+
+                            foreach (DbValidationError subItem in item.ValidationErrors)
+                            {
+                                string message = string.Format("Error '{0}' occurred in {1} at {2}",
+                                         subItem.ErrorMessage, entityTypeName, subItem.PropertyName);
+                                Debug.WriteLine(message);
+                            }
+                        }
                     }
 
                     return true;
