@@ -11,8 +11,7 @@ namespace B2D3.Classes
         private Dictionary<int, OperationArea> _operationAreaDict;
         private Dictionary<int, Category> _categoryDict;
         private Dictionary<int, AccountRole> _accountRoleDict;
-
-
+        
         public DatabaseAccess()
         {
             _operationAreaDict = new Dictionary<int, OperationArea>();
