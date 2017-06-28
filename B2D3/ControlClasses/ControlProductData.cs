@@ -9,7 +9,7 @@ namespace B2D3.Classes.CC
 {
     public class ControlProductDataCC
     {
-        CreateProduct CP;
+        CreateProduct CP = new CreateProduct();
 
         public List<bool> ControlData(string Name, string Description, List<string> Operations, string Specifications, string Length, string Width, string Height, string Weight, string Requirements, string Price, string Image_1, string Video, string Availability, string UserManual)
         {
