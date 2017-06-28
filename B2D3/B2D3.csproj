@@ -160,12 +160,10 @@
     <Compile Include="CodeFirsClasses\User.cs" />
     <Compile Include="BusinessClasses\Webserver.cs" />
     <Compile Include="CodeFirsClasses\WorkItem.cs" />
-<<<<<<< HEAD
     <Compile Include="ControlClasses\OccasionBewerken.CC.cs" />
     <Compile Include="ControlClasses\OccasionGet.CC.cs" />
     <Compile Include="ControlClasses\OccasionsVerwijder.CC.cs" />
     <Compile Include="ControlClasses\OccasionToevoegen.CC.cs" />
-=======
     <Compile Include="ControlClasses\SearchProduct.cs" />
     <Compile Include="DAL\GenericRepository.cs" />
     <Compile Include="DAL\IGenericRepository.cs" />
@@ -173,7 +171,6 @@
     <Compile Include="GlobalClasses\PredicateBuilder.cs" />
     <Compile Include="DAL\ProductRepository.cs" />
     <Compile Include="DAL\VersionRepository.cs" />
->>>>>>> refs/remotes/origin/master
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
