@@ -76,18 +76,32 @@ namespace B2D3.Classes
             }
         }
 
-        /*
-        public Occasion getOccasion(int id)
+        public Occasion getOccasion(/*int history, int version,*/ string title)
         {
-            //Query getOcassion where id = id
-            //ocassion = blabla;
-            return occasion;
+            using (var db = new Casusblok5Model())
+            {
+                return (from o in db.Occasions
+                        where o.Title == title //&& o.Version == version && o.HistoryID==history
+                        select o).FirstOrDefault();
+            }
         }
 
-        public void deleteOccasion()
+        public bool verwijderOccasion(/*int history, int version,*/ string title)
         {
-            //Delete occasion
+            //Query getOcassion where id = id && version = version
+            using (var db = new Casusblok5Model())
+            {
+                var results = getOccasion(title);
+
+                if (results != null)
+                {
+                    results.IsDeleted = true;
+                    db.SaveChanges();
+                    return true;
+                }
+
+                else return false; 
+            }
         }
-        */
     }
 }
