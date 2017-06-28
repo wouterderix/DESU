@@ -7,11 +7,12 @@ namespace B2D3.Classes.CC
 {
     public class OccasionBewerken
     {
-        public bool occasionBewerken(int history, int version, string title, string description, System.DateTime date, string location, string url)
+        public bool occasionBewerken(Occasion oldOccasion, string title, string description, System.DateTime date, string location, string url)
         {
             var o = new Occasion();
-            o.verwijderOccasion(history);
-            o.storeOccasion(title, description, date, location, url, false, false, ++version);
+            //o.storeOccasion(title, description, date, location, url, false, false, ++version);
+            o.storeOccasion(oldOccasion, title, description, date, location, url);
+            o.verwijderOccasion(oldOccasion.HistoryID);
             return true;
         }     
     }

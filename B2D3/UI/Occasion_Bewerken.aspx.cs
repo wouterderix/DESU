@@ -17,51 +17,60 @@ namespace B2D3.Classes.UI
         /// user gets page with current information of event, can edit and commit to database
         /// also used to EventToevoegen
         /// </summary>
-        
+        Occasion oldOccasion;
         protected void Page_Load(object sender, EventArgs e)
         {
             //get event information when page gets loaded
-
-
             var o = new OccasionGet();
-            /*int history = Int32.Parse(o.Doorgeefinfo[0]);
-            int version = Int32.Parse(o.Doorgeefinfo[1]);
-            string title = o.Doorgeefinfo[2];*/
-           
-            int history = Convert.ToInt32(Request.QueryString["HistoryID"]);
-            //return to default if no history id is given
-            if (history == 0)
-            { Response.Redirect("/default.aspx"); }
+            //Check if there is a valid HistoryID
+            if(Request.QueryString["HistoryID"] != "" && Request.QueryString["HistoryID"] != null)
+            {
+                //Get Occasion by HistoryID from link
+                int history = Convert.ToInt32(Request.QueryString["HistoryID"]);
+                oldOccasion = o.getOccasion(history);
 
-            Occasion occasion = o.getOccasion(history);
-            
-            EventTitel.Text = occasion.Title;
-            TBTitle.Text = occasion.Title;
-            TBBeschrijving.Text = occasion.Description;
-            System.DateTime datetime = occasion.Date;
-            TBDatum.Text = datetime.ToString("yyyy-MM-dd");
-            TBPlaats.Text = occasion.Location;
-            TBUrl.Text = occasion.MoreInformationURL;
+
+                EventTitel.Text = oldOccasion.Title;
+                //Check if the load request is not a Postback(button click event)
+                if (!IsPostBack)
+                {
+                    //Fill the textboxes
+                    TBTitle.Text = oldOccasion.Title;
+                    TBBeschrijving.Text = oldOccasion.Description;
+                    System.DateTime datetime = oldOccasion.Date;
+                    TBDatum.Text = datetime.ToString("yyyy-MM-dd");
+                    TBPlaats.Text = oldOccasion.Location;
+                    TBUrl.Text = oldOccasion.MoreInformationURL;
+                }
+            }
+            else
+            {
+                //return to default if no history id is given
+                Response.Redirect("/default.aspx");
+            }    
+
         }
 
         protected void btnBewerk_Click(object sender, EventArgs e)
         {
-            //edit the currently loaded event
+            /*edit the currently loaded event
             var oGet = new OccasionGet();
             /*int history = Int32.Parse(oGet.Doorgeefinfo[0]);
             int version = Int32.Parse(oGet.Doorgeefinfo[1]);
-            string title = oGet.Doorgeefinfo[2];*/
+            string title = oGet.Doorgeefinfo[2];
             int history = 3;
             int version = 1;
+            */
+            //Extract the data from the TextBoxes
             string title = TBTitle.Text;
             string description = TBBeschrijving.Text;
             System.DateTime date = Convert.ToDateTime(TBDatum.Text);
             string location = TBPlaats.Text;
             string moreInformationURL = TBUrl.Text;
-            Debug.WriteLine(history + version + title + description + date + location + moreInformationURL);
 
             var o = new OccasionBewerken();
-            if (o.occasionBewerken(history, version, title, description, date, location, moreInformationURL)){
+            //Edit occasion and pass along the oldOccasion
+            if (o.occasionBewerken(oldOccasion, title, description, date, location, moreInformationURL)){
                 Debug.WriteLine("occasion bewerkt");
                 Response.Redirect("/default.aspx");
             } else
@@ -71,6 +80,7 @@ namespace B2D3.Classes.UI
             }
 
         }
+
         protected void btnVerwijderen_Click(object sender, EventArgs e)
         {
             //delete the current event ( isDeleted = 1 )
@@ -79,6 +89,7 @@ namespace B2D3.Classes.UI
             o.verwijderOccasion(history);
             Response.Redirect("~/default.aspx");
         }
+
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             //cancel the operation and return to main page

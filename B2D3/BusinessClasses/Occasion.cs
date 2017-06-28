@@ -78,6 +78,46 @@ namespace B2D3.Classes
             }
         }
 
+        public void storeOccasion(Occasion oldOccasion, string title, string desription, System.DateTime date, string location, string url, bool deleted = false, bool approved = false, int version = 1)
+        {
+
+            using (var db = new Casusblok5Model())
+            {
+                try
+                {
+                    //Create a new Occassion
+                    var Author = db.Users.Include(b => b.AccountRole).FirstOrDefault();
+                    var newOccasion = new Occasion(oldOccasion, Author, false);
+                    newOccasion.IsDeleted = deleted;
+                    newOccasion.Title = title;
+                    newOccasion.Description = desription;
+                    newOccasion.Date = date;
+                    newOccasion.Location = location;
+                    newOccasion.moreInformationURL = url;
+                    newOccasion.IsApproved = IsApproved;
+
+                    //Add newOccasion to Occasions
+                    db.Occasions.Add(newOccasion);
+                    //SaveChanges to database
+                    db.SaveChanges();
+                }
+                catch (DbEntityValidationException e)
+                {
+                    foreach (var eve in e.EntityValidationErrors)
+                    {
+                        Debug.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                            eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                        foreach (var ve in eve.ValidationErrors)
+                        {
+                            Debug.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                                ve.PropertyName, ve.ErrorMessage);
+                        }
+                    }
+                    throw;
+                }
+            }
+        }
+
         public Occasion getOccasion(int history)
         {
             using (var db = new Casusblok5Model())
