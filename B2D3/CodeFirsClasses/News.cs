@@ -67,5 +67,15 @@ namespace B2D3.Classes
         {
             throw new NotImplementedException();
         }
+
+        public News() { }
+
+        public List<News> Getnews()
+        {
+            using (Casusblok5Model db = new Casusblok5Model())
+            {
+                return db.News.ToList();
+            }
+        }
     }
 }
