@@ -27,13 +27,13 @@ namespace B2D3.Classes
                 {
                     foreach (KeyValuePair<String, object> kvp in dict)
                     {
-                        dt.Columns.Add(kvp.Key);    
+                        dt.Columns.Add(kvp.Key);
                     }
                 }
                 DataRow dr = dt.NewRow();
                 foreach (KeyValuePair<String, object> kvp in dict)
                 {
-                    dr[kvp.Key] = kvp.Value;        
+                    dr[kvp.Key] = kvp.Value;
                 }
 
                 dt.Rows.Add(dr);

@@ -20,7 +20,7 @@ namespace B2D3.Classes
 
         List<News> GetNews();
 
-        List<News> GetNewsArticle(int newsID);
+        News GetNewsArticle(int newsID);
 
         void AddNews(string title, string content, string image);
 
