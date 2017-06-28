@@ -56,7 +56,11 @@ namespace B2D3
             ControleFeedback(ControlResults);
             if (ControleBool == true)
             {
-                Controle.ConvertData(Name, Description, OperationAreas, Category, Specifications, Length, Width, Height, Weight, Requirements, Price, Compensation, Image_1, Video, Availability, UserManual);
+                string Success = Controle.ConvertData(Name, Description, OperationAreas, Category, Specifications, Length, Width, Height, Weight, Requirements, Price, Compensation, Image_1, Video, Availability, UserManual);
+                if (Success == "Product Toegevoegd")
+                {
+                    Result.Visible = true;
+                }
             }
         }
 
