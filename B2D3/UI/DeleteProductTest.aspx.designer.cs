@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace B2D3.UI {
+namespace B2D3.Classes.UI {
     
     
     public partial class DeleteProductTest {
