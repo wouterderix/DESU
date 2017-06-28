@@ -4,19 +4,16 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using B2D3.Classes.CC;
 
-namespace B2D3
+namespace B2D3.UI
 {
-    public partial class _default : System.Web.UI.Page
+    public partial class EditProductUI : System.Web.UI.Page
     {
+        EditProductCC E = new EditProductCC();
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-
-        protected void NavigateButton_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/UI/DeleteProductTest.aspx");
+            E.getList();//Fakefunctie om te starten
         }
     }
 }
