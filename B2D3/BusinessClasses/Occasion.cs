@@ -17,20 +17,22 @@ namespace B2D3.Classes
 
             // Get all Occasions
             using (var db = new Casusblok5Model())
-            { occasionList = db.Occasions.ToList(); }
+            {
+                occasionList = db.Occasions.ToList();
+            }
             // Group by historyID and get the latest version
             occasionList = occasionList.GroupBy(o => o.HistoryID)
                 .Select(v => v.OrderByDescending(o => o.Version).FirstOrDefault());
             // If showpassedevents equals false, don't show passedevents
             if (showPassedEvents == false)
             {
-                occasionList = occasionList.Where(o => Date >= DateTime.Now.Date);
+                occasionList = occasionList.Where(o => o.Date >= DateTime.Now.Date);
             }else if(isApproved == true)
             {
-                occasionList = occasionList.Where(o => IsApproved == true);
+                occasionList = occasionList.Where(o => o.IsApproved == true);
             }else if(isApproved == false)
             {
-                occasionList = occasionList.Where(o => IsApproved == false);
+                occasionList = occasionList.Where(o => o.IsApproved == false);
             }
 
             return occasionList.ToList();
