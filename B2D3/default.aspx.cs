@@ -14,9 +14,9 @@ namespace B2D3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*var controller = new OccasionGet();
+            var controller = new OccasionGet();
             Debug.WriteLine(controller.getAllOccasions());
-            */
+            
         }
 
         protected void BtnBewerkItems_Click(object sender, EventArgs e)

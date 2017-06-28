@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace B2D3.UI {
+namespace B2D3.Classes.UI {
     
     
     public partial class Occasion_Overzicht {
@@ -31,21 +31,12 @@ namespace B2D3.UI {
         protected global::System.Web.UI.WebControls.Button btn_Back;
         
         /// <summary>
-        /// GridView1 control.
+        /// AllOccasionsView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
-        
-        /// <summary>
-        /// OccasionID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource OccasionID;
+        protected global::System.Web.UI.WebControls.GridView AllOccasionsView;
     }
 }
