@@ -23,13 +23,20 @@ namespace B2D3.Classes.UI
 
 
             var o = new OccasionGet();
-            Occasion occasion = o.getOccasion(/*history, version,*/ title);
+            /*int history = Int32.Parse(o.Doorgeefinfo[0]);
+            int version = Int32.Parse(o.Doorgeefinfo[1]);
+            string title = o.Doorgeefinfo[2];*/
+            int history=3;
+            int version=1;
+            string title="Name1";
 
+            Occasion occasion = o.getOccasion(history, version, title);
 
+            EventTitel.Text = occasion.Title;
             TBTitle.Text = occasion.Title;
             TBBeschrijving.Text = occasion.Description;
             System.DateTime datetime = occasion.Date;
-            TBDatum.Text = datetime.ToString();
+            TBDatum.Text = datetime.ToString("yyyy-MM-dd");
             TBPlaats.Text = occasion.Location;
             TBUrl.Text = occasion.MoreInformationURL;
         }
@@ -37,6 +44,27 @@ namespace B2D3.Classes.UI
         protected void btnBewerk_Click(object sender, EventArgs e)
         {
             //edit the currently loaded event
+            var oGet = new OccasionGet();
+            /*int history = Int32.Parse(oGet.Doorgeefinfo[0]);
+            int version = Int32.Parse(oGet.Doorgeefinfo[1]);
+            string title = oGet.Doorgeefinfo[2];*/
+            int history = 3;
+            int version = 1;
+            string title = TBTitle.Text;
+            string description = TBBeschrijving.Text;
+            System.DateTime date = Convert.ToDateTime(TBDatum.Text);
+            string location = TBPlaats.Text;
+            string moreInformationURL = TBUrl.Text;
+
+            var o = new OccasionBewerken();
+            if (o.occasionBewerken(history, version, title, description, date, location, moreInformationURL)){
+                Console.WriteLine("occasion bewerkt");
+                Response.Redirect("/default.aspx");
+            } else
+            {
+                EventTitel.ForeColor = System.Drawing.Color.Red;
+                EventTitel.Text = "ERROR: please check entered information.";
+            }
 
         }
         protected void btnVerwijderen_Click(object sender, EventArgs e)

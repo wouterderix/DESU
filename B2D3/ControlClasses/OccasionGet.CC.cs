@@ -18,10 +18,10 @@ namespace B2D3.Classes.CC
             Doorgeefinfo.Add(title);
         }
 
-        public Occasion getOccasion(/*int history, int version,*/ string title)
+        public Occasion getOccasion(int history, int version, string title)
         {
             var o = new Occasion();
-            return o.getOccasion(/*history, version,*/ title);
+            return o.getOccasion(history, version, title);
         }
 
         public List<Occasion> getAllOccasions()

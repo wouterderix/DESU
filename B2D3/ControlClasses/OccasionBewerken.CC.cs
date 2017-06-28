@@ -7,14 +7,12 @@ namespace B2D3.Classes.CC
 {
     public class OccasionBewerken
     {
-        // krijg id van EventsBekijken om juist event te laden
-        public int doorgeefID = 0;
-        public void DoorgeefID(int id)
+        public bool occasionBewerken(int history, int version, string title, string description, System.DateTime date, string location, string url)
         {
-            doorgeefID = id;
-        }
-        
-
-        
+            var o = new Occasion();
+            o.verwijderOccasion(history, version, title);
+            o.storeOccasion(title, description, date, location, url, false, false, ++version);
+            return true;
+        }     
     }
 }
