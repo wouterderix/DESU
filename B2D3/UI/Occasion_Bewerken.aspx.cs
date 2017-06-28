@@ -23,7 +23,6 @@ namespace B2D3.Classes.UI
         {
             //get event information when page gets loaded
             var o = new OccasionBewerken();
-            
             TBBeschrijving.Text = (o.doorgeefID).ToString();
         }
 

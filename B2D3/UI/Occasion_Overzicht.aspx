@@ -12,7 +12,7 @@
         
         <h1>Alle Evenementen</h1>
         <asp:Button ID="btn_Back" runat="server" OnClick="btn_Back_Click" Text="Terug" />
-        <asp:GridView ID="AllOccasionsView" runat="server" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black">
+        <asp:GridView ID="AllOccasionsView" runat="server" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black" AutoGenerateSelectButton="True" OnSelectedIndexChanged="AllOccasionsView_SelectedIndexChanged" AutoGenerateColumns="False" DataKeyNames="HistoryID">
             <FooterStyle BackColor="#CCCCCC" />
             <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
             <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
@@ -22,6 +22,12 @@
             <SortedAscendingHeaderStyle BackColor="#808080" />
             <SortedDescendingCellStyle BackColor="#CAC9C9" />
             <SortedDescendingHeaderStyle BackColor="#383838" />
+
+            <Columns>
+                <asp:BoundField DataField="HistoryID" HeaderText="HistoryID" />
+                <asp:BoundField DataField="Title" HeaderText="Titel" />
+                <asp:BoundField DataField="Description" HeaderText="Beschrijving" />
+            </Columns>
         </asp:GridView>
         
     </div>
