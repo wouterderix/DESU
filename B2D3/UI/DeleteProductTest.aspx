@@ -18,6 +18,12 @@
         <asp:Button ID="ButtonError" Text="OK" runat ="server" 
             Visible="false" Enabled="false" OnClick="errorBtn_Click"/>
     </div>
+    <div>
+        <asp:Label ID="LableConfirm" Text="The product has been deleted. . ." runat="server"
+            Visible="false" Enabled="false"></asp:Label>
+        <asp:Button ID="ButtonConfirm" Text="OK" runat ="server" 
+            Visible="false" Enabled="false" OnClick="confirmBtn_click"/>
+    </div>
     </form>
 </body>
 </html>
