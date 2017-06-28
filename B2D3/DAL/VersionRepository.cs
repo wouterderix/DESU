@@ -28,5 +28,13 @@ namespace B2D3.DAL
                 .Select(v => v.OrderByDescending(p => p.Version).FirstOrDefault()).ToList();
             return latestVersions;
         }
+        public virtual Tid GetNextID<Tid>() where Tid : struct
+        {
+            return (Tid)Convert.ChangeType(DbSet.Max(x => x.HistoryID) + 1, typeof(Tid));
+        }
+        public virtual Tid GetNextVersion<Tid>(T history) where Tid : struct
+        {
+            return (Tid)Convert.ChangeType(DbSet.Where(x => x.HistoryID == history.HistoryID).Max(x => x.Version), typeof(Tid));
+        }
     }
 }

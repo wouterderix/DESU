@@ -16,10 +16,10 @@ namespace B2D3.DAL
             
         }
 
-        public IEnumerable<Product> FilterProducts(Expression<Func<Product, bool>> filter)
+        public IEnumerable<Product> FilterProducts(Func<Product, bool> filter)
         {
             //Retrieve all latest versions.
-            IQueryable<Product> latestProducts = GetAllLatest();
+            IEnumerable<Product> latestProducts = GetAllLatest();
 
             //Apply filter and return.
             return filter != null ? latestProducts.Where(filter) : latestProducts;
