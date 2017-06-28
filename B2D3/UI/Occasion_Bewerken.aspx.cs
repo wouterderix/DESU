@@ -16,14 +16,22 @@ namespace B2D3.Classes.UI
         /// user gets page with current information of event, can edit and commit to database
         /// also used to EventToevoegen
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         
         protected void Page_Load(object sender, EventArgs e)
         {
             //get event information when page gets loaded
-            var o = new OccasionBewerken();
-            TBBeschrijving.Text = (o.doorgeefID).ToString();
+
+
+            var o = new OccasionGet();
+            Occasion occasion = o.getOccasion(/*history, version,*/ title);
+
+
+            TBTitle.Text = occasion.Title;
+            TBBeschrijving.Text = occasion.Description;
+            System.DateTime datetime = occasion.Date;
+            TBDatum.Text = datetime.ToString();
+            TBPlaats.Text = occasion.Location;
+            TBUrl.Text = occasion.MoreInformationURL;
         }
 
         protected void btnBewerk_Click(object sender, EventArgs e)
