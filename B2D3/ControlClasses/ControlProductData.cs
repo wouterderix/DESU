@@ -9,6 +9,7 @@ namespace B2D3.Classes.CC
 {
     public class ControlProductDataCC
     {
+        [Author("Nigel Croese", "ProductZoeken", Version = 1)]
         CreateProduct CP = new CreateProduct();
 
         public List<bool> ControlData(string Name, string Description, List<string> Operations, string Specifications, string Length, string Width, string Height, string Weight, string Requirements, string Price, string Image_1, string Video, string Availability, string UserManual)
@@ -174,6 +175,7 @@ namespace B2D3.Classes.CC
             return ControlResults;
         }
 
+        [Author("Wouter Derix", "ProductZoeken", Version = 1)]
         public string ConvertData(string Name, string Description, List<string> Operations, string Category, string Specifications, string Length, string Width, string Height, string Weight, string Requirements, string Price, string Compensation, string Image_1, string Video, string Availability, string UserManual)
         {
             int Version = 1;                                                //Version

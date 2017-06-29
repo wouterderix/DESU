@@ -15,6 +15,7 @@ namespace B2D3
         {
         }
 
+        [Author("Wouter Derix", "ProductZoeken", Version = 1)]
         public void AddProduct_Click(object sender, EventArgs e)
         {
             ControlProductDataCC Controle = new ControlProductDataCC();
@@ -64,6 +65,7 @@ namespace B2D3
             }
         }
 
+        [Author("Nigel Croese", "ProductZoeken", Version = 1)]
         public void ControleFeedback(List<bool> Results)
         {
             int i = 0;

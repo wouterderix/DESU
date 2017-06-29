@@ -10,6 +10,7 @@ namespace B2D3.Classes
 {
     public class CreateProduct
     {
+        [Author("Nigel Croese", "ProductZoeken", Version = 1)]
         public string AddProduct(int Version, string Name, string Information, DateTime ExpirationDate, int TimesViewed, bool IsCompensated, decimal Price, bool IsApproved, int Category, List<int> ProductOperationAreas, float Weight, string VideoURL, string UserGuideURL, List<int> Dimensions, List<string> Picture, List<string> Demands, List<string> Specifications)
         {
             using (var db = new Casusblok5Model())
