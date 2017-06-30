@@ -51,6 +51,9 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="FastMember, Version=1.0.0.9, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FastMember.1.1.0\lib\net40\FastMember.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -154,6 +157,7 @@
     <Compile Include="CodeFirsClasses\OperationArea.cs" />
     <Compile Include="CodeFirsClasses\Picture.cs" />
     <Compile Include="CodeFirsClasses\Product.cs" />
+    <Compile Include="GlobalClasses\DatatableBuilder.cs" />
     <Compile Include="GlobalClasses\ProductQuerryModel.cs" />
     <Compile Include="CodeFirsClasses\ProductReview.cs" />
     <Compile Include="CodeFirsClasses\Specification.cs" />
@@ -187,6 +191,10 @@
     <Compile Include="Migrations\201706281713096_Version9.cs" />
     <Compile Include="Migrations\201706281713096_Version9.Designer.cs">
       <DependentUpon>201706281713096_Version9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706300841462_version10.cs" />
+    <Compile Include="Migrations\201706300841462_version10.Designer.cs">
+      <DependentUpon>201706300841462_version10.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -222,6 +230,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201706281713096_Version9.resx">
       <DependentUpon>201706281713096_Version9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706300841462_version10.resx">
+      <DependentUpon>201706300841462_version10.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

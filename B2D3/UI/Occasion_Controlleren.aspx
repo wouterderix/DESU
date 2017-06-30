@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Occasion_Controlleren.aspx.cs" Inherits="B2D3.Classes.UI.Occasion_Controlleren" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Occasion_Controlleren.aspx.cs" Inherits="B2D3.Classes.UI.OccasionControlleren" %>
 
 <!DOCTYPE html>
 
