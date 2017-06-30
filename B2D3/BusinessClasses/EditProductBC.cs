@@ -21,6 +21,12 @@ namespace B2D3.Classes
             var resultSet = ControlClasses.SearchProduct.QuerryProducts(pqm);
             return resultSet;
         }
+        public DataTable CheckSingleProduct(int ID1, int Version)
+        {
+            var pqm = new ProductQuerryModel() { ID = ID1, IsDeleted = false };
+            var resultSet = ControlClasses.SearchProduct.QuerryProducts(pqm);
+            return resultSet;
+        }
     }
 
     //public DataTable ReturnProducts()

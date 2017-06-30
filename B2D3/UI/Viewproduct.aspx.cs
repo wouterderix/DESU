@@ -34,9 +34,8 @@ namespace B2D3.UI
             string versie;
             GridView1.EditIndex = e.NewEditIndex;
             GridViewRow row = GridView1.Rows[GridView1.EditIndex];
-            versie = row.Cells[10].Text + "Version=" +  row.Cells[11].Text;
+            versie = row.Cells[10].Text + "&Version=" +  row.Cells[11].Text;
             Response.Redirect("/UI/EditProduct.aspx?ID=" + versie);
-
         }
     }
 }

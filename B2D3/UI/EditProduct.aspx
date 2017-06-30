@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EditProduct.aspx.cs" Inherits="B2D3.EditProduct" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EditProduct.aspx.cs" Inherits="B2D3.UI.EditProduct" %>
 
 <!DOCTYPE html>
 
@@ -185,6 +185,8 @@
         <div>
             <asp:Label id="Result" runat="server" Visible="False" style="color:red;font-size:small;">Product toegevoegd</asp:Label>
         </div>
+        <asp:GridView ID="GridView1" runat="server">
+        </asp:GridView>
     </form>
 </body>
 </html>

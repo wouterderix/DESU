@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Web;
 using System.Web.UI;
@@ -7,7 +8,7 @@ using B2D3.Classes.CC;
 using B2D3.Classes;
 using B2D3.GlobalClasses;
 
-namespace B2D3
+namespace B2D3.UI
 {
     public partial class EditProduct : System.Web.UI.Page
     {
@@ -15,16 +16,62 @@ namespace B2D3
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Request.QueryString["HistoryID"] != "" && Request.QueryString["HistoryID"] != null)
+            
+            if (Request.QueryString["ID"] != "" && Request.QueryString["ID"] != null)
+            {
+                //Get Occasion by HistoryID from link
+                int ID = Convert.ToInt32(Request.QueryString["ID"]);
+                int Version1 = Convert.ToInt32(Request.QueryString["Version"]);
+                if (!this.IsPostBack)
+                {
+                    this.FillFields(ID, Version1);
+                }
+
+            }
+            else
+            {
+                //Error
+            }
+        }
+        //private void BindGrid()
+        //{
+        //    EditProductCC CC = new EditProductCC();
+        //    GridView1.DataSource = CC.getList();
+        //    GridView1.DataBind();
+        //}
+
+        public void FillFields(int ID,int Version)
+        {
+            EditProductCC CC = new EditProductCC();
+            GridView1.DataSource = CC.getitem(ID, Version);
+            GridView1.DataBind();
+            //DataTable komt terug hiermee alle textboxes etc vullen van Addproduct
+            //
+            // Get the currently selected row using the SelectedRow property.
+
+            GridViewRow row = GridView1.SelectedRow;
+
+            // And you respective cell's value
+            //Naam.Text = row.Cells[1].Text;
+            //foreach (DataRow rij in GridView1.Rows)
             //{
-            //    //Get Occasion by HistoryID from link
-            //    int history = Convert.ToInt32(Request.QueryString["ID="]);
+            Naam.Text = row.Cells[0].Text;
+            Omschrijving.Text = row.Cells[1].Text;
+            //string icoFileName = row[2].ToString(); // Timesviewed
+            string test1 = row.Cells[3].Text; // Moet bool worden (0/1) iscompensated
+            Kosten.Text = row.Cells[4].Text;
+            Gewicht.Text = row.Cells[5].Text;
+            Vid.Text = row.Cells[6].Text;
+            Handleiding.Text = row.Cells[7].Text;
+
             //}
         }
 
-        [Author("Wouter Derix", "ProductZoeken", Version = 1)]
+        [Author("Robin Jongen", "ProductAanpassen", Version = 0.1f)]
         public void AddProduct_Click(object sender, EventArgs e)
         {
+            /*
+            MAG NIET
             ControlProductDataCC Controle = new ControlProductDataCC();
 
             var Name = Naam.Text;
@@ -64,15 +111,16 @@ namespace B2D3
             ControleFeedback(ControlResults);
             if (ControleBool == true)
             {
-                string Success = Controle.ConvertData(Name, Description, OperationAreas, Category, Specifications, Length, Width, Height, Weight, Requirements, Price, Compensation, Image_1, Video, Availability, UserManual);
+                //string Success = Controle.ConvertData(Name, Description, OperationAreas, Category, Specifications, Length, Width, Height, Weight, Requirements, Price, Compensation, Image_1, Video, Availability, UserManual);
                 if (Success == "Product Toegevoegd")
                 {
                     Result.Visible = true;
                 }
             }
+            */
         }
 
-        [Author("Nigel Croese", "ProductZoeken", Version = 1)]
+        [Author("Robin Jongen", "ProductAanpassen", Version = 0.1f)]
         public void ControleFeedback(List<bool> Results)
         {
             int i = 0;
