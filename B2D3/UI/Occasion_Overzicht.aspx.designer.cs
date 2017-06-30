@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace B2D3 {
+namespace B2D3.Classes.UI {
     
     
-    public partial class _default {
+    public partial class Occasion_Overzicht {
         
         /// <summary>
         /// form1 control.
@@ -22,30 +22,21 @@ namespace B2D3 {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Label1 control.
+        /// btn_Back control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Button btn_Back;
         
         /// <summary>
-        /// btn_allEvents control.
+        /// AllOccasionsView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_allEvents;
-        
-        /// <summary>
-        /// btn_newEvent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_newEvent;
+        protected global::System.Web.UI.WebControls.GridView AllOccasionsView;
     }
 }

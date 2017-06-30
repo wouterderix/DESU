@@ -1,11 +1,15 @@
-﻿using System;
+﻿using B2D3.GlobalClasses;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 
-
 namespace B2D3.Classes
 {
+    [Author("Kay Karssing, Jeroen Boesten, Robin Klein", "Occasions.BC", Version = 1.1f)]
     public partial class Occasion
     {
         public List<Occasion> getOccasions(bool showPassedEvents, bool isApproved)
@@ -14,41 +18,134 @@ namespace B2D3.Classes
 
             // Get all Occasions
             using (var db = new Casusblok5Model())
-            { occasionList = db.Occasions.ToList(); }
+            {
+                occasionList = db.Occasions.ToList(); 
+            }
             // Group by historyID and get the latest version
             occasionList = occasionList.GroupBy(o => o.HistoryID)
-                .Select (v => v.OrderByDescending(o => o.Version).FirstOrDefault());
+                .Select(v => v.OrderByDescending(o => o.Version).FirstOrDefault());
             // If showpassedevents equals false, don't show passedevents
             if (showPassedEvents == false)
             {
-                occasionList = occasionList.Where(o => o.Date >= DateTime.Now.Date && o.IsDeleted == false);
-            }if(isApproved == true)
+                occasionList = occasionList.Where(o => o.Date >= DateTime.Now.Date);
+            }else if(isApproved == true)
             {
-                occasionList = occasionList.Where(o => o.IsApproved == true && o.IsDeleted == false);
+                occasionList = occasionList.Where(o => o.IsApproved == true);
             }else if(isApproved == false)
             {
-                occasionList = occasionList.Where(o => o.IsApproved == false && o.IsDeleted == false);
-            }else 
-            {
-                occasionList = occasionList.Where(o => o.IsDeleted == false);
+                occasionList = occasionList.Where(o => o.IsApproved == false);
             }
-
 
             return occasionList.ToList();
         }
 
-        /*
-        public Occasion getOccasion(int id)
+        public void storeOccasion(string title, string desription, System.DateTime date, string location, string url, bool deleted = false, bool approved = false, int version = 1)
         {
-            //Query getOcassion where id = id
-            //ocassion = blabla;
-            return occasion;
+            var newOccasion = new Occasion();
+            using (var db = new Casusblok5Model())
+            {
+                try
+                {
+                    //Create a new Occassion
+                    newOccasion.Version = version;
+                    newOccasion.Author = db.Users.Include(b => b.AccountRole).FirstOrDefault();
+                    newOccasion.IsDeleted = deleted;
+                    newOccasion.Title = title;
+                    newOccasion.Description = desription;
+                    newOccasion.Date = date;
+                    newOccasion.Location = location;
+                    newOccasion.moreInformationURL = url;
+                    newOccasion.IsApproved = IsApproved;
+
+                    //Add newOccasion to Occasions
+                    db.Occasions.Add(newOccasion);
+                    //SaveChanges to database
+                    db.SaveChanges();
+                }
+                catch (DbEntityValidationException e)
+                {
+                    foreach (var eve in e.EntityValidationErrors)
+                    {
+                        Debug.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                            eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                        foreach (var ve in eve.ValidationErrors)
+                        {
+                            Debug.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                                ve.PropertyName, ve.ErrorMessage);
+                        }
+                    }
+                    throw;
+                }
+            }
         }
 
-        public void deleteOccasion()
+        public void storeOccasion(Occasion oldOccasion, string title, string desription, System.DateTime date, string location, string url, bool deleted = false, bool approved = false, int version = 1)
         {
-            //Delete occasion
+
+            using (var db = new Casusblok5Model())
+            {
+                try
+                {
+                    //Create a new Occassion
+                    var Author = db.Users.Include(b => b.AccountRole).FirstOrDefault();
+                    var newOccasion = new Occasion(oldOccasion, Author, false);
+                    newOccasion.IsDeleted = deleted;
+                    newOccasion.Title = title;
+                    newOccasion.Description = desription;
+                    newOccasion.Date = date;
+                    newOccasion.Location = location;
+                    newOccasion.moreInformationURL = url;
+                    newOccasion.IsApproved = IsApproved;
+
+                    //Add newOccasion to Occasions
+                    db.Occasions.Add(newOccasion);
+                    //SaveChanges to database
+                    db.SaveChanges();
+                }
+                catch (DbEntityValidationException e)
+                {
+                    foreach (var eve in e.EntityValidationErrors)
+                    {
+                        Debug.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                            eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                        foreach (var ve in eve.ValidationErrors)
+                        {
+                            Debug.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                                ve.PropertyName, ve.ErrorMessage);
+                        }
+                    }
+                    throw;
+                }
+            }
         }
-        */
+
+        public Occasion getOccasion(int history)
+        {
+            using (var db = new Casusblok5Model())
+            {
+                return (from o in db.Occasions
+                        where o.HistoryID==history
+                        select o).FirstOrDefault();
+            }
+        }
+
+        public bool verwijderOccasion(int history)
+        {
+            //Query getOcassion where id = id && version = version
+            using (var db = new Casusblok5Model())
+            {
+                var results = getOccasion(history);
+
+                if (results != null)
+                {
+                    results.IsDeleted = true;
+                    results.IsApproved = false;
+                    db.SaveChanges();
+                    return true;
+                }
+
+                else return false; 
+            }
+        }
     }
 }

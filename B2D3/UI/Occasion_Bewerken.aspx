@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" CodeFile="Occasion_Bewerken.aspx.cs" AutoEventWireup="true" Inherits="_Occasions_Bewerken" %>
+﻿<%@ Page Language="C#" CodeFile="Occasion_Bewerken.aspx.cs" AutoEventWireup="true" Inherits="B2D3.Classes.UI._Occasion_Bewerken" %>
 
 <!DOCTYPE html>
 <html>
@@ -7,7 +7,7 @@
 	<meta charset="utf-8" />
 </head>
 <body>
-    <form id="Occasion_Bewerken_Form" runat="server">
+    <form runat="server">
     <div aria-orientation="horizontal" style="margin-left: 40px" >
         <asp:Label ID="EventTitel" runat="server" style="font-size: xx-large; font-weight: 700" Text="EventName"></asp:Label>
         <br />
@@ -26,7 +26,7 @@
         <asp:TextBox ID="TBDatum" runat="server" Height="16px" Width="184px" TextMode="Date"></asp:TextBox>
         <br />
         informatie url&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="TBUrl" runat="server" Height="16px" Width="184px" TextMode="Url"></asp:TextBox>
+        <asp:TextBox ID="TBUrl" runat="server" Height="16px" Width="184px"></asp:TextBox>
         <br />
         <br />
         <asp:Button ID="btnBewerk" runat="server" Height="50px" Text="Bewerk" Width="160px" OnClick="btnBewerk_Click" />

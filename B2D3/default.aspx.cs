@@ -9,17 +9,24 @@ using B2D3.Classes.CC;
 
 namespace B2D3
 {
+
     public partial class _default : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             var controller = new OccasionGet();
             Debug.WriteLine(controller.getAllOccasions());
+            
         }
 
-        protected void BtnBewerkItems_Click(object sender, EventArgs e)
+        protected void btn_newEvent_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/UI/Occasion_Bewerken.aspx");
+            Response.Redirect("/UI/Occasion_Toevoegen.aspx");
+        }
+
+        protected void btn_allEvents_Click1(object sender, EventArgs e)
+        {
+            Response.Redirect("/UI/Occasion_Overzicht.aspx");
         }
     }
 }
