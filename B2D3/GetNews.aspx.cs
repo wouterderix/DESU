@@ -5,12 +5,23 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using B2D3.Classes.CC;
+using System.Data;
 
 namespace B2D3
 {
     public partial class GetNews : System.Web.UI.Page
     {
+        private static string _userName = "Bobbie";
+        private static int _id = 1;
+
         protected void Page_Load(object sender, EventArgs e)
+        {
+            lDocentNaam.Text = _userName;
+
+            SetGridView();
+        }
+
+        private void SetGridView()
         {
             GetNewsCC gn = new GetNewsCC();
 

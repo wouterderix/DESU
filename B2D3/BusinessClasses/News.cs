@@ -16,6 +16,23 @@ namespace B2D3.Classes
             }
         }
 
+        public void Approve(int id)
+        {
+            using(Casusblok5Model db = new Casusblok5Model())
+            {
+                News news = db.News.Where(n => n.HistoryID.Equals(id)).Single();
+                news. = true;
+            }
+        }
+
+        public News GetNewsByID(int NewsID)
+        {
+            using (Casusblok5Model db = new Casusblok5Model())
+            {
+                return db.News.Where(n => n.HistoryID == NewsID).FirstOrDefault();
+            }
+        }
+
         public DataTable GetDataTableFromNews(Array news)
         {
             DataTable dt = new DataTable();
@@ -39,14 +56,6 @@ namespace B2D3.Classes
                 dt.Rows.Add(dr);
             }
             return dt;
-        }
-
-        public News GetNewsByID(int NewsID)
-        {
-            using (Casusblok5Model db = new Casusblok5Model())
-            {
-                return db.News.Where(n => n.HistoryID == NewsID).FirstOrDefault();
-            }
         }
     }
 }
