@@ -14,11 +14,12 @@ namespace B2D3.Classes
         private string _description;
         private DateTime _dueDate;
 
-        public News(News oldVersion, User author, bool isDeleted) 
+
+        public News(News oldVersion, User author, bool isDeleted)
             : base(oldVersion, author, isDeleted)
         {
         }
-        public News(User author, bool isDeleted) 
+        public News(User author, bool isDeleted)
             : base(author, isDeleted)
         {
         }
@@ -66,6 +67,16 @@ namespace B2D3.Classes
         public override bool IsEquivalent(IEquivalent other)
         {
             throw new NotImplementedException();
+        }
+
+        public News() { }
+
+        public List<News> Getnews()
+        {
+            using (Casusblok5Model db = new Casusblok5Model())
+            {
+                return db.News.ToList();
+            }
         }
     }
 }

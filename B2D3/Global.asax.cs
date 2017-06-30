@@ -13,6 +13,7 @@ namespace B2D3
     {
         protected void Application_Start(object sender, EventArgs e)
         {
+            var products = ControlClasses.SearchProduct.GetAllProducts();
         }
     }
 }

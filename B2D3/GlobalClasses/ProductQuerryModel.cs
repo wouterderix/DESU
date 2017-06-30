@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web;
+using B2D3.Classes;
 
-namespace B2D3.Classes
+namespace B2D3.GlobalClasses
 {
-    public struct ProductQuerryModel : ISearchable
-    { 
-
+    public struct ProductQuerryModel
+    {
         /// <summary>
         /// The ID of the product.
         /// </summary>
