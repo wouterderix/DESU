@@ -6,10 +6,13 @@ using System.Web;
 using B2D3.BusinessClasses;
 using B2D3.Classes;
 using B2D3.GlobalClasses;
+using FastMember;
+using System.ComponentModel;
+using System.Reflection;
 
 namespace B2D3.ControlClasses
 {
-    [Author("Dennis Corvers, Damien Brils", "ProductZoeken", Version = 1.1f)]
+    [Author("Dennis Corvers, Damien Brils", "ProductZoeken", Version = 1.2f)]
     public static class SearchProduct
     {
         /// <summary>
@@ -79,25 +82,6 @@ namespace B2D3.ControlClasses
             => ExecuteProductQuerry(productQuerry);
 
         private static DataTable ExecuteProductQuerry(ProductQuerryModel productQuerry)
-        {
-            //DataTable dt = new DataTable();
-            //for (int i = 0; i < numbers.GetLength(1); i++)
-            //{
-            //    dt.Columns.Add("Column" + (i + 1));
-            //}
-
-            //for (var i = 0; i < numbers.GetLength(0); ++i)
-            //{
-            //    DataRow row = dt.NewRow();
-            //    for (var j = 0; j < numbers.GetLength(1); ++j)
-            //    {
-            //        row[j] = numbers[i, j];
-            //    }
-            //    dt.Rows.Add(row);
-            //}
-            //return dt;
-            //return Webserver.Instance.SearchProducts(productQuerry);
-            throw new NotImplementedException("Finish me");
-        }
+        { return DatatableBuilder.BuildDatatable(Webserver.Instance.SearchProducts(productQuerry)); }
     }
 }
