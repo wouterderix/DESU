@@ -6,6 +6,7 @@ using B2D3.Domain;
 
 namespace B2D3.Classes
 {
+    [Author("Rowan Koenen", "Product Verwijderen", Version = 1)]
     public class DeleteProductBC
     {
         //get user role

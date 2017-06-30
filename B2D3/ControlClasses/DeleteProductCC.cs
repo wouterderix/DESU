@@ -7,11 +7,7 @@ using B2D3.Classes;
 
 namespace B2D3.Classes.CC
 {
-    /// <summary>
-    /// behoort tot UC Product verwijderen
-    /// gemaakt door Rowan Koenen
-    /// </summary>
-
+    [Author("Rowan Koenen", "Product Verwijderen", Version = 1)]
     public class DeleteProductCC
     {
         Domain.DeleteProductDAL DeleteProductDataAccessLayer = new Domain.DeleteProductDAL();

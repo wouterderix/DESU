@@ -8,11 +8,7 @@ using B2D3.Classes.CC;
 
 namespace B2D3.Classes.UI
 {
-    /// <summary>
-    /// behoort tot UC Product verwijderen
-    /// gemaakt door Rowan Koenen
-    /// </summary>
-
+    [Author("Rowan Koenen", "Product Verwijderen", Version = 1)]
     public partial class DeleteProductTest : System.Web.UI.Page
     {
         DeleteProductCC DeleteProductControlClass = new DeleteProductCC();

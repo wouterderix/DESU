@@ -1,4 +1,5 @@
-﻿using System;
+﻿using B2D3.Classes;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
@@ -9,11 +10,7 @@ using System.Web;
 
 namespace B2D3.Domain
 {
-    /// <summary>
-    /// behoort tot UC Product verwijderen
-    /// gemaakt door Rowan Koenen
-    /// </summary>
-
+    [Author("Rowan Koenen", "Product Verwijderen", Version = 1)]
     public class DeleteProductDAL
     {
         public bool DeleteProduct(string name)
