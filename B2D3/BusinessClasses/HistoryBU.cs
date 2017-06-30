@@ -10,55 +10,9 @@ namespace B2D3.Classes
 {
     public partial class HistoryBU
     {
-        //private static DataTable dt;
-        ////public DataTable GetData(DateTime StartDate)
-        ////{
-        ////    //History h = History;
-        ////    //voor alle DueDate in History tabel > StartDate - Return data
-        ////    return dt;
-        ////}
-        ////public static List<History> SearchByDate(DateTime StartDate)
-        ////{
-        ////    using (var db = )
-        ////}
-        //public List<History> getData(DateTime StartDate)
-        //{
-        //    IEnumerable<History> History = new List<History>();
-
-        //    // Get all Occasions
-        //    using (var db = new Casusblok5Model())
-        //    { History = db.History.ToList(); }
-        //    // Group by historyID and get the latest version
-        //    History = History.GroupBy(o => o.HistoryID)
-        //        .Select(v => v.OrderByDescending(o => o.HistoryID).FirstOrDefault());
-        //    // If showpassedevents equals false, don't show passedevents
-        //    History = History.Where(o => o.LogDate  <= StartDate);
-
-        //    return History.ToList();
-        //}
-
-
         private static DataTable dt;
 
-        //public List<History> GetDate(DateTime StartDate)
-
-        //{
-        //    using (Casusblok5Model context = new Casusblok5Model())
-        //    {
-        //        var user = context.History.Where(u => u.HistoryID.Equals(userID)).SingleOrDefault();
-
-        //        if (user != null)
-        //        {
-        //            return true;
-        //        }
-        //        else
-        //        {
-        //            return false;
-        //        }
-        //    }
-        //}
-
-        public Array GetData(DateTime StartDate)
+        public List<Array> GetData(DateTime StartDate)
         {
             using (Casusblok5Model context = new Casusblok5Model())
             {
@@ -67,71 +21,98 @@ namespace B2D3.Classes
                 IQueryable<Occasion> occasions = context.Occasions;
                 IQueryable<News> news = context.News;
 
-                //var productList = (from p in products
-                //               select p).ToArray();
-
                 var productHistoryArray = (
-                    from h in products
-                    where (h.LogDate > StartDate)
+                    from p in products
+                    where ( p.LogDate > StartDate)
                     select new
                     {
-                        ID = h.HistoryID,
-                        Version = h.Version,
-                        Data = h.Name,
-                        LogDate = h.LogDate
+                        ID = p.HistoryID,
+                        Version = p.Version,
+                        Data = p.Name+ ", " + p.Information,
+                        LogDate = p.LogDate,
+                        
+                    }
+                    ).ToArray();
+
+                // Alle history van occasion ophalen
+                var occasionHistoryArray = (
+                    from o in occasions
+                    where (o.LogDate > StartDate)
+                    orderby o.LogDate
+                    select new
+                    {
+                        ID = o.HistoryID,
+                        Version = o.Version,
+                        Data = o.Title,
+                        LogDate = o.LogDate,
                     }).ToArray();
 
-                //var historyArray = (
-                //    from h in histories
-                //    where h.LogDate > StartDate
-                //    select new
-                //    {
-                //        ID = h.HistoryID,
-                //        Version = h.Version,
-                //        Author = h.Author,
-                //        LogDate = h.LogDate,
-                //        IsDeleted = h.IsDeleted
-                //    }).ToArray();
+
+                // Alle history van news ophalen
+                var newsHistoryArray = (
+                    from n in news
+                    where (n.LogDate > StartDate)
+                    orderby n.LogDate
+                    select new
+                    {
+                        ID = n.HistoryID,
+                        Version = n.Version,
+                        Data = n.Title,
+                        LogDate = n.LogDate,
+                    }).ToArray();
+
                 Debug.WriteLine(productHistoryArray);
-                return (productHistoryArray);
+                List<Array> test = new List<Array>();
+
+                test.Add(productHistoryArray);
+                test.Add(newsHistoryArray);
+                test.Add(occasionHistoryArray);
+
+                
+                return(test);
             }
         }
 
-        public DataTable ReturnData(DateTime StartDate)
+        public DataSet ReturnData(DateTime StartDate)
         {
             HistoryBU h = new HistoryBU();
+
             DataSet dsHistory = new DataSet();
             DataTable dtProduct = new DataTable("Products");
             DataTable dtNews = new DataTable("News");
             DataTable dtOccasions = new DataTable("Occasions");
 
+            //Array history;
+            //history = h.GetData(StartDate);
 
-            Array product;
-            product = h.GetData(StartDate);
+            List<Array> historyDataArray = new List<Array>();
+            historyDataArray = h.GetData(StartDate);
 
-            dt = new DataTable();
+            dsHistory.Tables.Add(dtProduct);
+            dsHistory.Tables.Add(dtOccasions);
+            dsHistory.Tables.Add(dtNews);
 
-            for (int i = 0; i < product.Length; i++)
+            for (int i = 0; i < historyDataArray.Count; i++)
             {
-                Dictionary<string, object> dict = DataDictProperties.DictionaryFromType(product.GetValue(i));
-                if (i == 0)
+                for (int j = 0; j < historyDataArray[i].Length; j++)
                 {
+                    Dictionary<string, object> dict = DataDictProperties.DictionaryFromType(historyDataArray[i].GetValue(j));
+                    if (j == 0)
+                    {
+                        foreach (KeyValuePair<String, object> kvp in dict)
+                        {
+                            dsHistory.Tables[i].Columns.Add(kvp.Key);    // Kolomen benoemen 
+                        }
+                    }
+                    DataRow dr = dtProduct.NewRow();
                     foreach (KeyValuePair<String, object> kvp in dict)
                     {
-                        dt.Columns.Add(kvp.Key);    // Kolomen benoemen 
+                        dr[kvp.Key] = kvp.Value;        // Waarden aan de kolommen toevoegen
                     }
+                    dtProduct.Rows.Add(dr);
                 }
-                DataRow dr = dt.NewRow();
-                foreach (KeyValuePair<String, object> kvp in dict)
-                {
-                    dr[kvp.Key] = kvp.Value;        // Waarden aan de kolommen toevoegen
-                }
-
-                dt.Rows.Add(dr);
-
             }
-
-            return dt;
+            return dsHistory;
         }
     }
 }

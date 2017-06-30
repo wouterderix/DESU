@@ -11,7 +11,7 @@ namespace B2D3.Classes.CC
     public class HistoryCC
     {
 
-        public DataTable GetData(DateTime StartDate)
+        public DataSet GetData(DateTime StartDate)
         {
             HistoryBU BU = new HistoryBU();
             return BU.ReturnData(StartDate);
