@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using B2D3.Classes;
 using System.Data;
+using B2D3.GlobalClasses;
 
 namespace B2D3.Classes.CC
 {
