@@ -12,6 +12,8 @@ namespace B2D3
     public class Global : HttpApplication
     {
         protected void Application_Start(object sender, EventArgs e)
-        { }
+        {
+            var products = ControlClasses.SearchProduct.GetAllProducts();
+        }
     }
 }
