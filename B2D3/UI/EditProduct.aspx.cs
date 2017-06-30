@@ -46,23 +46,16 @@ namespace B2D3.UI
             GridView1.DataSource = CC.getitem(ID, Version);
             GridView1.DataBind();
             //DataTable komt terug hiermee alle textboxes etc vullen van Addproduct
-            //
-            // Get the currently selected row using the SelectedRow property.
-
-            GridViewRow row = GridView1.SelectedRow;
-
-            // And you respective cell's value
-            //Naam.Text = row.Cells[1].Text;
-            //foreach (DataRow rij in GridView1.Rows)
-            //{
-            Naam.Text = row.Cells[0].Text;
-            Omschrijving.Text = row.Cells[1].Text;
+           
+            Naam.Text = GridView1.Rows[0].Cells[0].Text;
+            
+            Omschrijving.Text = GridView1.Rows[0].Cells[1].Text;
             //string icoFileName = row[2].ToString(); // Timesviewed
-            string test1 = row.Cells[3].Text; // Moet bool worden (0/1) iscompensated
-            Kosten.Text = row.Cells[4].Text;
-            Gewicht.Text = row.Cells[5].Text;
-            Vid.Text = row.Cells[6].Text;
-            Handleiding.Text = row.Cells[7].Text;
+            string test1 = GridView1.Rows[0].Cells[2].Text; // Moet bool worden (0/1) iscompensated
+            Kosten.Text = GridView1.Rows[0].Cells[3].Text;
+            Gewicht.Text = GridView1.Rows[0].Cells[4].Text;
+            Vid.Text = GridView1.Rows[0].Cells[5].Text;
+            Handleiding.Text = GridView1.Rows[0].Cells[6].Text;
 
             //}
         }
