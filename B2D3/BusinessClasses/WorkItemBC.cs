@@ -11,7 +11,7 @@ namespace B2D3.Classes
     {
 
 
-        public DataTable FetchTable()
+        public DataTable FetchTable(query)
         {
             DataTable dt = new DataTable();
             List<WorkItem> wi = new List<WorkItem>();
