@@ -1,4 +1,5 @@
-﻿using B2D3.GlobalClasses;
+﻿using B2D3.DAL;
+using B2D3.GlobalClasses;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -39,7 +40,7 @@ namespace B2D3.Classes
             return occasionList.ToList();
         }
 
-        public void storeOccasion(string title, string desription, System.DateTime date, string location, string url, bool deleted = false, bool approved = false, int version = 1, int id = 232)
+        public void storeOccasion(string title, string desription, System.DateTime date, string location, string url, bool deleted = false, bool approved = false, int version = 1)
         {
             var newOccasion = new Occasion();
             using (var db = new Casusblok5Model())
@@ -47,7 +48,7 @@ namespace B2D3.Classes
                 try
                 {
                     //Create a new Occassion
-                    newOccasion.HistoryID = id;
+                    newOccasion.HistoryID = db.History.Max(h => h.HistoryID)+1;
                     newOccasion.Version = version;
                     newOccasion.Author = db.Users.Include(b => b.AccountRole).FirstOrDefault();
                     newOccasion.IsDeleted = deleted;
@@ -90,6 +91,7 @@ namespace B2D3.Classes
                     //Create a new Occassion
                     var Author = db.Users.Include(b => b.AccountRole).FirstOrDefault();
                     var newOccasion = new Occasion(oldOccasion, Author, false);
+                    newOccasion.HistoryID = oldOccasion.HistoryID;
                     newOccasion.IsDeleted = deleted;
                     newOccasion.Title = title;
                     newOccasion.Description = desription;
@@ -126,7 +128,7 @@ namespace B2D3.Classes
             {
                 return (from o in db.Occasions
                         where o.HistoryID==history
-                        select o).FirstOrDefault();
+                        select o).OrderByDescending(o => o.Version).FirstOrDefault();
             }
         }
 
