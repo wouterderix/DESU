@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Configuration;
 using System.Data;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using System.Net;
 using System.Net.Mail;
 
@@ -46,7 +46,7 @@ namespace B2D3.Classes
 
             catch
             {
-              return false;
+                return false;
             }
         }
 
@@ -84,33 +84,32 @@ namespace B2D3.Classes
 
         public DataTable GetSupervisors()
         {
-            dt = new DataTable();
             try
             {
-                string connString = @"Server=u17697p13129.web0113.zxcs.nl; Database=u17697p13129_TestRobin; Uid=u17697p13129_B2A5user; Pwd=CasusB2A5*;";
-                string query = "select Users.UserName Gebruikersnaam, AccountRoles.Name Accountrol from Users join AccountRoles ON Users.AccountRole_ID = AccountRoles.ID where AccountRoles.ID = 2 ";
-
-                SqlConnection conn = new SqlConnection(connString);
-                SqlCommand cmd = new SqlCommand(query, conn);
-
-                conn.Open();
-
-                // create data adapter
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                // this will query your database and return the result to your datatable
-
-                da.Fill(dt);
-
-                conn.Close();
-
-                da.Dispose();
-
-                return dt;
+                string constr = ConfigurationManager.ConnectionStrings["Casusblok5Model"].ConnectionString;
+                using (MySqlConnection con = new MySqlConnection(constr))
+                {
+                    using (MySqlCommand cmd = new MySqlCommand("select Users.UserName Gebruikersnaam, AccountRoles.Name Accountrol from Users join AccountRoles ON Users.AccountRole_ID = AccountRoles.ID where AccountRoles.ID = 2"))
+                    {
+                        using (MySqlDataAdapter sda = new MySqlDataAdapter())
+                        {
+                            cmd.Connection = con;
+                            sda.SelectCommand = cmd;
+                            using (DataTable dt = new DataTable())
+                            {
+                                sda.Fill(dt);
+                                return dt;
+                            }
+                        }
+                    }
+                }
             }
             catch
             {
                 return dt;
             }
+
+
         }
     }
 }

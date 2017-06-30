@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace B2D3.GlobalClasses
+namespace B2D3.Classes
 {
     [AttributeUsage(AttributeTargets.All, AllowMultiple =true, Inherited =true)]
     public class AuthorAttribute : Attribute
