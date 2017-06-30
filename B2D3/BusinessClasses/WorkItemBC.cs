@@ -11,26 +11,26 @@ namespace B2D3.Classes
     {
 
 
-        public DataTable FetchTable(query)
-        {
-            DataTable dt = new DataTable();
-            List<WorkItem> wi = new List<WorkItem>();
+        //public DataTable FetchTable(query)
+        //{
+        //    DataTable dt = new DataTable();
+        //    List<WorkItem> wi = new List<WorkItem>();
 
-            using (var db = new Casusblok5Model())
-            {
-                var result = from w in db.WorkItems
-                             orderby w.ID
-                             select w;
+        //    using (var db = new Casusblok5Model())
+        //    {
+        //        var result = from w in db.WorkItems
+        //                     orderby w.ID
+        //                     select w;
 
-                foreach (var item in result)
-                {
-                    wi.Add(item);
-                }
-            }
+        //        foreach (var item in result)
+        //        {
+        //            wi.Add(item);
+        //        }
+        //    }
 
-            //return dt = DTConverter<WorkItem>(wi);
-            return dt = BuildDatatable<WorkItem>(wi);
-        }
+        //    return dt = DTConverter<WorkItem>(wi);
+        //    return dt = BuildDatatable<WorkItem>(wi);
+        //}
 
             /// <summary>
             /// Builds a datatable based on all properties on the given object.

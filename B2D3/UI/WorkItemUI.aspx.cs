@@ -16,11 +16,11 @@ namespace B2D3.UI
 
         }
 
-        protected void Button_Click(object sender, EventArgs e)
-        {
-            GridView1.DataSource = wi.FetchTable();
-            GridView1.DataBind();
-        }
+        //protected void Button_Click(object sender, EventArgs e)
+        //{
+        //    GridView1.DataSource = wi.FetchTable();
+        //    GridView1.DataBind();
+        //}
 
     }
 }

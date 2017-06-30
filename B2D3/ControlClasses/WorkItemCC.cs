@@ -12,10 +12,10 @@ namespace B2D3.Classes.CC
     {
         WorkItem wi = new WorkItem();
 
-        public DataTable FetchTable()
-        {
-            DataTable result = new DataTable();
-            return result = wi.FetchTable();
-        }
+        //public DataTable FetchTable()
+        //{
+        //    DataTable result = new DataTable();
+        //    return result = wi.FetchTable();
+        //}
     }
 }
