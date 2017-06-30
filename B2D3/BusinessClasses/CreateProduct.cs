@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
+using B2D3.GlobalClasses;
 
 namespace B2D3.Classes
 {

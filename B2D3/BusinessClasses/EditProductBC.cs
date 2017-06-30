@@ -12,6 +12,7 @@ namespace B2D3.Classes
         /// Get all products where isdeleted = False
         /// </summary>
         /// <returns></returns>
+        /*
         public List<Product> CheckProduct()
         {
             var pqm = new B2D3.Classes.ProductQuerryModel() { IsDeleted = false };
@@ -19,6 +20,7 @@ namespace B2D3.Classes
 
             return resultSet;
         }
+        */
     }
     //public DataTable ReturnProducts()
     //{

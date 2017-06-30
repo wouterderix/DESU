@@ -11,6 +11,7 @@ namespace B2D3.UI
 {
     public partial class EditProductUI : System.Web.UI.Page
     {
+        /*
         EditProductCC E = new EditProductCC();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,11 +20,13 @@ namespace B2D3.UI
                 this.BindGrid();
             }
         }
+        
         private void BindGrid()
         {
             EditProductCC CC = new EditProductCC();
             GridView1.DataSource = CC.getList();
             GridView1.DataBind();
         }
+        */
     }
 }

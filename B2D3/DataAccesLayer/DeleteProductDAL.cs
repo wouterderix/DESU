@@ -1,4 +1,5 @@
 ﻿using B2D3.Classes;
+using B2D3.GlobalClasses;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;

@@ -1,12 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
+using B2D3.BusinessClasses;
 using B2D3.Classes;
+using B2D3.GlobalClasses;
+using FastMember;
+using System.ComponentModel;
+using System.Reflection;
 
 namespace B2D3.ControlClasses
 {
-    [Author("Dennis Corvers, Damien Brils", "ProductZoeken", Version =1.1f)]
+    [Author("Dennis Corvers, Damien Brils", "ProductZoeken", Version = 1.2f)]
     public static class SearchProduct
     {
 
@@ -17,7 +23,7 @@ namespace B2D3.ControlClasses
         /// </summary>
         /// <param name="productName">The product name to search for.</param>
         /// <returns></returns>
-        public static List<Product> SearchByName(string productName)
+        public static DataTable SearchByName(string productName)
         {
             if (string.IsNullOrWhiteSpace(productName))
             { throw new ArgumentException("Product name may not be empty!"); }
@@ -31,9 +37,9 @@ namespace B2D3.ControlClasses
         /// </summary>
         /// <param name="category">The category to search for.</param>
         /// <returns></returns>
-        public static List<Product> SearchByCategory(Category category)
+        public static DataTable SearchByCategory(Category category)
         {
-            if(category == null) { throw new ArgumentNullException("Category may not be null!"); }
+            if (category == null) { throw new ArgumentNullException("Category may not be null!"); }
 
             ProductQuerryModel p = ProductQuerryModel.ViewableProducts(); p.Category = category;
             return ExecuteProductQuerry(p);
@@ -44,7 +50,7 @@ namespace B2D3.ControlClasses
         /// </summary>
         /// <param name="operationArea">The operation area to search for.</param>
         /// <returns></returns>
-        public static List<Product> SearchByOperationArea(OperationArea operationArea)
+        public static DataTable SearchByOperationArea(OperationArea operationArea)
         {
             if (operationArea == null) { throw new ArgumentNullException("OperationArea may not be null!"); }
 
@@ -55,7 +61,7 @@ namespace B2D3.ControlClasses
         /// </summary>
         /// <param name="operationArea">A set of operation areas to search for</param>
         /// <returns></returns>
-        public static List<Product> SearchByOperationArea(List<OperationArea> operationArea)
+        public static DataTable SearchByOperationArea(List<OperationArea> operationArea)
         {
             if (operationArea == null) { throw new ArgumentNullException("OperationArea may not be null!"); }
 
@@ -67,7 +73,7 @@ namespace B2D3.ControlClasses
         /// Fetch every product available.
         /// </summary>
         /// <returns></returns>
-        public static List<Product> GetAllProducts()
+        public static DataTable GetAllProducts()
             => ExecuteProductQuerry(ProductQuerryModel.ViewableProducts());
 
         /// <summary>
@@ -75,10 +81,10 @@ namespace B2D3.ControlClasses
         /// </summary>
         /// <param name="productQuerry">The filter options to search by.</param>
         /// <returns></returns>
-        public static List<Product> QuerryProducts(ProductQuerryModel productQuerry) 
+        public static DataTable QuerryProducts(ProductQuerryModel productQuerry)
             => ExecuteProductQuerry(productQuerry);
 
-        private static List<Product> ExecuteProductQuerry(ProductQuerryModel productQuerry)
-            => Webserver.Instance.SearchProducts(productQuerry);
+        private static DataTable ExecuteProductQuerry(ProductQuerryModel productQuerry)
+        { return DatatableBuilder.BuildDatatable(Webserver.Instance.SearchProducts(productQuerry)); }
     }
 }

@@ -3,7 +3,7 @@ namespace B2D3.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Version8 : DbMigration
+    public partial class Version9 : DbMigration
     {
         public override void Up()
         {
@@ -102,7 +102,7 @@ namespace B2D3.Migrations
                 "dbo.Histories",
                 c => new
                     {
-                        HistoryID = c.Int(nullable: false, identity: true),
+                        HistoryID = c.Int(nullable: false),
                         Version = c.Int(nullable: false),
                         LogDate = c.DateTime(nullable: false, precision: 0),
                         IsDeleted = c.Boolean(nullable: false),

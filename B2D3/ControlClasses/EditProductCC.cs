@@ -13,10 +13,12 @@ namespace B2D3.Classes.CC
         /// <summary>
         /// Een functie om alle producten op te halen wat niet verwijdert zijn.
         /// </summary>
+        /*
         public List<Product> getList()
         {
             return p.CheckProduct();
             //p.getFullList();
         }
+        */
     }
 }
