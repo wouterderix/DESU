@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
         <div>
             <asp:Label ID="lDocentNaam" runat="server"></asp:Label>
-            <asp:GridView ID="GridView1" runat="server">
+            <asp:GridView ID="GridView1" runat="server" SelectMethod="GridViewSelectEventHandler">
             </asp:GridView>
         </div>
     </form>

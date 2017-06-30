@@ -17,5 +17,12 @@ namespace B2D3
             GridView1.DataSource = gn.GetNews();
             GridView1.DataBind();
         }
+
+        protected void GridViewSelectEventHandler(object sender, GridViewSelectEventArgs e)
+        {
+            GetNewsCC gn = new GetNewsCC();
+
+            gn.GetNewsByID()
+        }
     }
 }
