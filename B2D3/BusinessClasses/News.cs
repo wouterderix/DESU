@@ -26,7 +26,7 @@ namespace B2D3.Classes
             using(Casusblok5Model db = new Casusblok5Model())
             {
                 News newsToUpdate = db.News.Where(n => n.HistoryID.Equals(id)).Single();
-                newsToUpdate.Approved = true;
+                newsToUpdate.IsApproved = true;
 
                 db.News.Add(newsToUpdate);
                 db.Entry(newsToUpdate).State = System.Data.Entity.EntityState.Modified;
