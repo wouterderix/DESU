@@ -6,10 +6,13 @@ using System.Web;
 using B2D3.BusinessClasses;
 using B2D3.Classes;
 using B2D3.GlobalClasses;
+using FastMember;
+using System.ComponentModel;
+using System.Reflection;
 
 namespace B2D3.ControlClasses
 {
-    [Author("Dennis Corvers, Damien Brils", "ProductZoeken", Version = 1.1f)]
+    [Author("Dennis Corvers, Damien Brils", "ProductZoeken", Version = 1.2f)]
     public static class SearchProduct
     {
         /// <summary>
