@@ -51,6 +51,9 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="FastMember, Version=1.0.0.9, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FastMember.1.1.0\lib\net40\FastMember.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -92,14 +95,6 @@
       <HintPath>..\packages\MySql.Data.Entity.6.9.9\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Net.Http.Formatting">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -111,14 +106,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Web.Http">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.Http.WebHost">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -128,7 +115,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -142,43 +131,42 @@
   <ItemGroup>
     <Content Include="default.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="UI\AuditLogUI.aspx" />
-    <Content Include="UI\WorkItemUI.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessClasses\AccountRole.cs" />
-    <Compile Include="BusinessClasses\DataDictProperties.cs" />
-    <Compile Include="BusinessClasses\HistoryBU.cs" />
-    <Compile Include="BusinessClasses\WorkItemBC.cs" />
     <Compile Include="Casusblok5Model.cs" />
     <Compile Include="CodeFirsClasses\AccountRole.cs" />
-    <Compile Include="CodeFirsClasses\AuthorAttribute.cs" />
+    <Compile Include="GlobalClasses\AuthorAttribute.cs" />
     <Compile Include="CodeFirsClasses\Category.cs" />
     <Compile Include="CodeFirsClasses\Contact.cs" />
-    <Compile Include="CodeFirsClasses\DatabaseAccess.cs" />
+    <Compile Include="DAL\DatabaseAccess.cs" />
     <Compile Include="CodeFirsClasses\History.cs" />
     <Compile Include="CodeFirsClasses\IEquivalent.cs" />
-    <Compile Include="CodeFirsClasses\ISearchable.cs" />
-    <Compile Include="CodeFirsClasses\IServable.cs" />
-    <Compile Include="CodeFirsClasses\IStorable.cs" />
+    <Compile Include="BusinessClasses\IServable.cs" />
+    <Compile Include="DAL\IStorable.cs" />
     <Compile Include="CodeFirsClasses\News.cs" />
     <Compile Include="CodeFirsClasses\Occasion.cs" />
     <Compile Include="CodeFirsClasses\OperationArea.cs" />
     <Compile Include="CodeFirsClasses\Picture.cs" />
     <Compile Include="CodeFirsClasses\Product.cs" />
-    <Compile Include="CodeFirsClasses\ProductQuerryModel.cs" />
+    <Compile Include="GlobalClasses\DatatableBuilder.cs" />
+    <Compile Include="GlobalClasses\ProductQuerryModel.cs" />
     <Compile Include="CodeFirsClasses\ProductReview.cs" />
     <Compile Include="CodeFirsClasses\Specification.cs" />
     <Compile Include="CodeFirsClasses\Supplier.cs" />
     <Compile Include="CodeFirsClasses\User.cs" />
-    <Compile Include="CodeFirsClasses\Webserver.cs" />
+    <Compile Include="BusinessClasses\Webserver.cs" />
     <Compile Include="CodeFirsClasses\WorkItem.cs" />
-    <Compile Include="ControlClasses\HistoryCC.cs" />
     <Compile Include="ControlClasses\SearchProduct.cs" />
-    <Compile Include="ControlClasses\WorkItemCC.cs" />
+    <Compile Include="DAL\GenericRepository.cs" />
+    <Compile Include="DAL\IGenericRepository.cs" />
+    <Compile Include="DAL\IVersionRepository.cs" />
+    <Compile Include="GlobalClasses\PredicateBuilder.cs" />
+    <Compile Include="DAL\ProductRepository.cs" />
+    <Compile Include="DAL\VersionRepository.cs" />
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -192,26 +180,28 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="ControlClasses\DeleteProduct.cs" />
+    <Compile Include="Migrations\201706281713096_Version9.cs" />
+    <Compile Include="Migrations\201706281713096_Version9.Designer.cs">
+      <DependentUpon>201706281713096_Version9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706300841462_version10.cs" />
+    <Compile Include="Migrations\201706300841462_version10.Designer.cs">
+      <DependentUpon>201706300841462_version10.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI\AuditLogUI.aspx.cs">
-      <DependentUpon>AuditLogUI.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UI\AuditLogUI.aspx.designer.cs">
-      <DependentUpon>AuditLogUI.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="UI\ValuesController1.cs" />
-    <Compile Include="UI\WorkItemUI.aspx.cs">
-      <DependentUpon>WorkItemUI.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UI\WorkItemUI.aspx.designer.cs">
-      <DependentUpon>WorkItemUI.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="UI\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706281713096_Version9.resx">
+      <DependentUpon>201706281713096_Version9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706300841462_version10.resx">
+      <DependentUpon>201706300841462_version10.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

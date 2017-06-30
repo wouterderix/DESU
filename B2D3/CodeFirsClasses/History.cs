@@ -14,8 +14,9 @@ namespace B2D3.Classes
         private User _author;
         private DateTime _logDate;
         private bool _isDeleted;
+        private bool _isApproved;
 
-        [Key, Column(Order =0), DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key, Column(Order =0), DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int HistoryID
         {
             get
@@ -23,7 +24,7 @@ namespace B2D3.Classes
                 return _id;
             }
 
-            private set
+            set
             {
                 _id = value;
             }
@@ -78,6 +79,19 @@ namespace B2D3.Classes
             set
             {
                 _isDeleted = value;
+            }
+        }
+        [Required]
+        public bool IsApproved
+        {
+            get
+            {
+                return _isApproved;
+            }
+
+            set
+            {
+                _isApproved = value;
             }
         }
 
