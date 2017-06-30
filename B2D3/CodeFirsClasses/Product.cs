@@ -17,7 +17,6 @@ namespace B2D3.Classes
         private int _timesViewed;
         private bool _isCompensated;
         private decimal _price;
-        private bool _isApproved;
         private Supplier _supplier;
         private List<ProductReview> _reviews;
         private Category _productCategory;
@@ -108,19 +107,6 @@ namespace B2D3.Classes
             set
             {
                 _price = value;
-            }
-        }
-        [Required]
-        public bool IsApproved
-        {
-            get
-            {
-                return _isApproved;
-            }
-
-            set
-            {
-                _isApproved = value;
             }
         }
         public Supplier Supplier
