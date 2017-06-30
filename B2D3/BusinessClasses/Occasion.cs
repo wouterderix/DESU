@@ -1,4 +1,5 @@
-﻿using System;
+﻿using B2D3.GlobalClasses;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
