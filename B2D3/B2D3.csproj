@@ -112,6 +112,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="UI\OccasionControlleren.aspx" />
     <Content Include="UI\Occasion_Bewerken.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
@@ -179,6 +180,13 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\OccasionControlleren.aspx.cs">
+      <DependentUpon>OccasionControlleren.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\OccasionControlleren.aspx.designer.cs">
+      <DependentUpon>OccasionControlleren.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Occasion_Bewerken.aspx.cs">
       <DependentUpon>Occasion_Bewerken.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

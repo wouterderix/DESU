@@ -17,18 +17,22 @@ namespace B2D3.Classes
             { occasionList = db.Occasions.ToList(); }
             // Group by historyID and get the latest version
             occasionList = occasionList.GroupBy(o => o.HistoryID)
-                .Select(v => v.OrderByDescending(o => o.Version).FirstOrDefault());
+                .Select (v => v.OrderByDescending(o => o.Version).FirstOrDefault());
             // If showpassedevents equals false, don't show passedevents
             if (showPassedEvents == false)
             {
-                occasionList = occasionList.Where(o => Date >= DateTime.Now.Date);
+                occasionList = occasionList.Where(o => o.Date >= DateTime.Now.Date && o.IsDeleted == false);
             }if(isApproved == true)
             {
-                occasionList = occasionList.Where(o => IsApproved == true);
+                occasionList = occasionList.Where(o => o.IsApproved == true && o.IsDeleted == false);
             }else if(isApproved == false)
             {
-                occasionList = occasionList.Where(o => IsApproved == false);
+                occasionList = occasionList.Where(o => o.IsApproved == false && o.IsDeleted == false);
+            }else 
+            {
+                occasionList = occasionList.Where(o => o.IsDeleted == false);
             }
+
 
             return occasionList.ToList();
         }
