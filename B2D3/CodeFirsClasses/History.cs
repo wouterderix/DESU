@@ -23,7 +23,7 @@ namespace B2D3.Classes
                 return _id;
             }
 
-            private set
+            set
             {
                 _id = value;
             }

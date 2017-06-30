@@ -199,6 +199,10 @@
     <Compile Include="Migrations\201706281713096_Version9.Designer.cs">
       <DependentUpon>201706281713096_Version9.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706300752264_approvedAdd.cs" />
+    <Compile Include="Migrations\201706300752264_approvedAdd.Designer.cs">
+      <DependentUpon>201706300752264_approvedAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
@@ -219,6 +223,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201706281713096_Version9.resx">
       <DependentUpon>201706281713096_Version9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706300752264_approvedAdd.resx">
+      <DependentUpon>201706300752264_approvedAdd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
