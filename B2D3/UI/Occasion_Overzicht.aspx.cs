@@ -17,8 +17,11 @@ namespace B2D3.Classes.UI
 
             AllOccasionsView.DataSource = occasions;
             AllOccasionsView.DataBind();
+            if (Request.QueryString["NewOccasion"] == "True")
+            {
+                New_Occasion.Text = "Nieuwe Occasion succesvol toegevoegd";
+            }
         }
-
         protected void btn_Back_Click(object sender, EventArgs e)
         {
             //cancel the operation and return to main page

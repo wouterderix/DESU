@@ -31,6 +31,15 @@ namespace B2D3.Classes.UI {
         protected global::System.Web.UI.WebControls.Button btn_Back;
         
         /// <summary>
+        /// New_Occasion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label New_Occasion;
+        
+        /// <summary>
         /// AllOccasionsView control.
         /// </summary>
         /// <remarks>

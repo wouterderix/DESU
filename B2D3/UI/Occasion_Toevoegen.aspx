@@ -61,7 +61,7 @@
             Plaats:<asp:TextBox ID="TextBox2" runat="server" style="margin-left: 81px" Width="275px"></asp:TextBox>
         </p>
         <p>
-            Informatie URL:<asp:TextBox ID="TextBox3" runat="server" style="margin-left: 23px" Width="275px"></asp:TextBox>
+            Informatie URL:<asp:TextBox ID="TextBox3" placeholder="Vergeet http:// niet" runat="server" style="margin-left: 23px" Width="275px"></asp:TextBox>
         </p>
         <p>
             Beschrijving</p>

@@ -19,9 +19,12 @@ namespace B2D3.UI
         {
             
             var controller = new OccasionToevoegen();     
-            if(!controller.newOccasion(TextBox1.Text, TextBox4.Text, Calendar1.SelectedDate, TextBox3.Text, TextBox4.Text))
+            if(!controller.newOccasion(TextBox1.Text, TextBox4.Text, Calendar1.SelectedDate, TextBox3.Text, TextBox2.Text))
             {
                 Error_Label.Text = "Niet alle velden zijn ingevuld";
+            }else
+            {
+                Response.Redirect("/UI/Occasion_Overzicht.aspx?NewOccasion=" + true);
             }
         }
 
