@@ -3,6 +3,7 @@ using B2D3.GlobalClasses;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
 using System.Linq;
@@ -23,7 +24,8 @@ namespace B2D3.Classes
                 occasionList = db.Occasions.ToList(); 
             }
             // Group by historyID and get the latest version
-            occasionList = occasionList.GroupBy(o => o.HistoryID)
+            occasionList = occasionList.Where(o => o.IsDeleted == false)
+                .GroupBy(o => o.HistoryID)                
                 .Select(v => v.OrderByDescending(o => o.Version).FirstOrDefault());
             // If showpassedevents equals false, don't show passedevents
             if (showPassedEvents == false)
@@ -137,17 +139,22 @@ namespace B2D3.Classes
             //Query getOcassion where id = id && version = version
             using (var db = new Casusblok5Model())
             {
-                var results = getOccasion(history);
 
-                if (results != null)
+                var occasion = getOccasion(history);
+
+                if (occasion != null)
                 {
-                    results.IsDeleted = true;
-                    results.IsApproved = false;
+                    occasion.IsDeleted = true;
+                    occasion.Author = db.Users.Include(b => b.AccountRole).FirstOrDefault();
+                    db.Occasions.AddOrUpdate(occasion);
                     db.SaveChanges();
                     return true;
                 }
 
-                else return false; 
+                else
+                {
+                    return false;
+                }
             }
         }
     }
