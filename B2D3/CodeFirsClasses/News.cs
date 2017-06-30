@@ -12,7 +12,6 @@ namespace B2D3.Classes
     {
         private string _title;
         private string _description;
-        private bool _approved;
         private DateTime _dueDate;
 
 
@@ -49,18 +48,6 @@ namespace B2D3.Classes
             set
             {
                 _description = value;
-            }
-        }
-        [Required]
-        public bool Approved
-        {
-            get
-            {
-                return _approved;
-            }
-            set
-            {
-                _approved = value;
             }
         }
         [Required]
