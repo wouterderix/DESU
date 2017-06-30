@@ -10,7 +10,7 @@
 namespace B2D3.Classes.UI {
     
     
-    public partial class OccasionControlleren {
+    public partial class Occasion_Controlleren {
         
         /// <summary>
         /// form1 control.

@@ -9,7 +9,7 @@ using System.Diagnostics;
 
 namespace B2D3.Classes.UI
 {
-    public partial class OccasionControlleren : System.Web.UI.Page
+    public partial class Occasion_Controlleren : System.Web.UI.Page
     {
         List<Occasion> occasions = new List<Occasion>();
         protected void Page_Load(object sender, EventArgs e)
@@ -24,13 +24,15 @@ namespace B2D3.Classes.UI
 
         protected void BOccasionGoedkeuren_Click(object sender, EventArgs e)
         {
+            OccasionGoedkeuren goedkeuren = new OccasionGoedkeuren();
+
             int i = 0;
             foreach(GridViewRow row in UnapproveOccasions.Rows)
             {
                 CheckBox chk = (CheckBox)row.FindControl("chkChild");
                 if (chk.Checked)
                 {
-                    occasions[i].IsApproved = true;
+                    goedkeuren.occasionGoedkeuren(occasions[i]);
                 }
                 i++;
             }
