@@ -9,6 +9,7 @@ namespace B2D3.Classes.CC
 {
     public class ControlProductDataCC
     {
+        [Author("Nigel Croese", "ProductZoeken", Version = 1)]
         CreateProduct CP = new CreateProduct();
 
         public List<bool> ControlData(string Name, string Description, List<string> Operations, string Specifications, string Length, string Width, string Height, string Weight, string Requirements, string Price, string Image_1, string Video, string Availability, string UserManual)
@@ -174,7 +175,8 @@ namespace B2D3.Classes.CC
             return ControlResults;
         }
 
-        public void ConvertData(string Name, string Description, List<string> Operations, string Category, string Specifications, string Length, string Width, string Height, string Weight, string Requirements, string Price, string Compensation, string Image_1, string Video, string Availability, string UserManual)
+        [Author("Wouter Derix", "ProductZoeken", Version = 1)]
+        public string ConvertData(string Name, string Description, List<string> Operations, string Category, string Specifications, string Length, string Width, string Height, string Weight, string Requirements, string Price, string Compensation, string Image_1, string Video, string Availability, string UserManual)
         {
             int Version = 1;                                                //Version
             string ProductName = Name;                                      //Name
@@ -184,12 +186,7 @@ namespace B2D3.Classes.CC
             List<int> OperationAreaIDs = new List<int>();                   //Operation Areas
             int ProductCategory = 0;                                        //ProductCategory
             List<string> ProductSpecifications = new List<string>();        //Specifications
-
-            float D1 = (float)Convert.ToInt32(Length);
-            float D2 = (float)Convert.ToInt32(Width);
-            float D3 = (float)Convert.ToInt32(Height);
-
-            List<float> Dimensions = new List<float>() { D1, D2, D3};                         //Dimensions TBD
+            List<int> Dimensions = new List<int>() { Convert.ToInt32(Length), Convert.ToInt32(Width), Convert.ToInt32(Height)};                         //Dimensions TBD
             int ProductWeight = Convert.ToInt32(Weight);                    //Weight
             List<string> ProductRequirements = new List<string>();          //Requirements
             decimal ProductPrice = Convert.ToDecimal(Price);                //Price
@@ -309,7 +306,8 @@ namespace B2D3.Classes.CC
             ProductRequirements = Requirements.Split('-').ToList<string>();
             ProductRequirements.Reverse();
 
-            CP.AddProduct(Version, ProductName, ProductDescription, ExpirationDate, TimesViewed, ProductCompensation, ProductPrice, Approved, ProductCategory, OperationAreaIDs, ProductWeight, ProductVideo, ProductManual, Dimensions, ProductImages, ProductRequirements, ProductSpecifications);
+            string Success = CP.AddProduct(Version, ProductName, ProductDescription, ExpirationDate, TimesViewed, ProductCompensation, ProductPrice, Approved, ProductCategory, OperationAreaIDs, ProductWeight, ProductVideo, ProductManual, Dimensions, ProductImages, ProductRequirements, ProductSpecifications);
+            return Success;
         }
     }
 }

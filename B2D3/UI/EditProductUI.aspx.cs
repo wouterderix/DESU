@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using B2D3.Classes.CC;
+using B2D3.ControlClasses;
 
 namespace B2D3.UI
 {
@@ -13,7 +14,16 @@ namespace B2D3.UI
         EditProductCC E = new EditProductCC();
         protected void Page_Load(object sender, EventArgs e)
         {
-            E.getList();//Fakefunctie om te starten
+            if (!this.IsPostBack)
+            {
+                this.BindGrid();
+            }
+        }
+        private void BindGrid()
+        {
+            EditProductCC CC = new EditProductCC();
+            GridView1.DataSource = CC.getList();
+            GridView1.DataBind();
         }
     }
 }

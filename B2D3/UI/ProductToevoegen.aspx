@@ -93,8 +93,8 @@
                                 </th>
                 </tr>
                 <tr>
-                    <th style="width:350px;text-align:left;vertical-align:top;">Specificaties:<br /><h5>(Gelieve specificaties te scheiden met een nieuwe regel en een '-' aan het begin.)</h5></th>
-                    <th style="text-align:left;"><asp:TextBox ID="Specificaties" runat="server" width="405px"  height="100px" textmode="MultiLine"></asp:TextBox></th>
+                    <th style="width:350px;text-align:left;vertical-align:top;">Specificaties:<br /><h5>Gelieve de specificaties te scheiden met '-'<br /> bijv: "Test-Test"</h5></th>
+                    <th style="text-align:left;"><asp:TextBox ID="Specificaties" runat="server" width="405px"  height="100px"></asp:TextBox></th>
                     <th style="text-align:left;"><asp:Label ID="SpecsControl" runat="server" Visible="False" style="color:red;font-size:small;">De specificaties moeten totaal tussen de 1 en 1000 karakters bevatten.</asp:Label></th>
                 </tr>
                 <tr>
@@ -132,8 +132,8 @@
                                 </th>
                 </tr>
                 <tr>
-                    <th style="width:350px;text-align:left;vertical-align:top;">Eisen aan de gebruiker:<br /><h5>(Gelieve eisen te scheiden met een nieuwe regel en een '-' aan het begin.)</h5></th>
-                    <th style="text-align:left;"><asp:TextBox ID="Eisen" runat="server" width="300px"  height="100px" textmode="MultiLine"></asp:TextBox></th>
+                    <th style="width:350px;text-align:left;vertical-align:top;">Eisen aan de gebruiker:<br /><h5>Gelieve de eisen te scheiden met '-'<br /> bijv: "Test-Test"</h5></th>
+                    <th style="text-align:left;"><asp:TextBox ID="Eisen" runat="server" width="300px"  height="100px"></asp:TextBox></th>
                     <th style="text-align:left;"><asp:Label id="EisenControl" runat="server" Visible="False" style="color:red;font-size:small;">De eisen moeten totaal tussen de 1 en 1000 karakters bevatten.</asp:Label></th>
                 </tr>
                 <tr>
@@ -181,6 +181,9 @@
         </div>
         <div>
             <h3><asp:Button ID="Product_toevoegen" runat="server" Text="Product toevoegen" OnClick="AddProduct_Click" style="width:200px;height:30px;font-size:large;"/></h3>
+        </div>
+        <div>
+            <asp:Label id="Result" runat="server" Visible="False" style="color:red;font-size:small;">Product toegevoegd</asp:Label>
         </div>
     </form>
 </body>

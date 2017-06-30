@@ -15,6 +15,7 @@ namespace B2D3
         {
         }
 
+        [Author("Wouter Derix", "ProductZoeken", Version = 1)]
         public void AddProduct_Click(object sender, EventArgs e)
         {
             ControlProductDataCC Controle = new ControlProductDataCC();
@@ -56,10 +57,15 @@ namespace B2D3
             ControleFeedback(ControlResults);
             if (ControleBool == true)
             {
-                Controle.ConvertData(Name, Description, OperationAreas, Category, Specifications, Length, Width, Height, Weight, Requirements, Price, Compensation, Image_1, Video, Availability, UserManual);
+                string Success = Controle.ConvertData(Name, Description, OperationAreas, Category, Specifications, Length, Width, Height, Weight, Requirements, Price, Compensation, Image_1, Video, Availability, UserManual);
+                if (Success == "Product Toegevoegd")
+                {
+                    Result.Visible = true;
+                }
             }
         }
 
+        [Author("Nigel Croese", "ProductZoeken", Version = 1)]
         public void ControleFeedback(List<bool> Results)
         {
             int i = 0;
