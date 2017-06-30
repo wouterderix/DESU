@@ -129,6 +129,7 @@
   <ItemGroup>
     <Content Include="default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="UI\Occasion_Controlleren.aspx" />
     <Content Include="UI\Occasion_Overzicht.aspx" />
     <Content Include="UI\Occasion_Toevoegen.aspx" />
     <Content Include="Web.config">
@@ -189,6 +190,13 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Occasion_Controlleren.aspx.cs">
+      <DependentUpon>Occasion_Controlleren.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Occasion_Controlleren.aspx.designer.cs">
+      <DependentUpon>Occasion_Controlleren.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Occasion_Overzicht.aspx.cs">
       <DependentUpon>Occasion_Overzicht.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
