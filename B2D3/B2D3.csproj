@@ -132,7 +132,8 @@
     <Content Include="default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="UI\DeleteProductTest.aspx" />
-    <Content Include="UI\EditProductUI.aspx" />
+    <Content Include="UI\EditProduct.aspx" />
+    <Content Include="UI\Viewproduct.aspx" />
     <Content Include="UI\ProductToevoegen.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -217,12 +218,19 @@
     <Compile Include="UI\DeleteProductTest.aspx.designer.cs">
       <DependentUpon>DeleteProductTest.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UI\EditProductUI.aspx.cs">
-      <DependentUpon>EditProductUI.aspx</DependentUpon>
+    <Compile Include="UI\EditProduct.aspx.cs">
+      <DependentUpon>EditProduct.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UI\EditProductUI.aspx.designer.cs">
-      <DependentUpon>EditProductUI.aspx</DependentUpon>
+    <Compile Include="UI\EditProduct.aspx.designer.cs">
+      <DependentUpon>EditProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Viewproduct.aspx.cs">
+      <DependentUpon>Viewproduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Viewproduct.aspx.designer.cs">
+      <DependentUpon>Viewproduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\ProductToevoegen.aspx.cs">
       <DependentUpon>ProductToevoegen.aspx</DependentUpon>

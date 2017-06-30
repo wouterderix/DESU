@@ -3,25 +3,26 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
+using B2D3.GlobalClasses;
 
 namespace B2D3.Classes
 {
+    [Author("Robin Jongen", "ProductAanpassen", Version = 0.1f)]
     public partial class Product
     {
         /// <summary>
         /// Get all products where isdeleted = False
         /// </summary>
         /// <returns></returns>
-        /*
-        public List<Product> CheckProduct()
+        
+        public DataTable CheckProduct()
         {
-            var pqm = new B2D3.Classes.ProductQuerryModel() { IsDeleted = false };
+            var pqm = new ProductQuerryModel() { IsDeleted = false };
             var resultSet = ControlClasses.SearchProduct.QuerryProducts(pqm);
-
             return resultSet;
         }
-        */
     }
+
     //public DataTable ReturnProducts()
     //{
     //    Product p = new Product();
