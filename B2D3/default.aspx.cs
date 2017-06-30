@@ -14,7 +14,6 @@ namespace B2D3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-<<<<<<< HEAD
             var controller = new OccasionGet();
             Debug.WriteLine(controller.getAllOccasions());
             
@@ -29,9 +28,5 @@ namespace B2D3
         {
             Response.Redirect("/UI/Occasion_Overzicht.aspx");
         }
-=======
-            
-        } 
->>>>>>> refs/remotes/origin/master
     }
 }
