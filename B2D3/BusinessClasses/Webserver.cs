@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
+using B2D3.Classes;
+using B2D3.DAL;
+using B2D3.GlobalClasses;
 
-namespace B2D3.Classes
+namespace B2D3.BusinessClasses
 {
     public sealed class Webserver : IServable
     {
@@ -30,7 +33,7 @@ namespace B2D3.Classes
         private Webserver()
         { _databaseAccess = new DatabaseAccess(); }
 
-        [Author("Dennis Corvers, Damien Brils", "ProductZoeken", Version = 1)]
+        [Author("Dennis Corvers, Damien Brils", "ProductZoeken", Version = 2)]
         /// <summary>
         /// Search for products matching specified filter options.
         /// </summary>
@@ -41,7 +44,9 @@ namespace B2D3.Classes
             //Check logged in?
             //Check authorisation?
 
-            return _databaseAccess.SearchProducts(searchInstructions);
+            DAL.ProductRepository productRepo = new DAL.ProductRepository(new Casusblok5Model());
+            using (productRepo)
+            { return productRepo.FilterProducts(searchInstructions).ToList(); }
         }
 
         public bool ApproveOccasion(int occasionID, bool isApproved)
@@ -66,12 +71,12 @@ namespace B2D3.Classes
 
         public List<News> GetNews()
         {
-            throw new NotImplementedException();
+            return _databaseAccess.GetNews();
         }
 
-        public List<News> GetNewsArticle(int newsID)
+        public News GetNewsArticle(int newsID)
         {
-            throw new NotImplementedException();
+            return _databaseAccess.GetNewsArticle(newsID);
         }
 
         public void AddNews(string title, string content, string image)
