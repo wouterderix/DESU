@@ -1,8 +1,11 @@
-﻿using System;
+﻿using B2D3.GlobalClasses;
+using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
+
 
 namespace B2D3.Classes
 {
@@ -16,12 +19,18 @@ namespace B2D3.Classes
             }
         }
 
+        [Author("Xavier van Egdom", "Nieuws goedkeuren")]
         public void Approve(int id)
         {
             using(Casusblok5Model db = new Casusblok5Model())
             {
-                News news = db.News.Where(n => n.HistoryID.Equals(id)).Single();
-                news. = true;
+                News newsToUpdate = db.News.Where(n => n.HistoryID.Equals(id)).Single();
+                newsToUpdate.Approved = true;
+
+                db.News.Add(newsToUpdate);
+                db.Entry(newsToUpdate).State = System.Data.Entity.EntityState.Modified;
+
+                db.SaveChanges();
             }
         }
 

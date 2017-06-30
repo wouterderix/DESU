@@ -146,6 +146,7 @@
     <Compile Include="BusinessClasses\News.cs" />
     <Compile Include="Casusblok5Model.cs" />
     <Compile Include="CodeFirsClasses\AccountRole.cs" />
+    <Compile Include="ControlClasses\ApprovedNewsCC.cs" />
     <Compile Include="ControlClasses\GetNewsCC.cs" />
     <Compile Include="ControlClasses\UpdateNewsCC.cs" />
     <Compile Include="GetNews.aspx.cs">
