@@ -22,7 +22,7 @@ namespace B2D3.DAL
 
         List<News> GetNews();
 
-        List<News> GetNewsArticle(int newsID);
+        News GetNewsArticle(int newsID);
 
         void AddNews(string title, string content, string image);
 

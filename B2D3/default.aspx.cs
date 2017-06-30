@@ -11,6 +11,7 @@ namespace B2D3
     public partial class _default : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
+<<<<<<< HEAD
         {           
             GridView1.DataSource = SearchProduct.GetAllProducts();
         }
@@ -19,5 +20,10 @@ namespace B2D3
         {
             GridView1.DataSource = SearchProduct.SearchByName("rolstoel");
         }
+=======
+        {
+            
+        } 
+>>>>>>> refs/remotes/origin/master
     }
 }

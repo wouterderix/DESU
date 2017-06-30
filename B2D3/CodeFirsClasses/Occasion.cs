@@ -15,7 +15,6 @@ namespace B2D3.Classes
         private DateTime _date;
         private string _location;
         private string moreInformationURL;
-        private bool _isApproved;
 
         public Occasion(Occasion oldVersion, User author, bool isDeleted) 
             : base(oldVersion, author, isDeleted)
@@ -90,19 +89,6 @@ namespace B2D3.Classes
             set
             {
                 moreInformationURL = value;
-            }
-        }
-        [Required]
-        public bool IsApproved
-        {
-            get
-            {
-                return _isApproved;
-            }
-
-            set
-            {
-                _isApproved = value;
             }
         }
 
