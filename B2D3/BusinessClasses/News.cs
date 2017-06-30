@@ -9,6 +9,7 @@ using System.Web;
 
 namespace B2D3.Classes
 {
+    [Author("Jens Koekkoek, Xavier van Egdom", "NieuwsInzien")]
     public partial class News
     {
         public DataTable SearchNews(int takeCount = 10)
