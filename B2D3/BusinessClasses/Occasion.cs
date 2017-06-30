@@ -39,7 +39,7 @@ namespace B2D3.Classes
             return occasionList.ToList();
         }
 
-        public void storeOccasion(string title, string desription, System.DateTime date, string location, string url, bool deleted = false, bool approved = false, int version = 1)
+        public void storeOccasion(string title, string desription, System.DateTime date, string location, string url, bool deleted = false, bool approved = false, int version = 1, int id = 232)
         {
             var newOccasion = new Occasion();
             using (var db = new Casusblok5Model())
@@ -47,6 +47,7 @@ namespace B2D3.Classes
                 try
                 {
                     //Create a new Occassion
+                    newOccasion.HistoryID = id;
                     newOccasion.Version = version;
                     newOccasion.Author = db.Users.Include(b => b.AccountRole).FirstOrDefault();
                     newOccasion.IsDeleted = deleted;
