@@ -12,7 +12,9 @@ namespace B2D3.UI
 {
     public partial class EditProduct : System.Web.UI.Page
     {
-        bool ControleBool = true;
+        [Author("Robin Jongen", "ProductAanpassen", Version = 0.3f)]
+
+        bool ControleBool = true;  
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -50,14 +52,12 @@ namespace B2D3.UI
             Naam.Text = GridView1.Rows[0].Cells[0].Text;
             
             Omschrijving.Text = GridView1.Rows[0].Cells[1].Text;
-            //string icoFileName = row[2].ToString(); // Timesviewed
-            string test1 = GridView1.Rows[0].Cells[2].Text; // Moet bool worden (0/1) iscompensated
-            Kosten.Text = GridView1.Rows[0].Cells[3].Text;
-            Gewicht.Text = GridView1.Rows[0].Cells[4].Text;
-            Vid.Text = GridView1.Rows[0].Cells[5].Text;
-            Handleiding.Text = GridView1.Rows[0].Cells[6].Text;
-
-            //}
+            string test1 = GridView1.Rows[0].Cells[4].Text; // Moet bool worden (0/1) iscompensated
+            Kosten.Text = GridView1.Rows[0].Cells[5].Text; // 
+            Gewicht.Text = GridView1.Rows[0].Cells[6].Text;
+            Vid.Text = GridView1.Rows[0].Cells[7].Text;
+            Handleiding.Text = GridView1.Rows[0].Cells[8].Text;
+            
         }
 
         [Author("Robin Jongen", "ProductAanpassen", Version = 0.1f)]
