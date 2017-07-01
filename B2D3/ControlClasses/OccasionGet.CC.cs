@@ -15,13 +15,17 @@ namespace B2D3.Classes.CC
             return o.getOccasion(history);
         }
 
+        /// <summary>
+        /// Gets all occasions.
+        /// </summary>
+        /// <returns>
+        /// List<Occasion>
+        /// </returns>
         public List<Occasion> getAllOccasions()
         {
             var o = new Occasion();
-                      
-            var ocassions = o.getOccasions(true, false);
- 
-            return ocassions;
+
+            return o.getOccasions(false, false);
         }
         
          /*

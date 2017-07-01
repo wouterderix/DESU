@@ -24,14 +24,21 @@ namespace B2D3.Classes.UI
         }
         protected void btn_Back_Click(object sender, EventArgs e)
         {
-            //cancel the operation and return to main page
+            //Cancel the operation and return to main page
             Response.Redirect("~/default.aspx");
         }
 
+        /// <summary>
+        /// Handles the SelectedIndexChanged event of the AllOccasionsView control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void AllOccasionsView_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Get the selected Row and then get the HistoryID of that Row
             GridViewRow row = AllOccasionsView.SelectedRow;
             string historyID = AllOccasionsView.SelectedDataKey.Value.ToString();
+            //Redirect to Occasion Edit view, with HistoryID as parameter
             Response.Redirect("/UI/Occasion_Bewerken.aspx?HistoryID="+historyID);
         }
     }
