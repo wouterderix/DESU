@@ -31,13 +31,22 @@ namespace B2D3 {
         protected global::System.Web.UI.WebControls.GridView gvNews;
         
         /// <summary>
-        /// tbId control.
+        /// tbIdH control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbId;
+        protected global::System.Web.UI.WebControls.TextBox tbIdH;
+        
+        /// <summary>
+        /// tbIdV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbIdV;
         
         /// <summary>
         /// btnApprove control.

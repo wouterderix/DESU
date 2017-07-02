@@ -7,14 +7,14 @@ using System.Linq;
 using System.Web;
 
 
-namespace B2D3.ControlClasses
+namespace B2D3.Classes.CC
 {
     [Author("Xavier van Egdom", "Nieuws goedkeuren")]
     public class ApprovedNewsCC
     {
-        public void ApprovedNews(int newsId)
+        public void ApprovedNews(int historyId, int versionId)
         {
-            new News().Approve(newsId);
+            new News().Approve(historyId, versionId);
         }
     }
 }

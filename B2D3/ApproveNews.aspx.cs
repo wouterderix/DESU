@@ -1,13 +1,6 @@
 ﻿using B2D3.Classes.CC;
 using B2D3.GlobalClasses;
 using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace B2D3
 {
@@ -22,7 +15,10 @@ namespace B2D3
 
         protected void btnApprove_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(tbId.Text);
+            int historyId = int.Parse(tbIdH.Text);
+            int versionId = int.Parse(tbIdV.Text);
+
+            new ApprovedNewsCC().ApprovedNews(historyId, versionId);
         }
 
         private void SetGridView()

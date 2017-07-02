@@ -33,7 +33,7 @@ namespace B2D3
         {
             GetNewsCC gn = new GetNewsCC();
 
-            gn.GetNewsByID()
+            ///gn.GetNewsByID();
         }
     }
 }

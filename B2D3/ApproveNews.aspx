@@ -16,7 +16,8 @@
             <div>
                 <asp:GridView ID="gvNews" runat="server">
                 </asp:GridView>
-                <asp:TextBox ID="tbId" runat="server"></asp:TextBox>
+                <asp:TextBox ID="tbIdH" runat="server"></asp:TextBox>
+                <asp:TextBox ID="tbIdV" runat="server"></asp:TextBox>
                 <asp:Button ID="btnApprove" runat="server" OnClick="btnApprove_Click" Text="goedkeuren" />
             </div>
         </form>
