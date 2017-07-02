@@ -10,10 +10,11 @@ using B2D3.GlobalClasses;
 
 namespace B2D3.UI
 {
+    [Author("Robin Jongen", "ProductAanpassen", Version = 1.0f)]
     public partial class EditProduct : System.Web.UI.Page
     {
-        [Author("Robin Jongen", "ProductAanpassen", Version = 0.3f)]
-
+       
+        EditProductCC CC = new EditProductCC();
         bool ControleBool = true;  
 
         protected void Page_Load(object sender, EventArgs e)
@@ -21,7 +22,7 @@ namespace B2D3.UI
             
             if (Request.QueryString["ID"] != "" && Request.QueryString["ID"] != null)
             {
-                //Get Occasion by HistoryID from link
+                //Get Product by HistoryID from link
                 int ID = Convert.ToInt32(Request.QueryString["ID"]);
                 int Version1 = Convert.ToInt32(Request.QueryString["Version"]);
                 if (!this.IsPostBack)
@@ -43,16 +44,14 @@ namespace B2D3.UI
         //}
 
         public void FillFields(int ID,int Version)
-        {
-            EditProductCC CC = new EditProductCC();
+        { 
             GridView1.DataSource = CC.getitem(ID, Version);
             GridView1.DataBind();
-            //DataTable komt terug hiermee alle textboxes etc vullen van Addproduct
+            //DataTable komt terug hiermee alle textboxes etc vullen van EditProduct
            
             Naam.Text = GridView1.Rows[0].Cells[0].Text;
             
             Omschrijving.Text = GridView1.Rows[0].Cells[1].Text;
-            string test1 = GridView1.Rows[0].Cells[4].Text; // Moet bool worden (0/1) iscompensated
             Kosten.Text = GridView1.Rows[0].Cells[5].Text; // 
             Gewicht.Text = GridView1.Rows[0].Cells[6].Text;
             Vid.Text = GridView1.Rows[0].Cells[7].Text;
@@ -61,11 +60,9 @@ namespace B2D3.UI
         }
 
         [Author("Robin Jongen", "ProductAanpassen", Version = 0.1f)]
-        public void AddProduct_Click(object sender, EventArgs e)
+        public void EditProduct_Click(object sender, EventArgs e)
         {
-            /*
-            MAG NIET
-            ControlProductDataCC Controle = new ControlProductDataCC();
+         
 
             var Name = Naam.Text;
             var Description = Omschrijving.Text;
@@ -100,17 +97,23 @@ namespace B2D3.UI
                 i++;
             }
 
-            List<bool> ControlResults = Controle.ControlData(Name, Description, OperationAreas, Specifications, Length, Width, Height, Weight, Requirements, Price, Image_1, Video, Availability, UserManual);
+            List<bool> ControlResults = CC.ControlData(Name, Description, OperationAreas, Specifications, Length, Width, Height, Weight, Requirements, Price, Image_1, Video, Availability, UserManual);
             ControleFeedback(ControlResults);
             if (ControleBool == true)
             {
-                //string Success = Controle.ConvertData(Name, Description, OperationAreas, Category, Specifications, Length, Width, Height, Weight, Requirements, Price, Compensation, Image_1, Video, Availability, UserManual);
-                if (Success == "Product Toegevoegd")
+                if (Request.QueryString["ID"] != "" && Request.QueryString["ID"] != null)
                 {
-                    Result.Visible = true;
+                    //Get Product by HistoryID from link
+                    int ID = Convert.ToInt32(Request.QueryString["ID"]);
+                    string Success = CC.ConvertData(Name, Description, OperationAreas, Category, Specifications, Length, Width, Height, Weight, Requirements, Price, Compensation, Image_1, Video, Availability, UserManual, ID);
+                    if (Success == "Product Aangepast")
+                    {
+                        Result.Visible = true;
+                    }
                 }
+                
             }
-            */
+            
         }
 
         [Author("Robin Jongen", "ProductAanpassen", Version = 0.1f)]

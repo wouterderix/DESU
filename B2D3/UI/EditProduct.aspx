@@ -180,12 +180,12 @@
             </table>
         </div>
         <div>
-            <h3><asp:Button ID="Product_toevoegen" runat="server" Text="Product toevoegen" OnClick="AddProduct_Click" style="width:200px;height:30px;font-size:large;"/></h3>
+            <h3><asp:Button ID="Product_aanpassen" runat="server" Text="Product aanpassen" OnClick="EditProduct_Click" style="width:200px;height:30px;font-size:large;"/></h3>
         </div>
         <div>
             <asp:Label id="Result" runat="server" Visible="False" style="color:red;font-size:small;">Product toegevoegd</asp:Label>
         </div>
-        <asp:GridView ID="GridView1" runat="server">
+        <asp:GridView ID="GridView1" runat="server" Visible="False">
         </asp:GridView>
     </form>
 </body>
