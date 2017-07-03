@@ -7,7 +7,7 @@ using System.Web;
 
 namespace B2D3.Classes
 {
-    public abstract class History : IEquivalent
+    public abstract partial class History : IEquivalent
     {
         private int _id;
         private int _version;
