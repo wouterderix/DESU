@@ -1,4 +1,4 @@
-﻿using B2D3.ControlClasses;
+using B2D3.ControlClasses;
 using B2D3.GlobalClasses;
 using System;
 using System.Collections.Generic;
@@ -28,24 +28,38 @@ namespace B2D3
 
         protected void SendApproveProduct_Click(object sender, EventArgs e)
         {
-            if ( ApproveProducts.ApprovedProduct(Convert.ToInt32(HistoryID.Text), Convert.ToInt32(Version.Text)))
+            try
             {
-                ConfirmLabel.Text = "Product is goedgekeurd. . .";
+                if (ApproveProducts.ApprovedProduct(Convert.ToInt32(HistoryID.Text), Convert.ToInt32(Version.Text)))
+                {
+                    ConfirmLabel.Text = "Product is goedgekeurd. . .";
 
-                ConfirmLabel.Visible = true;
-                ConfirmLabel.Enabled = true;
-                ConfirmButton.Visible = true;
-                ConfirmButton.Enabled = true;
+                    ConfirmLabel.Visible = true;
+                    ConfirmLabel.Enabled = true;
+                    ConfirmButton.Visible = true;
+                    ConfirmButton.Enabled = true;
+                }
+
+                else
+                {
+                    ConfirmLabel.Text = "Product bestaat niet, of actie is mislukt. . .";
+
+                    ConfirmLabel.Visible = true;
+                    ConfirmLabel.Enabled = true;
+                    ConfirmButton.Visible = true;
+                    ConfirmButton.Enabled = true;
+                }
             }
-
-            else
+            catch (System.FormatException)
             {
-                ConfirmLabel.Text = "Product bestaat niet, of actie is mislukt. . .";
+                {
+                    ConfirmLabel.Text = "Product bestaat niet, of actie is mislukt. . .";
 
-                ConfirmLabel.Visible = true;
-                ConfirmLabel.Enabled = true;
-                ConfirmButton.Visible = true;
-                ConfirmButton.Enabled = true;
+                    ConfirmLabel.Visible = true;
+                    ConfirmLabel.Enabled = true;
+                    ConfirmButton.Visible = true;
+                    ConfirmButton.Enabled = true;
+                }
             }
         }
 
