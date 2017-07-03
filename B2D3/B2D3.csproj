@@ -241,10 +241,10 @@
     <Compile Include="UI\Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UI\Occasion_Bewerken.aspx.cs">
+    <Content Include="UI\Occasion_Bewerken.aspx.cs">
       <DependentUpon>Occasion_Bewerken.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
+    </Content>
     <Compile Include="UI\Occasion_Controlleren.aspx.cs">
       <DependentUpon>Occasion_Controlleren.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
