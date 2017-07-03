@@ -134,15 +134,18 @@
     <Content Include="default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="UI\AuditLogUI.aspx" />
+    <Content Include="UI\CheckDate.aspx" />
     <Content Include="UI\Contact.aspx" />
     <Content Include="UI\DeleteProductTest.aspx" />
-    <Content Include="UI\EditProductUI.aspx" />
+    <Content Include="UI\EditProduct.aspx" />
     <Content Include="UI\OccasionsMain.aspx" />
     <Content Include="UI\Occasion_Bewerken.aspx" />
     <Content Include="UI\Occasion_Controlleren.aspx" />
     <Content Include="UI\Occasion_Overzicht.aspx" />
     <Content Include="UI\Occasion_Toevoegen.aspx" />
     <Content Include="UI\ProductToevoegen.aspx" />
+    <Content Include="UI\ReviewProduct.aspx" />
+    <Content Include="UI\Viewproduct.aspx" />
     <Content Include="UpdateNews.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -165,13 +168,17 @@
     <Compile Include="BusinessClasses\HistoryBU.cs" />
     <Compile Include="BusinessClasses\News.cs" />
     <Compile Include="BusinessClasses\Occasion.cs" />
+    <Compile Include="BusinessClasses\Product.cs" />
     <Compile Include="BusinessClasses\ProductAanpassenBU.cs" />
+    <Compile Include="BusinessClasses\ReviewProduct.cs" />
     <Compile Include="BusinessClasses\SearchProductBC.cs" />
     <Compile Include="BusinessClasses\WorkItemBC.cs" />
     <Compile Include="Casusblok5Model.cs" />
     <Compile Include="CodeFirsClasses\AccountRole.cs" />
     <Compile Include="ControlClasses\ApprovedNewsCC.cs" />
+    <Compile Include="ControlClasses\ApproveProductCC.cs" />
     <Compile Include="ControlClasses\CCContactOpnemen.cs" />
+    <Compile Include="ControlClasses\CheckDateCC.cs" />
     <Compile Include="ControlClasses\ControlProductData.cs" />
     <Compile Include="ControlClasses\DeleteProduct.cs" />
     <Compile Include="ControlClasses\EditProductCC.cs" />
@@ -182,6 +189,7 @@
     <Compile Include="ControlClasses\OccasionsVerwijder.CC.cs" />
     <Compile Include="ControlClasses\OccasionToevoegen.CC.cs" />
     <Compile Include="ControlClasses\ProductAanpassenCC.cs" />
+    <Compile Include="ControlClasses\ReviewProduct.cs" />
     <Compile Include="ControlClasses\SearchProductCC.cs" />
     <Compile Include="ControlClasses\UpdateNewsCC.cs" />
     <Compile Include="ControlClasses\WorkItemCC.cs" />
@@ -254,6 +262,13 @@
     <Compile Include="UI\AuditLogUI.aspx.designer.cs">
       <DependentUpon>AuditLogUI.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI\CheckDate.aspx.cs">
+      <DependentUpon>CheckDate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\CheckDate.aspx.designer.cs">
+      <DependentUpon>CheckDate.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -272,12 +287,12 @@
     <Compile Include="UI\DeleteProductTest.aspx.designer.cs">
       <DependentUpon>DeleteProductTest.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UI\EditProductUI.aspx.cs">
-      <DependentUpon>EditProductUI.aspx</DependentUpon>
+    <Compile Include="UI\EditProduct.aspx.cs">
+      <DependentUpon>EditProduct.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UI\EditProductUI.aspx.designer.cs">
-      <DependentUpon>EditProductUI.aspx</DependentUpon>
+    <Compile Include="UI\EditProduct.aspx.designer.cs">
+      <DependentUpon>EditProduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Occasion_Controlleren.aspx.cs">
       <DependentUpon>Occasion_Controlleren.aspx</DependentUpon>
@@ -306,6 +321,20 @@
     </Compile>
     <Compile Include="UI\ProductToevoegen.aspx.designer.cs">
       <DependentUpon>ProductToevoegen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ReviewProduct.aspx.cs">
+      <DependentUpon>ReviewProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ReviewProduct.aspx.designer.cs">
+      <DependentUpon>ReviewProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Viewproduct.aspx.cs">
+      <DependentUpon>Viewproduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Viewproduct.aspx.designer.cs">
+      <DependentUpon>Viewproduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="UpdateNews.aspx.cs">
       <DependentUpon>UpdateNews.aspx</DependentUpon>

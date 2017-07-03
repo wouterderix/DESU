@@ -10,7 +10,8 @@
 namespace B2D3.UI {
     
     
-    public partial class EditProductUI {
+    public partial class viewProduct
+    {
         
         /// <summary>
         /// form1 control.
