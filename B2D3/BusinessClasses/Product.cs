@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -61,13 +61,17 @@ namespace B2D3.Classes
         {
             using (Casusblok5Model db = new Casusblok5Model())
             {
-                Product productToUpdate = db.Products.Where(n => n.HistoryID.Equals(historyID) && n.Version.Equals(versionID)).Single();
-                productToUpdate.IsApproved = true;
-                productToUpdate.Dimension = db.Dimension.FirstOrDefault();
-                productToUpdate.Author = db.Users.Include(b => b.AccountRole).FirstOrDefault();
+                //Product productToUpdate = db.Products.Where(n => n.HistoryID.Equals(historyID) && n.Version.Equals(versionID)).Single();
+                //productToUpdate.IsApproved = true;
+                //productToUpdate.Dimension = db.Dimension.FirstOrDefault();
+                //productToUpdate.Author = db.Users.Include(b => b.AccountRole).FirstOrDefault();
 
                 try
                 {
+                    Product productToUpdate = db.Products.Where(n => n.HistoryID.Equals(historyID) && n.Version.Equals(versionID)).Single();
+                    productToUpdate.IsApproved = true;
+                    productToUpdate.Dimension = db.Dimension.FirstOrDefault();
+                    productToUpdate.Author = db.Users.Include(b => b.AccountRole).FirstOrDefault();
                     db.SaveChanges();
                     //noError
                     return true;
@@ -81,6 +85,11 @@ namespace B2D3.Classes
                             Debug.WriteLine("Property: " + validationError.PropertyName + " Error: " + validationError.ErrorMessage);
                         }
                     }
+
+                    return false;
+                }
+                catch (System.InvalidOperationException ext)
+                {
 
                     return false;
                 }
