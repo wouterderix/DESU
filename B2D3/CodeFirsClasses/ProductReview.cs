@@ -7,7 +7,7 @@ using System.Web;
 
 namespace B2D3.Classes
 {
-    public class ProductReview
+    public partial class ProductReview
     {
         private int _id;
         private string _reviewText;

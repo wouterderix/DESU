@@ -115,6 +115,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ApproveProduct.aspx" />
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
@@ -131,16 +132,18 @@
   <ItemGroup>
     <Content Include="default.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="UI\CheckDate.aspx" />
-    <Content Include="UI\DeleteProductTest.aspx" />
-    <Content Include="UI\EditProduct.aspx" />
-    <Content Include="UI\Viewproduct.aspx" />
-    <Content Include="UI\ProductToevoegen.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApproveProduct.aspx.cs">
+      <DependentUpon>ApproveProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ApproveProduct.aspx.designer.cs">
+      <DependentUpon>ApproveProduct.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BusinessClasses\AccountRole.cs" />
     <Compile Include="BusinessClasses\CheckDateBC.cs" />
     <Compile Include="BusinessClasses\CreateProduct.cs" />
@@ -148,13 +151,14 @@
     <Compile Include="BusinessClasses\DeleteProductBC.cs" />
     <Compile Include="BusinessClasses\EditProductBC.cs" />
     <Compile Include="BusinessClasses\News.cs" />
+    <Compile Include="BusinessClasses\Product.cs" />
     <Compile Include="BusinessClasses\ProductAanpassenBU.cs" />
     <Compile Include="BusinessClasses\SearchProductBC.cs" />
     <Compile Include="Casusblok5Model.cs" />
     <Compile Include="CodeFirsClasses\AccountRole.cs" />
+    <Compile Include="ControlClasses\ApproveProductCC.cs" />
     <Compile Include="ControlClasses\CheckDateCC.cs" />
     <Compile Include="ControlClasses\ControlProductData.cs" />
-    <Compile Include="ControlClasses\DeleteProduct.cs" />
     <Compile Include="ControlClasses\EditProductCC.cs" />
     <Compile Include="ControlClasses\GetNewsCC.cs" />
     <Compile Include="ControlClasses\ProductAanpassenCC.cs" />
@@ -201,6 +205,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="ControlClasses\DeleteProduct.cs" />
     <Compile Include="Migrations\201706281713096_Version9.cs" />
     <Compile Include="Migrations\201706281713096_Version9.Designer.cs">
       <DependentUpon>201706281713096_Version9.cs</DependentUpon>
@@ -210,48 +215,11 @@
       <DependentUpon>201706300841462_version10.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI\CheckDate.aspx.cs">
-      <DependentUpon>CheckDate.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UI\CheckDate.aspx.designer.cs">
-      <DependentUpon>CheckDate.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="UI\DeleteProductTest.aspx.cs">
-      <DependentUpon>DeleteProductTest.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UI\DeleteProductTest.aspx.designer.cs">
-      <DependentUpon>DeleteProductTest.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="UI\EditProduct.aspx.cs">
-      <DependentUpon>EditProduct.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UI\EditProduct.aspx.designer.cs">
-      <DependentUpon>EditProduct.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Viewproduct.aspx.cs">
-      <DependentUpon>Viewproduct.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UI\Viewproduct.aspx.designer.cs">
-      <DependentUpon>Viewproduct.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="UI\ProductToevoegen.aspx.cs">
-      <DependentUpon>ProductToevoegen.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UI\ProductToevoegen.aspx.designer.cs">
-      <DependentUpon>ProductToevoegen.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="UI\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201706281713096_Version9.resx">

@@ -5,21 +5,22 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using B2D3.Classes.CC;
-using B2D3.Classes;
 using B2D3.GlobalClasses;
 
 namespace B2D3.UI
 {
-    [Author("Robin Jongen", "ProductAanpassen", Version = 1.0f)]
     public partial class EditProduct : System.Web.UI.Page
     {
-       
         EditProductCC CC = new EditProductCC();
-        bool ControleBool = true;  
-
+        bool ControleBool = true;
+        /// <summary>
+        /// Load
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        [Author("Robin Jongen", "ProductAanpassen", Version = 1.0f)]
         protected void Page_Load(object sender, EventArgs e)
         {
-            
             if (Request.QueryString["ID"] != "" && Request.QueryString["ID"] != null)
             {
                 //Get Product by HistoryID from link
@@ -29,20 +30,18 @@ namespace B2D3.UI
                 {
                     this.FillFields(ID, Version1);
                 }
-
             }
             else
             {
                 //Error
             }
         }
-        //private void BindGrid()
-        //{
-        //    EditProductCC CC = new EditProductCC();
-        //    GridView1.DataSource = CC.getList();
-        //    GridView1.DataBind();
-        //}
-
+        /// <summary>
+        /// Vul alle velden op de UI
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <param name="Version"></param>
+        [Author("Robin Jongen", "ProductAanpassen", Version = 1.0f)]
         public void FillFields(int ID,int Version)
         { 
             GridView1.DataSource = CC.getitem(ID, Version);
@@ -58,12 +57,14 @@ namespace B2D3.UI
             Handleiding.Text = GridView1.Rows[0].Cells[8].Text;
             
         }
-
+        /// <summary>
+        /// Zet alles om van textboxes naar lijsten en strings om te controlleren in de BC classes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         [Author("Robin Jongen", "ProductAanpassen", Version = 0.1f)]
         public void EditProduct_Click(object sender, EventArgs e)
         {
-         
-
             var Name = Naam.Text;
             var Description = Omschrijving.Text;
             var Category = Categorie.Text;
@@ -115,7 +116,10 @@ namespace B2D3.UI
             }
             
         }
-
+        /// <summary>
+        /// Controlleerd of alles beschikbaar is
+        /// </summary>
+        /// <param name="Results"></param>
         [Author("Robin Jongen", "ProductAanpassen", Version = 0.1f)]
         public void ControleFeedback(List<bool> Results)
         {
