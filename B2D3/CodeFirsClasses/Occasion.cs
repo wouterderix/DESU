@@ -26,6 +26,10 @@ namespace B2D3.Classes
         {
         }
 
+        public Occasion()
+        {
+        }
+
         [Required]
         public string Title
         {
