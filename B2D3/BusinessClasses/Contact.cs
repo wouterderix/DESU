@@ -15,6 +15,7 @@ namespace B2D3.Classes
 
         /// <summary>
         /// This method saves the contact information in the database.
+        /// After it is successfully saved the method sendMail will invoke
         /// </summary>
         /// <param name="name"></param>
         /// <param name="email"></param>

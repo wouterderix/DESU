@@ -6,7 +6,6 @@ namespace B2D3.Classes.UI
     [Author("Job Hollands", "Contact Opnemen")]
     public partial class Contact : System.Web.UI.Page
     {
-
         private static User _user;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -45,6 +44,7 @@ namespace B2D3.Classes.UI
                 btSend.Attributes.Remove("onclick");
             }
 
+            //If no user is authenticated
             else
             {
                 //Als er geen gebruiker is ingelogd wordt _user null
@@ -65,7 +65,7 @@ namespace B2D3.Classes.UI
 
         /// <summary>
         /// This method creates a new instance of CCContactopnemen and invokes the method GetSupervisors()
-        /// The gridview gets de DataSource from the method GetSupervisors() as a datatable
+        /// The gridview gets the DataSource from the method GetSupervisors() as a datatable
         /// </summary>
         private void BindGrid()
         {
@@ -86,11 +86,17 @@ namespace B2D3.Classes.UI
 
             if (co.SaveMail(tbName.Text, tbEmail.Text, tbSubject.Text, tbMessage.Text, _user))
             {
-                ClientScript.RegisterStartupScript(GetType(), "alert", "alert('Mail is succesvol verzonden');", true);
+                StatusMessage.Text = "Mail is succesvol verzonden";
+
+                tbName.Text = "";
+                tbEmail.Text = "";
+                tbSubject.Text = "";
+                tbMessage.Text = "";
             }
+
             else
             {
-                ClientScript.RegisterStartupScript(GetType(), "alert", "alert('Mail verzonden is mislukt');", true);
+                StatusMessage.Text = "Mail verzonden is mislukt";
             }
         }
 
@@ -104,15 +110,28 @@ namespace B2D3.Classes.UI
             if (cbAnoniem.Checked)
             {
                 tbName.Text = "Anoniem";
+                tbName.Enabled = false;
+                tbName.Visible = false;
+                lbName.Visible = false;
+
                 tbEmail.Text = "anoniem.anoniem@a.com";
+                tbEmail.Enabled = false;
+                tbEmail.Visible = false;
+                lbEmail.Visible = false;
             }
 
             else
             {
                 tbName.Text = "";
+                tbName.Enabled = true;
+                tbName.Visible = true;
+                lbName.Visible = true;
+
                 tbEmail.Text = "";
+                tbEmail.Enabled = true;
+                tbEmail.Visible = true;
+                lbEmail.Visible = true;
             }
         }
-
     }
 }
