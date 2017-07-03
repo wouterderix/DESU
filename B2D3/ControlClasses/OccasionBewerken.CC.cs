@@ -21,9 +21,14 @@ namespace B2D3.Classes.CC
         
         public bool occasionGoedkeuren(Occasion oldOccasion, bool IsApproved = true)
         {
+            //Kay Karssing
+
+            //makes a new instance of Occasion()
             var o = new Occasion();
+            //tells occasion to approve the occasion in the database
             o.goedkeuren(oldOccasion, IsApproved);
 
+            //could be used to catch errors
             return true;
         }
     }
