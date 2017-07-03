@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
 
 namespace B2D3.Classes
 {
@@ -18,22 +19,24 @@ namespace B2D3.Classes
             newPr.ReviewDate = reviewDate;
             newPr.IsAnonymous = anonymous;
             //newPr. = productID;
-            newPr.Author = null;
             //newPr. = productVersion;
+            //newPr.Author = ;
             //newPr.UserID = userId;
 
             using (Casusblok5Model context = new Casusblok5Model())
             {
-                //try
-                //{
+                newPr.Author = context.Users.Include(b => b.AccountRole).FirstOrDefault();//Omdat GetUser niet is geïmplementeeerd
+                // wordt hier de eerste user uit de database gepakt
+                try
+                {
                    context.ProductReview.Add(newPr);
                    context.SaveChanges();
-                    return true;
-                //}
-                //catch
-                //{
-                //    return false;
-                //}
+                   return true;
+                }
+                catch
+                {
+                   return false;
+                }
             }
         }
     }
