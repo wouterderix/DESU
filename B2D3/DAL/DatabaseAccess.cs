@@ -129,7 +129,7 @@ namespace B2D3.DAL
                 return products.ToList();
             }
 
-
+            
                 //Gets the latest version of every product.
                 products = products.GroupBy(p => p.HistoryID)
                     .Select(v => v.OrderByDescending(p => p.Version).FirstOrDefault());
