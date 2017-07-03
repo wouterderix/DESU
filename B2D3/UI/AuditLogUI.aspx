@@ -12,14 +12,12 @@
     
         <asp:Calendar ID="Calendar" runat="server"></asp:Calendar>
         <br />
-        <asp:Label ID="ErrorLabel" runat="server" Text="Label"></asp:Label>
+        <asp:Label ID="ErrorLabel" runat="server" Text="" Visible="false"></asp:Label>
         <br />
         <asp:Button ID="Generate" runat="server" Text="Generate" OnClick="Generate_Click"/>
     
     </div>
-        <asp:GridView ID="GridView" runat="server">
-        </asp:GridView>
-        <asp:ListBox ID="ListBox1" runat="server"></asp:ListBox>
+        <asp:GridView ID="GridView" runat="server"/>
     </form>
 </body>
 </html>

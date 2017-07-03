@@ -11,10 +11,12 @@ namespace B2D3.Classes.CC
     [Author("Yannic van de kuit & Ramon Cremers", "Audit Log", Version = 1.0f)]
     public class HistoryCC
     {
-
-        public DataSet GetData(DateTime StartDate)
+        /// <summary>
+        /// Doorgeefluik naar de BC Laag
+        /// </summary>
+        public DataTable GetData(DateTime StartDate)
         {
-            HistoryBU BU = new HistoryBU();
+            HistoryBC BU = new HistoryBC();
             return BU.ReturnData(StartDate);
         }
     }

@@ -144,7 +144,7 @@
   <ItemGroup>
     <Compile Include="BusinessClasses\AccountRole.cs" />
     <Compile Include="BusinessClasses\DataDictProperties.cs" />
-    <Compile Include="BusinessClasses\HistoryBU.cs" />
+    <Compile Include="BusinessClasses\HistoryBC.cs" />
     <Compile Include="BusinessClasses\News.cs" />
     <Compile Include="BusinessClasses\WorkItemBC.cs" />
     <Compile Include="Casusblok5Model.cs" />
