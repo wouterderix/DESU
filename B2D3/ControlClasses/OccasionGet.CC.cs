@@ -25,7 +25,7 @@ namespace B2D3.Classes.CC
         {
             var o = new Occasion();
 
-            return o.getOccasions(false, false);
+            return o.getOccasions(true, true);
         }
         
          /*

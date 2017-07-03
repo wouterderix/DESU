@@ -47,5 +47,14 @@ namespace B2D3 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_newEvent;
+        
+        /// <summary>
+        /// btn_occasionControleren control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_occasionControleren;
     }
 }
