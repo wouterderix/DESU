@@ -137,6 +137,7 @@
     <Content Include="UI\Contact.aspx" />
     <Content Include="UI\DeleteProductTest.aspx" />
     <Content Include="UI\EditProductUI.aspx" />
+    <Content Include="UI\OccasionsMain.aspx" />
     <Content Include="UI\Occasion_Bewerken.aspx" />
     <Content Include="UI\Occasion_Controlleren.aspx" />
     <Content Include="UI\Occasion_Overzicht.aspx" />
@@ -232,6 +233,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706211212012_Version8.cs" />
+    <Compile Include="Migrations\201706211212012_Version8.Designer.cs">
+      <DependentUpon>201706211212012_Version8.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201706281713096_Version9.cs" />
     <Compile Include="Migrations\201706281713096_Version9.Designer.cs">
       <DependentUpon>201706281713096_Version9.cs</DependentUpon>
@@ -314,6 +319,9 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706211212012_Version8.resx">
+      <DependentUpon>201706211212012_Version8.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706281713096_Version9.resx">
       <DependentUpon>201706281713096_Version9.cs</DependentUpon>
     </EmbeddedResource>
