@@ -36,7 +36,7 @@ namespace B2D3.Classes.UI
             }
         }
 
-        protected void BOccasionGoedkeuren_Click1(object sender, EventArgs e)
+        protected void BOccasionGoedkeuren_Click(object sender, EventArgs e)
         {
             //runs when button is pressed
 
@@ -55,6 +55,12 @@ namespace B2D3.Classes.UI
                 }
                 i++;
             }
+            Response.Redirect("/UI/Occasion_Controlleren.aspx");
+        }
+
+        protected void BGoedkeurenReturn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/default.aspx");
         }
     }
 }

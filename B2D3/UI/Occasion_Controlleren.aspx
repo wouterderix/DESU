@@ -14,7 +14,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:Button ID="BOccasionGoedkeuren" runat="server" Text="verzend" style="position:absolute; top: 372px; left: 35px; width: 122px;" OnClick="BOccasionGoedkeuren_Click1" />
+        <asp:Button ID="BOccasionGoedkeuren" runat="server" Text="verzend" style="position:absolute; top: 373px; left: 33px; width: 122px;" OnClick="BOccasionGoedkeuren_Click" />
+
+        <asp:Button ID="BReturn" runat="server" Text="Terug" style="position:absolute; top: 373px; left: 159px; right: 1249px; width:122px" OnClick="BGoedkeurenReturn_Click" />
 
         <asp:GridView ID="UnapproveOccasions" runat="server" AutoGenerateColumns ="false">
             <Columns> 
@@ -29,8 +31,6 @@
                 <asp:Boundfield datafield ="Location" headertext="Locatie" />
             </Columns>
             
-        </asp:GridView>
-        <asp:GridView ID="GridView2" runat="server">
         </asp:GridView>
     </form>
 </body>
