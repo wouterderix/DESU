@@ -13,6 +13,15 @@ namespace B2D3.Classes
         private static string _contactEmailadress = "zuydergotherapie@gmail.com";
         private static DataTable dt;
 
+        /// <summary>
+        /// This method saves the contact information in the database.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="email"></param>
+        /// <param name="subject"></param>
+        /// <param name="message"></param>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public bool saveMail(string name, string email, string subject, string message, User user)
         {
             try
@@ -50,6 +59,14 @@ namespace B2D3.Classes
             }
         }
 
+        /// <summary>
+        /// This method sends an email
+        /// </summary>
+        /// <param name="toEmailadress"></param>
+        /// <param name="fromEmailadress"></param>
+        /// <param name="name"></param>
+        /// <param name="subject"></param>
+        /// <param name="message"></param>
         public void sendMail(string toEmailadress, string fromEmailadress, string name, string subject, string message)
         {
             using (MailMessage mm = new MailMessage(ConfigurationManager.AppSettings["SMTPuser"], toEmailadress))
@@ -82,6 +99,11 @@ namespace B2D3.Classes
             }
         }
 
+        /// <summary>
+        /// This method returns all supervisors with their Username and accountrole name
+        /// In the future this method will be updated; than it needs to return the first name, last name and phonenumber of all supervisors
+        /// </summary>
+        /// <returns></returns>
         public DataTable GetSupervisors()
         {
             try
