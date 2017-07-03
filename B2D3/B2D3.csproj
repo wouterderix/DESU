@@ -160,6 +160,7 @@
       <DependentUpon>ApproveNews.aspx</DependentUpon>
     </Compile>
     <Compile Include="BusinessClasses\AccountRole.cs" />
+    <Compile Include="BusinessClasses\CheckDateBC.cs" />
     <Compile Include="BusinessClasses\Contact.cs" />
     <Compile Include="BusinessClasses\CreateProduct.cs" />
     <Compile Include="BusinessClasses\DataDictProperties.cs" />
