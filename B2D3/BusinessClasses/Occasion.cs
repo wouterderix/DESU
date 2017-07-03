@@ -125,6 +125,11 @@ namespace B2D3.Classes
             }
         }
 
+        /// <summary>
+        /// get only one occasion from database
+        /// </summary>
+        /// <param name="history">integer historyID from history</param>
+        /// <returns></returns>
         public Occasion getOccasion(int history)
         {
             using (var db = new Casusblok5Model())
@@ -134,7 +139,11 @@ namespace B2D3.Classes
                         select o).OrderByDescending(o => o.Version).FirstOrDefault();
             }
         }
-
+        /// <summary>
+        /// set occasion 'isdeleted' to true
+        /// </summary>
+        /// <param name="history">integer historyID from history</param>
+        /// <returns></returns>
         public bool verwijderOccasion(int history)
         {
             //Query getOcassion where id = id && version = version
