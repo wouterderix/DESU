@@ -10,14 +10,14 @@ using B2D3.GlobalClasses;
 
 namespace B2D3.Classes
 {
-    [Author("Robin Jongen", "ProductAanpassen", Version = 0.1f)]
+    
     public partial class Product
     {
         /// <summary>
         /// Get all products where isdeleted = False
         /// </summary>
         /// <returns></returns>
-
+        [Author("Robin Jongen", "ProductAanpassen", Version = 0.1f)]
         public DataTable CheckProduct()
         {
             var pqm = new ProductQuerryModel() { IsDeleted = false };
@@ -32,12 +32,32 @@ namespace B2D3.Classes
         /// <param name="Version"></param>
         /// Version form the product
         /// <returns></returns>
+        [Author("Robin Jongen", "ProductAanpassen", Version = 0.1f)]
         public DataTable CheckSingleProduct(int ID1, int Version)
         {
             var pqm = new ProductQuerryModel() { ID = ID1, IsDeleted = false };
             var resultSet = ControlClasses.SearchProduct.QuerryProducts(pqm);
             return resultSet;
         }
+        /// <summary>
+        /// Controlleren of de data in orde is.
+        /// </summary>
+        /// <param name="Name"></param>
+        /// <param name="Description"></param>
+        /// <param name="Operations"></param>
+        /// <param name="Specifications"></param>
+        /// <param name="Length"></param>
+        /// <param name="Width"></param>
+        /// <param name="Height"></param>
+        /// <param name="Weight"></param>
+        /// <param name="Requirements"></param>
+        /// <param name="Price"></param>
+        /// <param name="Image_1"></param>
+        /// <param name="Video"></param>
+        /// <param name="Availability"></param>
+        /// <param name="UserManual"></param>
+        /// <returns></returns>
+        [Author("Robin Jongen", "ProductAanpassen", Version = 0.1f)]
         public List<bool> ControlData(string Name, string Description, List<string> Operations, string Specifications, string Length, string Width, string Height, string Weight, string Requirements, string Price, string Image_1, string Video, string Availability, string UserManual)
         {
             List<bool> ControlResults = new List<bool>();
@@ -200,6 +220,28 @@ namespace B2D3.Classes
 
             return ControlResults;
         }
+        /// <summary>
+        /// Zet alle  data om van strings naar de juiste VAR om te sturen naar de database.
+        /// </summary>
+        /// <param name="Name"></param>
+        /// <param name="Description"></param>
+        /// <param name="Operations"></param>
+        /// <param name="Category"></param>
+        /// <param name="Specifications"></param>
+        /// <param name="Length"></param>
+        /// <param name="Width"></param>
+        /// <param name="Height"></param>
+        /// <param name="Weight"></param>
+        /// <param name="Requirements"></param>
+        /// <param name="Price"></param>
+        /// <param name="Compensation"></param>
+        /// <param name="Image_1"></param>
+        /// <param name="Video"></param>
+        /// <param name="Availability"></param>
+        /// <param name="UserManual"></param>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        [Author("Robin Jongen", "ProductAanpassen", Version = 0.1f)]
         public string ConvertData(string Name, string Description, List<string> Operations, string Category, string Specifications, string Length, string Width, string Height, string Weight, string Requirements, string Price, string Compensation, string Image_1, string Video, string Availability, string UserManual, int ID)
         {
             int HistoryID = ID;                                             //ID van product
@@ -222,7 +264,7 @@ namespace B2D3.Classes
             string ProductAvailability = Availability;                      //Availability
             string ProductManual = UserManual;                              //UserManual
 
-
+            // Hierin staan alle operaaties, dit is een lijst in de DB
             foreach (string value in Operations)
             {
                 if (value == "Eten en Drinken")
@@ -330,14 +372,15 @@ namespace B2D3.Classes
 
             ProductRequirements = Requirements.Split('-').ToList<string>();
             ProductRequirements.Reverse();
-            
+            //Importen naar de DB
             string Success = EditProduct(HistoryID, Version, ProductName, ProductDescription, ExpirationDate, TimesViewed, ProductCompensation, ProductPrice, Approved, ProductCategory, OperationAreaIDs, ProductWeight, ProductVideo, ProductManual, Dimensions, ProductImages, ProductRequirements, ProductSpecifications);
             return Success;
         }
         /// <summary>
         /// Functie om de laatste versie van het meegegeven product te zoeken
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Max versie van het gegeven product</returns>
+        [Author("Robin Jongen", "ProductAanpassen", Version = 0.1f)]
         private int GetMaxVers(int ID)
         {
             using (Casusblok5Model context = new Casusblok5Model())
@@ -352,7 +395,31 @@ namespace B2D3.Classes
                 return test;
             }
         }
-
+        /// <summary>
+        /// Zet alle items om van Var naar object, Het is mij bekend dat dit eerder had kunnen gebeuren. Dit is wegens tijd niet gebeurt,
+        /// ik had bij Checksingleproduct een object moeten maken welke ik had kunnen gebruiken iedere keer als de BC class zou komen.
+        /// Bij het aanpassen zou ik zijn values aan moeten passen en naar de DB meten pushen, wat onderstaand dus gebeurt alleen dan eerder.
+        /// </summary>
+        /// <param name="HistoryID"></param>
+        /// <param name="Version"></param>
+        /// <param name="Name"></param>
+        /// <param name="Information"></param>
+        /// <param name="ExpirationDate"></param>
+        /// <param name="TimesViewed"></param>
+        /// <param name="IsCompensated"></param>
+        /// <param name="Price"></param>
+        /// <param name="IsApproved"></param>
+        /// <param name="Category"></param>
+        /// <param name="ProductOperationAreas"></param>
+        /// <param name="Weight"></param>
+        /// <param name="VideoURL"></param>
+        /// <param name="UserGuideURL"></param>
+        /// <param name="Dimensions"></param>
+        /// <param name="Picture"></param>
+        /// <param name="Demands"></param>
+        /// <param name="Specifications"></param>
+        /// <returns></returns>
+        [Author("Robin Jongen", "ProductAanpassen", Version = 0.1f)]
         public string EditProduct(int HistoryID, int Version, string Name, string Information, DateTime ExpirationDate, int TimesViewed, bool IsCompensated, decimal Price, bool IsApproved, int Category, List<int> ProductOperationAreas, float Weight, string VideoURL, string UserGuideURL, List<int> Dimensions, List<string> Picture, List<string> Demands, List<string> Specifications)
         {
             using (var db = new Casusblok5Model())
