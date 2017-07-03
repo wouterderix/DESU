@@ -34,7 +34,7 @@ namespace B2D3.Classes.UI
                 //Check if the load request is not a Postback(button click event)
                 if (!IsPostBack)
                 {
-                    //Fill the textboxes
+                    //Fill the textboxes with oldOccasionData
                     TBTitle.Text = oldOccasion.Title;
                     TBBeschrijving.Text = oldOccasion.Description;
                     System.DateTime datetime = oldOccasion.Date;
@@ -53,14 +53,6 @@ namespace B2D3.Classes.UI
 
         protected void btnBewerk_Click(object sender, EventArgs e)
         {
-            /*edit the currently loaded event
-            var oGet = new OccasionGet();
-            /*int history = Int32.Parse(oGet.Doorgeefinfo[0]);
-            int version = Int32.Parse(oGet.Doorgeefinfo[1]);
-            string title = oGet.Doorgeefinfo[2];
-            int history = 3;
-            int version = 1;
-            */
             //Extract the data from the TextBoxes
             string title = TBTitle.Text;
             string description = TBBeschrijving.Text;
