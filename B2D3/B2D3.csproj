@@ -115,6 +115,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ApproveProduct.aspx" />
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
@@ -136,9 +137,19 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApproveProduct.aspx.cs">
+      <DependentUpon>ApproveProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ApproveProduct.aspx.designer.cs">
+      <DependentUpon>ApproveProduct.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BusinessClasses\AccountRole.cs" />
+    <Compile Include="BusinessClasses\DataDictProperties.cs" />
+    <Compile Include="BusinessClasses\Product.cs" />
     <Compile Include="Casusblok5Model.cs" />
     <Compile Include="CodeFirsClasses\AccountRole.cs" />
+    <Compile Include="ControlClasses\ApproveProductCC.cs" />
     <Compile Include="GlobalClasses\AuthorAttribute.cs" />
     <Compile Include="CodeFirsClasses\Category.cs" />
     <Compile Include="CodeFirsClasses\Contact.cs" />
