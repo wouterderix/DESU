@@ -135,11 +135,13 @@
     <Content Include="Global.asax" />
     <Content Include="UI\AuditLogUI.aspx" />
     <Content Include="UI\Contact.aspx" />
+    <Content Include="UI\DeleteProductTest.aspx" />
+    <Content Include="UI\EditProductUI.aspx" />
     <Content Include="UI\Occasion_Bewerken.aspx" />
     <Content Include="UI\Occasion_Controlleren.aspx" />
     <Content Include="UI\Occasion_Overzicht.aspx" />
     <Content Include="UI\Occasion_Toevoegen.aspx" />
-    <Content Include="UI\WorkItemUI.aspx" />
+    <Content Include="UI\ProductToevoegen.aspx" />
     <Content Include="UpdateNews.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -155,25 +157,37 @@
     </Compile>
     <Compile Include="BusinessClasses\AccountRole.cs" />
     <Compile Include="BusinessClasses\Contact.cs" />
+    <Compile Include="BusinessClasses\CreateProduct.cs" />
     <Compile Include="BusinessClasses\DataDictProperties.cs" />
+    <Compile Include="BusinessClasses\DeleteProductBC.cs" />
+    <Compile Include="BusinessClasses\EditProductBC.cs" />
     <Compile Include="BusinessClasses\HistoryBU.cs" />
     <Compile Include="BusinessClasses\News.cs" />
     <Compile Include="BusinessClasses\Occasion.cs" />
+    <Compile Include="BusinessClasses\ProductAanpassenBU.cs" />
+    <Compile Include="BusinessClasses\SearchProductBC.cs" />
     <Compile Include="BusinessClasses\WorkItemBC.cs" />
     <Compile Include="Casusblok5Model.cs" />
     <Compile Include="CodeFirsClasses\AccountRole.cs" />
     <Compile Include="ControlClasses\ApprovedNewsCC.cs" />
     <Compile Include="ControlClasses\CCContactOpnemen.cs" />
+    <Compile Include="ControlClasses\ControlProductData.cs" />
+    <Compile Include="ControlClasses\DeleteProduct.cs" />
+    <Compile Include="ControlClasses\EditProductCC.cs" />
     <Compile Include="ControlClasses\GetNewsCC.cs" />
     <Compile Include="ControlClasses\HistoryCC.cs" />
     <Compile Include="ControlClasses\OccasionBewerken.CC.cs" />
     <Compile Include="ControlClasses\OccasionGet.CC.cs" />
     <Compile Include="ControlClasses\OccasionsVerwijder.CC.cs" />
     <Compile Include="ControlClasses\OccasionToevoegen.CC.cs" />
+    <Compile Include="ControlClasses\ProductAanpassenCC.cs" />
+    <Compile Include="ControlClasses\SearchProductCC.cs" />
     <Compile Include="ControlClasses\UpdateNewsCC.cs" />
     <Compile Include="ControlClasses\WorkItemCC.cs" />
     <Compile Include="DAL\GenericRepository.cs" />
+    <Compile Include="DAL\ProductRepository.cs" />
     <Compile Include="DAL\VersionRepository.cs" />
+    <Compile Include="DataAccesLayer\DeleteProductDAL.cs" />
     <Compile Include="GetNews.aspx.cs">
       <DependentUpon>GetNews.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -222,10 +236,6 @@
     <Compile Include="Migrations\201706281713096_Version9.Designer.cs">
       <DependentUpon>201706281713096_Version9.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706300752264_approvedAdd.cs" />
-    <Compile Include="Migrations\201706300752264_approvedAdd.Designer.cs">
-      <DependentUpon>201706300752264_approvedAdd.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201706300841462_version10.cs" />
     <Compile Include="Migrations\201706300841462_version10.Designer.cs">
       <DependentUpon>201706300841462_version10.cs</DependentUpon>
@@ -250,6 +260,20 @@
       <DependentUpon>Occasion_Bewerken.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Content>
+    <Compile Include="UI\DeleteProductTest.aspx.cs">
+      <DependentUpon>DeleteProductTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\DeleteProductTest.aspx.designer.cs">
+      <DependentUpon>DeleteProductTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EditProductUI.aspx.cs">
+      <DependentUpon>EditProductUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\EditProductUI.aspx.designer.cs">
+      <DependentUpon>EditProductUI.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Occasion_Controlleren.aspx.cs">
       <DependentUpon>Occasion_Controlleren.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -271,12 +295,12 @@
     <Compile Include="UI\Occasion_Toevoegen.aspx.designer.cs">
       <DependentUpon>Occasion_Toevoegen.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UI\WorkItemUI.aspx.cs">
-      <DependentUpon>WorkItemUI.aspx</DependentUpon>
+    <Compile Include="UI\ProductToevoegen.aspx.cs">
+      <DependentUpon>ProductToevoegen.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UI\WorkItemUI.aspx.designer.cs">
-      <DependentUpon>WorkItemUI.aspx</DependentUpon>
+    <Compile Include="UI\ProductToevoegen.aspx.designer.cs">
+      <DependentUpon>ProductToevoegen.aspx</DependentUpon>
     </Compile>
     <Compile Include="UpdateNews.aspx.cs">
       <DependentUpon>UpdateNews.aspx</DependentUpon>
@@ -292,9 +316,6 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201706281713096_Version9.resx">
       <DependentUpon>201706281713096_Version9.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706300752264_approvedAdd.resx">
-      <DependentUpon>201706300752264_approvedAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706300841462_version10.resx">
       <DependentUpon>201706300841462_version10.cs</DependentUpon>
