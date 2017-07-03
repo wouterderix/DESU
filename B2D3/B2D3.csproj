@@ -134,6 +134,7 @@
     <Content Include="default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="UI\AuditLogUI.aspx" />
+    <Content Include="UI\Contact.aspx" />
     <Content Include="UI\WorkItemUI.aspx" />
     <Content Include="UpdateNews.aspx" />
     <Content Include="Web.config">
@@ -149,6 +150,7 @@
       <DependentUpon>ApproveNews.aspx</DependentUpon>
     </Compile>
     <Compile Include="BusinessClasses\AccountRole.cs" />
+    <Compile Include="BusinessClasses\Contact.cs" />
     <Compile Include="BusinessClasses\DataDictProperties.cs" />
     <Compile Include="BusinessClasses\HistoryBU.cs" />
     <Compile Include="BusinessClasses\News.cs" />
@@ -156,6 +158,7 @@
     <Compile Include="Casusblok5Model.cs" />
     <Compile Include="CodeFirsClasses\AccountRole.cs" />
     <Compile Include="ControlClasses\ApprovedNewsCC.cs" />
+    <Compile Include="ControlClasses\CCContactOpnemen.cs" />
     <Compile Include="ControlClasses\GetNewsCC.cs" />
     <Compile Include="ControlClasses\HistoryCC.cs" />
     <Compile Include="ControlClasses\UpdateNewsCC.cs" />
@@ -224,6 +227,13 @@
     </Compile>
     <Compile Include="UI\AuditLogUI.aspx.designer.cs">
       <DependentUpon>AuditLogUI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\WorkItemUI.aspx.cs">
       <DependentUpon>WorkItemUI.aspx</DependentUpon>
