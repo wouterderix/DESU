@@ -133,6 +133,7 @@
     <Content Include="Global.asax" />
     <Content Include="UI\DeleteProductTest.aspx" />
     <Content Include="UI\EditProduct.aspx" />
+    <Content Include="UI\ReviewProduct.aspx" />
     <Content Include="UI\Viewproduct.aspx" />
     <Content Include="UI\ProductToevoegen.aspx" />
     <Content Include="Web.config">
@@ -147,6 +148,7 @@
     <Compile Include="BusinessClasses\EditProductBC.cs" />
     <Compile Include="BusinessClasses\News.cs" />
     <Compile Include="BusinessClasses\ProductAanpassenBU.cs" />
+    <Compile Include="BusinessClasses\ReviewProduct.cs" />
     <Compile Include="BusinessClasses\SearchProductBC.cs" />
     <Compile Include="Casusblok5Model.cs" />
     <Compile Include="CodeFirsClasses\AccountRole.cs" />
@@ -155,6 +157,7 @@
     <Compile Include="ControlClasses\EditProductCC.cs" />
     <Compile Include="ControlClasses\GetNewsCC.cs" />
     <Compile Include="ControlClasses\ProductAanpassenCC.cs" />
+    <Compile Include="ControlClasses\ReviewProduct.cs" />
     <Compile Include="ControlClasses\SearchProductCC.cs" />
     <Compile Include="ControlClasses\UpdateNewsCC.cs" />
     <Compile Include="DataAccesLayer\DeleteProductDAL.cs" />
@@ -224,6 +227,13 @@
     </Compile>
     <Compile Include="UI\EditProduct.aspx.designer.cs">
       <DependentUpon>EditProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ReviewProduct.aspx.cs">
+      <DependentUpon>ReviewProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ReviewProduct.aspx.designer.cs">
+      <DependentUpon>ReviewProduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Viewproduct.aspx.cs">
       <DependentUpon>Viewproduct.aspx</DependentUpon>
