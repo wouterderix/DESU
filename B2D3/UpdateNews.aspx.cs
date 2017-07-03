@@ -7,16 +7,22 @@ using System.Web.UI.WebControls;
 
 namespace B2D3
 {
-    public partial class _default : System.Web.UI.Page
+    public partial class UpdateNews : System.Web.UI.Page
     {
+        private int personId;
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        protected void NavigateButton_Click(object sender, EventArgs e)
+        private void UpdateNewsMethode()
         {
-            Response.Redirect("~/UI/DeleteProductTest.aspx");
+            ///hier worden de nieuwe waardes opgevangen
+            ///en de person id mee gegeven aan de controller
+            
         }
+
+
     }
 }

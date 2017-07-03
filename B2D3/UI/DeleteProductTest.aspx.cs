@@ -4,17 +4,15 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using B2D3.Classes.CC;
+using B2D3.GlobalClasses;
 
-namespace B2D3.UI
+namespace B2D3.Classes.UI
 {
-    /// <summary>
-    /// behoort tot UC Product verwijderen
-    /// gemaakt door Rowan Koenen
-    /// </summary>
-
+    [Author("Rowan Koenen", "Product Verwijderen", Version = 1)]
     public partial class DeleteProductTest : System.Web.UI.Page
     {
-        ControlClasses.DeleteProductCC DeleteProductControlClass = new ControlClasses.DeleteProductCC();
+        DeleteProductCC DeleteProductControlClass = new DeleteProductCC();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,7 +23,9 @@ namespace B2D3.UI
         {
             if (DeleteProductControlClass.PassAlongProducts(TextBoxDelete.Text))
             {
-                //noError fornowdonothing
+                //noError
+                ButtonConfirm.Enabled = true; LableConfirm.Enabled = true;
+                ButtonConfirm.Visible = true; LableConfirm.Visible = true;
             }
 
             else
@@ -41,6 +41,13 @@ namespace B2D3.UI
             TextBoxDelete.Text = "";
             ButtonError.Enabled = false; LableError.Enabled = false;
             ButtonError.Visible = false; LableError.Visible = false;
+        }
+
+        protected void confirmBtn_click(object sender, EventArgs e)
+        {
+            TextBoxDelete.Text = "";
+            ButtonConfirm.Enabled = false; LableConfirm.Enabled = false;
+            ButtonConfirm.Visible = false; LableConfirm.Visible = false;
         }
     }
 }

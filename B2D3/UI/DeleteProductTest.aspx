@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DeleteProductTest.aspx.cs" Inherits="B2D3.UI.DeleteProductTest" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DeleteProductTest.aspx.cs" Inherits="B2D3.Classes.UI.DeleteProductTest" %>
 
 <!DOCTYPE html>
 
@@ -13,10 +13,16 @@
         <asp:Button ID="ButtonDelete" runat="server" Text="Button" OnClick="dltBtn_Click"/>
     </div>
     <div>
-        <asp:Label ID="LableError" Text="This product did not exist. . ." runat="server"
+        <asp:Label ID="LableError" Text="This product does not exist. . ." runat="server"
              Visible="false" Enabled="false"></asp:Label>
         <asp:Button ID="ButtonError" Text="OK" runat ="server" 
             Visible="false" Enabled="false" OnClick="errorBtn_Click"/>
+    </div>
+    <div>
+        <asp:Label ID="LableConfirm" Text="The product has been deleted. . ." runat="server"
+            Visible="false" Enabled="false"></asp:Label>
+        <asp:Button ID="ButtonConfirm" Text="OK" runat ="server" 
+            Visible="false" Enabled="false" OnClick="confirmBtn_click"/>
     </div>
     </form>
 </body>
