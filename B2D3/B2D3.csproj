@@ -145,11 +145,24 @@
       <DependentUpon>ApproveProduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="BusinessClasses\AccountRole.cs" />
+    <Compile Include="BusinessClasses\CheckDateBC.cs" />
+    <Compile Include="BusinessClasses\CreateProduct.cs" />
     <Compile Include="BusinessClasses\DataDictProperties.cs" />
+    <Compile Include="BusinessClasses\DeleteProductBC.cs" />
+    <Compile Include="BusinessClasses\EditProductBC.cs" />
     <Compile Include="BusinessClasses\Product.cs" />
+    <Compile Include="BusinessClasses\ProductAanpassenBU.cs" />
+    <Compile Include="BusinessClasses\SearchProductBC.cs" />
     <Compile Include="Casusblok5Model.cs" />
     <Compile Include="CodeFirsClasses\AccountRole.cs" />
     <Compile Include="ControlClasses\ApproveProductCC.cs" />
+    <Compile Include="ControlClasses\CheckDateCC.cs" />
+    <Compile Include="ControlClasses\ControlProductData.cs" />
+    <Compile Include="ControlClasses\EditProductCC.cs" />
+    <Compile Include="ControlClasses\GetNewsCC.cs" />
+    <Compile Include="ControlClasses\ProductAanpassenCC.cs" />
+    <Compile Include="ControlClasses\SearchProductCC.cs" />
+    <Compile Include="ControlClasses\UpdateNewsCC.cs" />
     <Compile Include="GlobalClasses\AuthorAttribute.cs" />
     <Compile Include="CodeFirsClasses\Category.cs" />
     <Compile Include="CodeFirsClasses\Contact.cs" />
