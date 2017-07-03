@@ -131,6 +131,7 @@
   <ItemGroup>
     <Content Include="default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="UI\CheckDate.aspx" />
     <Content Include="UI\DeleteProductTest.aspx" />
     <Content Include="UI\EditProduct.aspx" />
     <Content Include="UI\Viewproduct.aspx" />
@@ -141,6 +142,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessClasses\AccountRole.cs" />
+    <Compile Include="BusinessClasses\CheckDateBC.cs" />
     <Compile Include="BusinessClasses\CreateProduct.cs" />
     <Compile Include="BusinessClasses\DataDictProperties.cs" />
     <Compile Include="BusinessClasses\DeleteProductBC.cs" />
@@ -150,6 +152,7 @@
     <Compile Include="BusinessClasses\SearchProductBC.cs" />
     <Compile Include="Casusblok5Model.cs" />
     <Compile Include="CodeFirsClasses\AccountRole.cs" />
+    <Compile Include="ControlClasses\CheckDateCC.cs" />
     <Compile Include="ControlClasses\ControlProductData.cs" />
     <Compile Include="ControlClasses\DeleteProduct.cs" />
     <Compile Include="ControlClasses\EditProductCC.cs" />
@@ -211,6 +214,13 @@
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\CheckDate.aspx.cs">
+      <DependentUpon>CheckDate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\CheckDate.aspx.designer.cs">
+      <DependentUpon>CheckDate.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\DeleteProductTest.aspx.cs">
       <DependentUpon>DeleteProductTest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
