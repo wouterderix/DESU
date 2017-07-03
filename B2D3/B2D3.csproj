@@ -172,6 +172,8 @@
     <Compile Include="ControlClasses\OccasionToevoegen.CC.cs" />
     <Compile Include="ControlClasses\UpdateNewsCC.cs" />
     <Compile Include="ControlClasses\WorkItemCC.cs" />
+    <Compile Include="DAL\GenericRepository.cs" />
+    <Compile Include="DAL\VersionRepository.cs" />
     <Compile Include="GetNews.aspx.cs">
       <DependentUpon>GetNews.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -201,12 +203,9 @@
     <Compile Include="BusinessClasses\Webserver.cs" />
     <Compile Include="CodeFirsClasses\WorkItem.cs" />
     <Compile Include="ControlClasses\SearchProduct.cs" />
-    <Compile Include="DAL\GenericRepository.cs" />
     <Compile Include="DAL\IGenericRepository.cs" />
     <Compile Include="DAL\IVersionRepository.cs" />
     <Compile Include="GlobalClasses\PredicateBuilder.cs" />
-    <Compile Include="DAL\ProductRepository.cs" />
-    <Compile Include="DAL\VersionRepository.cs" />
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -222,6 +221,10 @@
     <Compile Include="Migrations\201706281713096_Version9.cs" />
     <Compile Include="Migrations\201706281713096_Version9.Designer.cs">
       <DependentUpon>201706281713096_Version9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706300752264_approvedAdd.cs" />
+    <Compile Include="Migrations\201706300752264_approvedAdd.Designer.cs">
+      <DependentUpon>201706300752264_approvedAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201706300841462_version10.cs" />
     <Compile Include="Migrations\201706300841462_version10.Designer.cs">
@@ -289,6 +292,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201706281713096_Version9.resx">
       <DependentUpon>201706281713096_Version9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706300752264_approvedAdd.resx">
+      <DependentUpon>201706300752264_approvedAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706300841462_version10.resx">
       <DependentUpon>201706300841462_version10.cs</DependentUpon>
