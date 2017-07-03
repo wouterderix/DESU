@@ -127,12 +127,15 @@ namespace B2D3.Classes
         
         public void goedkeuren(Occasion oldOccasion, bool IsApproved)
         {
+            //Kay Karssing
+
             using (var db = new Casusblok5Model())
             {
                 var Author = db.Users.Include(b => b.AccountRole).FirstOrDefault();
                 //creates a new occasion with the approved value set to true
                 var newOccasion = new Occasion(oldOccasion, Author, false);
 
+                //this makes up newOccasion's data
                 newOccasion.HistoryID = oldOccasion.HistoryID;
                 newOccasion.IsDeleted = oldOccasion.IsApproved;
                 newOccasion.Title = oldOccasion.Title;
