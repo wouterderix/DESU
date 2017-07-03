@@ -150,6 +150,7 @@
     <Compile Include="BusinessClasses\DataDictProperties.cs" />
     <Compile Include="BusinessClasses\DeleteProductBC.cs" />
     <Compile Include="BusinessClasses\EditProductBC.cs" />
+    <Compile Include="BusinessClasses\News.cs" />
     <Compile Include="BusinessClasses\Product.cs" />
     <Compile Include="BusinessClasses\ProductAanpassenBU.cs" />
     <Compile Include="BusinessClasses\SearchProductBC.cs" />
@@ -163,6 +164,7 @@
     <Compile Include="ControlClasses\ProductAanpassenCC.cs" />
     <Compile Include="ControlClasses\SearchProductCC.cs" />
     <Compile Include="ControlClasses\UpdateNewsCC.cs" />
+    <Compile Include="DataAccesLayer\DeleteProductDAL.cs" />
     <Compile Include="GlobalClasses\AuthorAttribute.cs" />
     <Compile Include="CodeFirsClasses\Category.cs" />
     <Compile Include="CodeFirsClasses\Contact.cs" />
