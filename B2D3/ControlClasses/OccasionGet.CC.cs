@@ -9,12 +9,12 @@ namespace B2D3.Classes.CC
 
     public class OccasionGet
     {
+        [Author("Kay Karssing, Jeroen Boesten, Robin Klein", "Occasions.BC", Version = 1.1f)]
         public Occasion getOccasion(int history)
         {
             var o = new Occasion();
             return o.getOccasion(history);
         }
-
         /// <summary>
         /// Gets all occasions.
         /// </summary>

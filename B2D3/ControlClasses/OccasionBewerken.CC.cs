@@ -7,6 +7,7 @@ namespace B2D3.Classes.CC
 {
     public class OccasionBewerken
     {
+        [Author("Robin Klein", "OccasionBewerken.CC", Version = 1.1f)]
         public bool occasionBewerken(Occasion oldOccasion, string title, string description, System.DateTime date, string location, string url)
         {
             var o = new Occasion();
