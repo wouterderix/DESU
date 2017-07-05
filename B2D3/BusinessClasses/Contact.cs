@@ -2,7 +2,7 @@
 using System;
 using System.Configuration;
 using System.Data;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using System.Net;
 using System.Net.Mail;
 
@@ -14,6 +14,16 @@ namespace B2D3.Classes
         private static string _contactEmailadress = "zuydergotherapie@gmail.com";
         private static DataTable dt;
 
+        /// <summary>
+        /// This method saves the contact information in the database.
+        /// After it is successfully saved the method sendMail will invoke
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="email"></param>
+        /// <param name="subject"></param>
+        /// <param name="message"></param>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public bool saveMail(string name, string email, string subject, string message, User user)
         {
             try
@@ -47,10 +57,18 @@ namespace B2D3.Classes
 
             catch
             {
-              return false;
+                return false;
             }
         }
 
+        /// <summary>
+        /// This method sends an email
+        /// </summary>
+        /// <param name="toEmailadress"></param>
+        /// <param name="fromEmailadress"></param>
+        /// <param name="name"></param>
+        /// <param name="subject"></param>
+        /// <param name="message"></param>
         public void sendMail(string toEmailadress, string fromEmailadress, string name, string subject, string message)
         {
             using (MailMessage mm = new MailMessage(ConfigurationManager.AppSettings["SMTPuser"], toEmailadress))
@@ -83,35 +101,39 @@ namespace B2D3.Classes
             }
         }
 
+        /// <summary>
+        /// This method returns all supervisors with their Username and accountrole name
+        /// In the future this method will be updated; than it needs to return the first name, last name and phonenumber of all supervisors
+        /// </summary>
+        /// <returns></returns>
         public DataTable GetSupervisors()
         {
-            dt = new DataTable();
             try
             {
-                string connString = @"Server=u17697p13129.web0113.zxcs.nl; Database=u17697p13129_TestRobin; Uid=u17697p13129_B2A5user; Pwd=CasusB2A5*;";
-                string query = "select Users.UserName Gebruikersnaam, AccountRoles.Name Accountrol from Users join AccountRoles ON Users.AccountRole_ID = AccountRoles.ID where AccountRoles.ID = 2 ";
-
-                SqlConnection conn = new SqlConnection(connString);
-                SqlCommand cmd = new SqlCommand(query, conn);
-
-                conn.Open();
-
-                // create data adapter
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                // this will query your database and return the result to your datatable
-
-                da.Fill(dt);
-
-                conn.Close();
-
-                da.Dispose();
-
-                return dt;
+                string constr = ConfigurationManager.ConnectionStrings["Casusblok5Model"].ConnectionString;
+                using (MySqlConnection con = new MySqlConnection(constr))
+                {
+                    using (MySqlCommand cmd = new MySqlCommand("select Users.UserName Gebruikersnaam, AccountRoles.Name Accountrol from Users join AccountRoles ON Users.AccountRole_ID = AccountRoles.ID where AccountRoles.ID = 2"))
+                    {
+                        using (MySqlDataAdapter sda = new MySqlDataAdapter())
+                        {
+                            cmd.Connection = con;
+                            sda.SelectCommand = cmd;
+                            using (DataTable dt = new DataTable())
+                            {
+                                sda.Fill(dt);
+                                return dt;
+                            }
+                        }
+                    }
+                }
             }
             catch
             {
                 return dt;
             }
+
+
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using B2D3.Classes.CC;
 using B2D3.ControlClasses;
 using B2D3.GlobalClasses;
+using B2D3.Classes;
 
 namespace B2D3.UI
 {
