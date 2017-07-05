@@ -5,22 +5,30 @@ using System.Web;
 
 namespace B2D3.Classes.CC
 {
+    /// <summary>
+    /// OccasionBewerken
+    /// zet oude op 'isdeleted' en voeg nieuwe toe
+    /// </summary>
     public class OccasionBewerken
     {
-        [Author("Robin Klein", "OccasionBewerken.CC", Version = 1.1f)]
         public bool occasionBewerken(Occasion oldOccasion, string title, string description, System.DateTime date, string location, string url)
         {
             var o = new Occasion();
-            //o.storeOccasion(title, description, date, location, url, false, false, ++version);
-            o.storeOccasion(oldOccasion, title, description, date, location, url);
             o.verwijderOccasion(oldOccasion.HistoryID);
+            o.storeOccasion(oldOccasion, title, description, date, location, url);
             return true;
         }
-
-        public bool occasionGoedkeuren(Occasion oldOccasion, bool isApproved = true)
+        
+        public bool occasionGoedkeuren(Occasion oldOccasion, bool IsApproved = true)
         {
+            //Kay Karssing
+
+            //makes a new instance of Occasion()
             var o = new Occasion();
-            o.ApproveOccasion(oldOccasion, isApproved);
+            //tells occasion to approve the occasion in the database
+            o.goedkeuren(oldOccasion, IsApproved);
+
+            //could be used to catch errors
             return true;
         }
     }

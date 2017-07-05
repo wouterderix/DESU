@@ -11,39 +11,54 @@ namespace B2D3.Classes.UI
 {
     public partial class OccasionControlleren : System.Web.UI.Page
     {
+        //Kay Karssing
+
+        //makes a list with type Occasion to store all the Occasions gotten from the database
         List<Occasion> occasions = new List<Occasion>();
 
-        [Author("Kay Karssing", "occasions ophalen", Version = 1.0f)]
         protected void Page_Load(object sender, EventArgs e)
         {
-            OccasionGet occasionGet = new OccasionGet();
+            //runs when page loads
 
-            occasions = occasionGet.getNotApproved();
+            //makes a new instance of occasionGet wich makes it possible to communicate with the control class
+            OccasionGet occasionGet = new OccasionGet();
             
-            UnapproveOccasions.DataSource = occasions;
-            UnapproveOccasions.DataBind();
+            //fetches all unapproved occasions from the database
+            occasions = occasionGet.getNotApproved();
+
+            //only runs if this is not a postback
+            if (!IsPostBack)
+            {
+                //sets the scource of the gridview
+                UnapproveOccasions.DataSource = occasions;
+                //binds the scource so it will display in the gridview
+                UnapproveOccasions.DataBind();
+            }
         }
 
-        [Author("Kay Karssing", "occasions goedkeuren", Version = 1.0f)]
         protected void BOccasionGoedkeuren_Click(object sender, EventArgs e)
         {
-            OccasionBewerken goedkeuren = new OccasionBewerken();
+            //runs when button is pressed
 
+            //creates new object of OccasionBewerken
+            OccasionBewerken bewerken = new OccasionBewerken();
+
+            //checks what checkbox is pressed and approves each
             int i = 0;
-            foreach(GridViewRow row in UnapproveOccasions.Rows)
+            foreach (GridViewRow row in UnapproveOccasions.Rows)
             {
-                CheckBox chk = (CheckBox)row.FindControl("chkChild");
+                CheckBox chk = (CheckBox)row.FindControl("SelectCheckbox");
                 if (chk.Checked)
                 {
-                    goedkeuren.occasionGoedkeuren(occasions[i]);
+                    //if a checkbox is checked the occasion in that row will be approved
+                    bewerken.occasionGoedkeuren(occasions[i]);
                 }
                 i++;
             }
-            Response.Redirect("~/UI/Occasion_Controlleren.aspx");
+            Response.Redirect("/UI/Occasion_Controlleren.aspx");
         }
 
-        [Author("Kay Karssing", "terug knop", Version = 1.0f)]
-        protected void Bterug_Click(object sender, EventArgs e)
+        protected void BGoedkeurenReturn_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/default.aspx");
         }

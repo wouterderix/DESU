@@ -31,6 +31,15 @@ namespace B2D3.Classes.UI {
         protected global::System.Web.UI.WebControls.Button BOccasionGoedkeuren;
         
         /// <summary>
+        /// BReturn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BReturn;
+        
+        /// <summary>
         /// Bterug control.
         /// </summary>
         /// <remarks>

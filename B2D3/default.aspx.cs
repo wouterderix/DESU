@@ -23,5 +23,10 @@ namespace B2D3
         {
 
         }
+
+        protected void btn_approveEvent_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/UI/Occasion_Controlleren.aspx");
+        }
     }
 }

@@ -124,6 +124,33 @@ namespace B2D3.Classes
                 db.SaveChanges();
             }
         }
+        
+        public void goedkeuren(Occasion oldOccasion, bool IsApproved)
+        {
+            //Kay Karssing
+
+            using (var db = new Casusblok5Model())
+            {
+                var Author = db.Users.Include(b => b.AccountRole).FirstOrDefault();
+                //creates a new occasion with the approved value set to true
+                var newOccasion = new Occasion(oldOccasion, Author, false);
+
+                //this makes up newOccasion's data
+                newOccasion.HistoryID = oldOccasion.HistoryID;
+                newOccasion.IsDeleted = oldOccasion.IsApproved;
+                newOccasion.Title = oldOccasion.Title;
+                newOccasion.Description = oldOccasion.Description;
+                newOccasion.Date = oldOccasion.Date;
+                newOccasion.Location = oldOccasion.Location;
+                newOccasion.moreInformationURL = oldOccasion.MoreInformationURL;
+                newOccasion.IsApproved = IsApproved;
+
+                //add newOccasion to Occasions
+                db.Occasions.AddOrUpdate(newOccasion);
+                //save the changes to the database
+                db.SaveChanges();
+            }
+        }
 
         public void ApproveOccasion(Occasion oldOccasion, bool approved)
         {
