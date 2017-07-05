@@ -418,6 +418,15 @@ namespace B2D3 {
         protected global::System.Web.UI.WebControls.Button Product_toevoegen;
         
         /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
+        
+        /// <summary>
         /// Result control.
         /// </summary>
         /// <remarks>

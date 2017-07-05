@@ -31,6 +31,9 @@ namespace B2D3
             new UpdateNewsCC().UpdateNews(historyId, versionId, title, description, approved, authorId);
         }
 
-
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/default.aspx");
+        }
     }
 }

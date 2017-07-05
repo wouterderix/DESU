@@ -138,7 +138,6 @@
     <Content Include="UI\Contact.aspx" />
     <Content Include="UI\DeleteProductTest.aspx" />
     <Content Include="UI\EditProduct.aspx" />
-    <Content Include="UI\OccasionsMain.aspx" />
     <Content Include="UI\Occasion_Bewerken.aspx" />
     <Content Include="UI\Occasion_Controlleren.aspx" />
     <Content Include="UI\Occasion_Overzicht.aspx" />

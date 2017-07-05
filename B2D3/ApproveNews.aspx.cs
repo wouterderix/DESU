@@ -26,5 +26,10 @@ namespace B2D3
             gvNews.DataSource = new GetNewsCC().GetNews();
             gvNews.DataBind();
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/default.aspx");
+        }
     }
 }

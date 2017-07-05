@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
     <div style="margin-left: 40px">
         
-        <h1>Alle Evenementen        <asp:Button ID="btn_Back" runat="server" OnClick="btn_Back_Click" Text="Terug" />
+        <h1>Alle Evenementen        <asp:Button ID="btn_Back" runat="server" OnClick="btn_Back_Click" Text="Terug"/>
 
         </h1>
         <asp:Label ID="New_Occasion" runat="server" Font-Bold="True" ForeColor="#009900"></asp:Label>

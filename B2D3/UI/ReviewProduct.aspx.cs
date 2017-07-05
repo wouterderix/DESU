@@ -52,8 +52,6 @@ namespace B2D3.Classes.UI
                 ClientScript.RegisterStartupScript(GetType(), "alert", "alert('Er ging iets fout, probeer opnieuw');", true);
                 // Teruggaan naar review invullen
             }
-
-
         }
     }
 }

@@ -49,5 +49,10 @@ namespace B2D3.Classes.UI
             ButtonConfirm.Enabled = false; LableConfirm.Enabled = false;
             ButtonConfirm.Visible = false; LableConfirm.Visible = false;
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/default.aspx");
+        }
     }
 }

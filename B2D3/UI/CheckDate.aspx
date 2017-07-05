@@ -55,6 +55,7 @@
 
 
             <!-- Error message if ID is not valid -->
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Terug" />
             <asp:Label ID="ErrorMessage2" runat="server"></asp:Label>
         </p>
     </form>

@@ -16,6 +16,8 @@
         <br />
         <asp:Button ID="Generate" runat="server" Text="Generate" OnClick="Generate_Click"/>
     
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Terug" />
+    
     </div>
         <asp:GridView ID="GridView" runat="server">
         </asp:GridView>

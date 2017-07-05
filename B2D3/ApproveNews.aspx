@@ -19,6 +19,7 @@
                 <asp:TextBox ID="tbIdH" runat="server"></asp:TextBox>
                 <asp:TextBox ID="tbIdV" runat="server"></asp:TextBox>
                 <asp:Button ID="btnApprove" runat="server" OnClick="btnApprove_Click" Text="goedkeuren" />
+                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Terug" />
             </div>
         </form>
     </body>

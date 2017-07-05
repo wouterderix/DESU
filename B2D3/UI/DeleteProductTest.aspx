@@ -24,6 +24,9 @@
         <asp:Button ID="ButtonConfirm" Text="OK" runat ="server" 
             Visible="false" Enabled="false" OnClick="confirmBtn_click"/>
     </div>
+        <p>
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Terug" />
+        </p>
     </form>
 </body>
 </html>

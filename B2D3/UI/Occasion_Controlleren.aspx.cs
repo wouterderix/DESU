@@ -35,5 +35,10 @@ namespace B2D3.Classes.UI
                 i++;
             }
         }
+
+        protected void Bterug_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/default.aspx");
+        }
     }
 }

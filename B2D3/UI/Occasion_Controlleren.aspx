@@ -16,6 +16,8 @@
     <form id="form1" runat="server">
         <asp:Button ID="BOccasionGoedkeuren" runat="server" Text="verzend" style="position:absolute; top: 569px; left: 457px; width: 122px;" />
 
+        <asp:Button ID="Bterug" runat="server" OnClick="Bterug_Click" Text="Terug" />
+
         <asp:GridView ID="UnapproveOccasions" runat="server" AutoGenerateColumns ="false">
             <Columns> 
                 <asp:TemplateField HeaderText="goedgekeurd" ItemStyle-HorizontalAlign="Center">

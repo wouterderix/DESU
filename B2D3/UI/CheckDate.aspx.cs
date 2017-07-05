@@ -95,5 +95,10 @@ namespace B2D3.Classes.UI
         {
             info1.Visible = info2.Visible = modifyID.Visible = modLab.Visible = verID.Visible = verLab.Visible = dimID.Visible = dimLab.Visible = dateLab.Visible = DatePicker.Visible = btnDelete.Visible = btnModify.Visible = visible;
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/default.aspx");
+        }
     }
 }

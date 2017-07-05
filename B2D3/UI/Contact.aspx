@@ -59,6 +59,8 @@
 
         <asp:Button ID="btSend" runat="server" OnClick="btSend_Click" Text="Verzenden"/>
             
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Terug" PostBackUrl="~/default.aspx" />
+            
         </p>
 
         </div>

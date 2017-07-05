@@ -85,5 +85,9 @@ namespace B2D3.Classes.UI
             }
         }
 
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/default.aspx");
+        }
     }
 }

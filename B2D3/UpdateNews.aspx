@@ -35,6 +35,7 @@
                 <asp:ListItem Value="false">Afgekeurt</asp:ListItem>
             </asp:RadioButtonList>
         </p>
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Terug" />
     </form>
 </body>
 </html>

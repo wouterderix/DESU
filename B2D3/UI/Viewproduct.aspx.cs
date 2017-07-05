@@ -37,5 +37,10 @@ namespace B2D3.UI
             versie = row.Cells[10].Text + "&Version=" +  row.Cells[11].Text;
             Response.Redirect("/UI/EditProduct.aspx?ID=" + versie);
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/default.aspx");
+        }
     }
 }
