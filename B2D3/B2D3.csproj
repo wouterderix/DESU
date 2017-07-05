@@ -115,8 +115,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ApproveNews.aspx" />
-    <Content Include="GetNews.aspx" />
+    <Content Include="UI\ApproveNews.aspx" />
+    <Content Include="UI\GetNews.aspx" />
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
@@ -145,17 +145,17 @@
     <Content Include="UI\ProductToevoegen.aspx" />
     <Content Include="UI\ReviewProduct.aspx" />
     <Content Include="UI\Viewproduct.aspx" />
-    <Content Include="UpdateNews.aspx" />
+    <Content Include="UI\UpdateNews.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApproveNews.aspx.cs">
+    <Compile Include="UI\ApproveNews.aspx.cs">
       <DependentUpon>ApproveNews.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ApproveNews.aspx.designer.cs">
+    <Compile Include="UI\ApproveNews.aspx.designer.cs">
       <DependentUpon>ApproveNews.aspx</DependentUpon>
     </Compile>
     <Compile Include="BusinessClasses\AccountRole.cs" />
@@ -197,11 +197,11 @@
     <Compile Include="DAL\ProductRepository.cs" />
     <Compile Include="DAL\VersionRepository.cs" />
     <Compile Include="DataAccesLayer\DeleteProductDAL.cs" />
-    <Compile Include="GetNews.aspx.cs">
+    <Compile Include="UI\GetNews.aspx.cs">
       <DependentUpon>GetNews.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GetNews.aspx.designer.cs">
+    <Compile Include="UI\GetNews.aspx.designer.cs">
       <DependentUpon>GetNews.aspx</DependentUpon>
     </Compile>
     <Compile Include="GlobalClasses\AuthorAttribute.cs" />
@@ -336,11 +336,11 @@
     <Compile Include="UI\Viewproduct.aspx.designer.cs">
       <DependentUpon>Viewproduct.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UpdateNews.aspx.cs">
+    <Compile Include="UI\UpdateNews.aspx.cs">
       <DependentUpon>UpdateNews.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UpdateNews.aspx.designer.cs">
+    <Compile Include="UI\UpdateNews.aspx.designer.cs">
       <DependentUpon>UpdateNews.aspx</DependentUpon>
     </Compile>
   </ItemGroup>

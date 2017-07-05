@@ -125,6 +125,31 @@ namespace B2D3.Classes
             }
         }
 
+        public void ApproveOccasion(Occasion oldOccasion, bool approved)
+        {
+
+            using (var db = new Casusblok5Model())
+            {
+
+                //Create a new Occassion
+                var Author = db.Users.Include(b => b.AccountRole).FirstOrDefault(); //!!To be replaced with logged in User!!
+                var newOccasion = new Occasion(oldOccasion, Author, false);
+                newOccasion.HistoryID = oldOccasion.HistoryID;
+                newOccasion.IsDeleted = oldOccasion.IsDeleted;
+                newOccasion.Title = oldOccasion.Title;
+                newOccasion.Description = oldOccasion.Description;
+                newOccasion.Date = oldOccasion.Date;
+                newOccasion.Location = oldOccasion.Location;
+                newOccasion.moreInformationURL = oldOccasion.MoreInformationURL;
+                newOccasion.IsApproved = IsApproved;
+
+                //Keur Occasions goed
+                db.Occasions.AddOrUpdate(newOccasion);
+                //SaveChanges to database
+                db.SaveChanges();
+            }
+        }
+
         /// <summary>
         /// get only one occasion from database
         /// </summary>

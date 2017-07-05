@@ -27,14 +27,16 @@ namespace B2D3.Classes.CC
 
             return o.getOccasions(false, false);
         }
-        
-         /*
-         getNotApproved haalt alle database entries op die nog niet 
-         geweest zijn en nog niet goedgekeurd zijn.
-         
-         deze worden teruggegeven in de vor van objecten die alle
-         eigenschappen van de occasion bevatten
-         */
+
+        /*
+        getNotApproved haalt alle database entries op die nog niet 
+        geweest zijn en nog niet goedgekeurd zijn.
+
+        deze worden teruggegeven in de vor van objecten die alle
+        eigenschappen van de occasion bevatten
+        */
+
+        [Author("Kay Karssing", "occasions ophalen", Version = 1.0f)]
         public List<Occasion> getNotApproved()
         {
             var o = new Occasion();

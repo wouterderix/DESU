@@ -53,5 +53,10 @@ namespace B2D3.Classes.UI
                 // Teruggaan naar review invullen
             }
         }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/default.aspx");
+        }
     }
 }

@@ -12,6 +12,8 @@ namespace B2D3.Classes.UI
     public partial class OccasionControlleren : System.Web.UI.Page
     {
         List<Occasion> occasions = new List<Occasion>();
+
+        [Author("Kay Karssing", "occasions ophalen", Version = 1.0f)]
         protected void Page_Load(object sender, EventArgs e)
         {
             OccasionGet occasionGet = new OccasionGet();
@@ -22,20 +24,25 @@ namespace B2D3.Classes.UI
             UnapproveOccasions.DataBind();
         }
 
+        [Author("Kay Karssing", "occasions goedkeuren", Version = 1.0f)]
         protected void BOccasionGoedkeuren_Click(object sender, EventArgs e)
         {
+            OccasionBewerken goedkeuren = new OccasionBewerken();
+
             int i = 0;
             foreach(GridViewRow row in UnapproveOccasions.Rows)
             {
                 CheckBox chk = (CheckBox)row.FindControl("chkChild");
                 if (chk.Checked)
                 {
-                    occasions[i].IsApproved = true;
+                    goedkeuren.occasionGoedkeuren(occasions[i]);
                 }
                 i++;
             }
+            Response.Redirect("~/UI/Occasion_Controlleren.aspx");
         }
 
+        [Author("Kay Karssing", "terug knop", Version = 1.0f)]
         protected void Bterug_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/default.aspx");

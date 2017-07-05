@@ -14,6 +14,13 @@ namespace B2D3.Classes.CC
             o.storeOccasion(oldOccasion, title, description, date, location, url);
             o.verwijderOccasion(oldOccasion.HistoryID);
             return true;
-        }     
+        }
+
+        public bool occasionGoedkeuren(Occasion oldOccasion, bool isApproved = true)
+        {
+            var o = new Occasion();
+            o.ApproveOccasion(oldOccasion, isApproved);
+            return true;
+        }
     }
 }
