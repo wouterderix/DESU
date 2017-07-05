@@ -133,5 +133,10 @@ namespace B2D3.Classes.UI
                 lbEmail.Visible = true;
             }
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/default.aspx");
+        }
     }
 }
