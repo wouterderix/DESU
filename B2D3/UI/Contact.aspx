@@ -10,13 +10,17 @@
     <form id="form1" runat="server">
         <div>
                     <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
+            
+
+                    <asp:Literal ID="StatusMessage" runat="server"></asp:Literal>
+            
+        <br />
+        <br />
 
         <asp:Label ID="lbName" runat="server" Text="Naam"></asp:Label>
         <asp:TextBox ID="tbName" runat="server"></asp:TextBox>
 
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="tbName" ErrorMessage="Naam is verplicht">*</asp:RequiredFieldValidator>
-
-        <asp:CheckBox ID="cbAnoniem" runat="server" AutoPostBack="True" OnCheckedChanged="cbAnoniem_CheckedChanged" Text="Anoniem" />
 
             
 
@@ -30,6 +34,10 @@
         }
 
     </script>
+
+        <asp:CheckBox ID="cbAnoniem" runat="server" AutoPostBack="True" OnCheckedChanged="cbAnoniem_CheckedChanged" Text="Anoniem" />
+
+            
 
         <br />
 

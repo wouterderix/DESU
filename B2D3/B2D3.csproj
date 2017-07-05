@@ -141,6 +141,7 @@
     <Compile Include="BusinessClasses\Contact.cs" />
     <Compile Include="Casusblok5Model.cs" />
     <Compile Include="CodeFirsClasses\AccountRole.cs" />
+    <Compile Include="BusinessClasses\IdentityExtensions.cs" />
     <Compile Include="GlobalClasses\AuthorAttribute.cs" />
     <Compile Include="CodeFirsClasses\Category.cs" />
     <Compile Include="CodeFirsClasses\Contact.cs" />
