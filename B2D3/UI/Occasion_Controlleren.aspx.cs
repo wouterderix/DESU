@@ -11,11 +11,10 @@ namespace B2D3.Classes.UI
 {
     public partial class OccasionControlleren : System.Web.UI.Page
     {
-        //Kay Karssing
-
         //makes a list with type Occasion to store all the Occasions gotten from the database
         List<Occasion> occasions = new List<Occasion>();
 
+        [Author("Kay Karssing", "Occasions ophalen", Version = 1)]
         protected void Page_Load(object sender, EventArgs e)
         {
             //runs when page loads
@@ -36,6 +35,7 @@ namespace B2D3.Classes.UI
             }
         }
 
+        [Author("Kay Karssing", "verzend veranderingen", Version = 1)]
         protected void BOccasionGoedkeuren_Click(object sender, EventArgs e)
         {
             //runs when button is pressed
@@ -58,6 +58,7 @@ namespace B2D3.Classes.UI
             Response.Redirect("/UI/Occasion_Controlleren.aspx");
         }
 
+        [Author("Kay Karssing", "terug naar mainpage", Version = 1)]
         protected void BGoedkeurenReturn_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/default.aspx");

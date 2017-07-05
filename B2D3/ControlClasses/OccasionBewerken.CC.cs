@@ -18,11 +18,10 @@ namespace B2D3.Classes.CC
             o.storeOccasion(oldOccasion, title, description, date, location, url);
             return true;
         }
-        
+
+        [Author("Kay Karssing", "occasion goedkeuren doorgeven", Version = 1)]
         public bool occasionGoedkeuren(Occasion oldOccasion, bool IsApproved = true)
         {
-            //Kay Karssing
-
             //makes a new instance of Occasion()
             var o = new Occasion();
             //tells occasion to approve the occasion in the database

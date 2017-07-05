@@ -124,11 +124,10 @@ namespace B2D3.Classes
                 db.SaveChanges();
             }
         }
-        
+
+        [Author("Kay Karssing", "Occasions goedkeuren in de database", Version = 1)]
         public void goedkeuren(Occasion oldOccasion, bool IsApproved)
         {
-            //Kay Karssing
-
             using (var db = new Casusblok5Model())
             {
                 var Author = db.Users.Include(b => b.AccountRole).FirstOrDefault();
